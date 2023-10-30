@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'user.dart';
 
 part 'project.freezed.dart';
+part 'project.g.dart';
 
 @freezed
 class Project with _$Project {
@@ -12,4 +13,7 @@ class Project with _$Project {
     required User owner,
     required List<User> otherUsers,
   }) = _Project;
+
+  factory Project.fromJson(Map<String, Object?> json) =>
+      _$ProjectFromJson(json);
 }

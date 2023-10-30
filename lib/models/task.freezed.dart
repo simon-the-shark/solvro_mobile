@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Task _$TaskFromJson(Map<String, dynamic> json) {
+  return _Task.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Task {
   String get id => throw _privateConstructorUsedError;
@@ -25,6 +29,7 @@ mixin _$Task {
   EstimationChoices get estimation => throw _privateConstructorUsedError;
   TaskStatusChoices get status => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TaskCopyWith<Task> get copyWith => throw _privateConstructorUsedError;
 }
@@ -218,7 +223,7 @@ class __$$TaskImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$TaskImpl implements _Task {
   _$TaskImpl(
       {required this.id,
@@ -229,6 +234,9 @@ class _$TaskImpl implements _Task {
       required this.name,
       required this.estimation,
       required this.status});
+
+  factory _$TaskImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TaskImplFromJson(json);
 
   @override
   final String id;
@@ -271,6 +279,7 @@ class _$TaskImpl implements _Task {
             (identical(other.status, status) || other.status == status));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, project, createdBy,
       assignedTo, createdAt, name, estimation, status);
@@ -280,6 +289,13 @@ class _$TaskImpl implements _Task {
   @pragma('vm:prefer-inline')
   _$$TaskImplCopyWith<_$TaskImpl> get copyWith =>
       __$$TaskImplCopyWithImpl<_$TaskImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$TaskImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Task implements Task {
@@ -292,6 +308,8 @@ abstract class _Task implements Task {
       required final String name,
       required final EstimationChoices estimation,
       required final TaskStatusChoices status}) = _$TaskImpl;
+
+  factory _Task.fromJson(Map<String, dynamic> json) = _$TaskImpl.fromJson;
 
   @override
   String get id;

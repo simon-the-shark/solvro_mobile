@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Project _$ProjectFromJson(Map<String, dynamic> json) {
+  return _Project.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Project {
   String get id => throw _privateConstructorUsedError;
@@ -21,6 +25,7 @@ mixin _$Project {
   User get owner => throw _privateConstructorUsedError;
   List<User> get otherUsers => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProjectCopyWith<Project> get copyWith => throw _privateConstructorUsedError;
 }
@@ -133,7 +138,7 @@ class __$$ProjectImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$ProjectImpl implements _Project {
   _$ProjectImpl(
       {required this.id,
@@ -141,6 +146,9 @@ class _$ProjectImpl implements _Project {
       required this.owner,
       required final List<User> otherUsers})
       : _otherUsers = otherUsers;
+
+  factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectImplFromJson(json);
 
   @override
   final String id;
@@ -173,6 +181,7 @@ class _$ProjectImpl implements _Project {
                 .equals(other._otherUsers, _otherUsers));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, owner,
       const DeepCollectionEquality().hash(_otherUsers));
@@ -182,6 +191,13 @@ class _$ProjectImpl implements _Project {
   @pragma('vm:prefer-inline')
   _$$ProjectImplCopyWith<_$ProjectImpl> get copyWith =>
       __$$ProjectImplCopyWithImpl<_$ProjectImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ProjectImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Project implements Project {
@@ -190,6 +206,8 @@ abstract class _Project implements Project {
       required final String name,
       required final User owner,
       required final List<User> otherUsers}) = _$ProjectImpl;
+
+  factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 
   @override
   String get id;

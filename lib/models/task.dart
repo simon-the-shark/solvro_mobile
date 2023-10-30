@@ -5,6 +5,7 @@ import 'project.dart';
 import 'user.dart';
 
 part 'task.freezed.dart';
+part 'task.g.dart';
 
 @freezed
 class Task with _$Task {
@@ -18,4 +19,6 @@ class Task with _$Task {
     required EstimationChoices estimation,
     required TaskStatusChoices status,
   }) = _Task;
+
+  factory Task.fromJson(Map<String, Object?> json) => _$TaskFromJson(json);
 }
