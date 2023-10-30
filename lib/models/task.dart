@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../enums.dart';
-import '../project/project.dart';
-import '../user/user.dart';
+import 'enums.dart';
+import 'project.dart';
+import 'user.dart';
 
 part 'task.freezed.dart';
 part 'task.g.dart';

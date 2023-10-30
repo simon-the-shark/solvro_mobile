@@ -20,3 +20,18 @@ enum TaskStatusChoices {
   inProgress,
   closed,
 }
+
+extension StringProfessionChoices on ProfessionChoices {
+  String get string {
+    switch (this) {
+      case ProfessionChoices.frontend:
+        return "FRONTEND";
+      case ProfessionChoices.backend:
+        return "BACKEND";
+      case ProfessionChoices.devOps:
+        return "DEVOPS";
+      case ProfessionChoices.uxUi:
+        return "UX/UI";
+    }
+  }
+}

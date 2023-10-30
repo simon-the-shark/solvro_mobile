@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../user/user.dart';
+import 'user.dart';
 
 part 'project.freezed.dart';
 part 'project.g.dart';
