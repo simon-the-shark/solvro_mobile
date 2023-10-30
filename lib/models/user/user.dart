@@ -7,6 +7,8 @@ part 'user.g.dart';
 
 @freezed
 class User with _$User {
+  const User._();
+
   factory User({
     required String id,
     required String email,
@@ -15,4 +17,12 @@ class User with _$User {
   }) = _User;
 
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
+
+  User copyWithName(String name) {
+    return copyWith(name: name);
+  }
+
+  User copyWithProfession(ProfessionChoices profession) {
+    return copyWith(profession: profession);
+  }
 }
