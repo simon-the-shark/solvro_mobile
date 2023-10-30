@@ -9,12 +9,21 @@ part of 'user.dart';
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       id: json['id'] as String,
       email: json['email'] as String,
-      profession: json['profession'] as String,
+      profession: $enumDecode(_$ProfessionChoicesEnumMap, json['profession']),
+      name: json['name'] as String,
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
-      'profession': instance.profession,
+      'profession': _$ProfessionChoicesEnumMap[instance.profession]!,
+      'name': instance.name,
     };
+
+const _$ProfessionChoicesEnumMap = {
+  ProfessionChoices.frontend: 'frontend',
+  ProfessionChoices.backend: 'backend',
+  ProfessionChoices.devOps: 'devOps',
+  ProfessionChoices.uxUi: 'uxUi',
+};

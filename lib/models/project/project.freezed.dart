@@ -139,13 +139,14 @@ class __$$ProjectImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProjectImpl implements _Project {
+class _$ProjectImpl extends _Project {
   _$ProjectImpl(
       {required this.id,
       required this.name,
       required this.owner,
       required final List<User> otherUsers})
-      : _otherUsers = otherUsers;
+      : _otherUsers = otherUsers,
+        super._();
 
   factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProjectImplFromJson(json);
@@ -200,12 +201,13 @@ class _$ProjectImpl implements _Project {
   }
 }
 
-abstract class _Project implements Project {
+abstract class _Project extends Project {
   factory _Project(
       {required final String id,
       required final String name,
       required final User owner,
       required final List<User> otherUsers}) = _$ProjectImpl;
+  _Project._() : super._();
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 

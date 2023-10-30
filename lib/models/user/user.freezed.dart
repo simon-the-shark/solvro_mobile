@@ -22,7 +22,8 @@ User _$UserFromJson(Map<String, dynamic> json) {
 mixin _$User {
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String get profession => throw _privateConstructorUsedError;
+  ProfessionChoices get profession => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,8 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({String id, String email, String profession});
+  $Res call(
+      {String id, String email, ProfessionChoices profession, String name});
 }
 
 /// @nodoc
@@ -53,6 +55,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? id = null,
     Object? email = null,
     Object? profession = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -66,6 +69,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
       profession: null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
+              as ProfessionChoices,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -78,7 +85,8 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String email, String profession});
+  $Res call(
+      {String id, String email, ProfessionChoices profession, String name});
 }
 
 /// @nodoc
@@ -94,6 +102,7 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? id = null,
     Object? email = null,
     Object? profession = null,
+    Object? name = null,
   }) {
     return _then(_$UserImpl(
       id: null == id
@@ -107,6 +116,10 @@ class __$$UserImplCopyWithImpl<$Res>
       profession: null == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
+              as ProfessionChoices,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -115,7 +128,11 @@ class __$$UserImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserImpl implements _User {
-  _$UserImpl({required this.id, required this.email, required this.profession});
+  _$UserImpl(
+      {required this.id,
+      required this.email,
+      required this.profession,
+      required this.name});
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -125,11 +142,13 @@ class _$UserImpl implements _User {
   @override
   final String email;
   @override
-  final String profession;
+  final ProfessionChoices profession;
+  @override
+  final String name;
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, profession: $profession)';
+    return 'User(id: $id, email: $email, profession: $profession, name: $name)';
   }
 
   @override
@@ -140,12 +159,13 @@ class _$UserImpl implements _User {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.profession, profession) ||
-                other.profession == profession));
+                other.profession == profession) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, profession);
+  int get hashCode => Object.hash(runtimeType, id, email, profession, name);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +185,8 @@ abstract class _User implements User {
   factory _User(
       {required final String id,
       required final String email,
-      required final String profession}) = _$UserImpl;
+      required final ProfessionChoices profession,
+      required final String name}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -174,7 +195,9 @@ abstract class _User implements User {
   @override
   String get email;
   @override
-  String get profession;
+  ProfessionChoices get profession;
+  @override
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
