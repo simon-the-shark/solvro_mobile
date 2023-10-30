@@ -224,7 +224,7 @@ class __$$TaskImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TaskImpl implements _Task {
+class _$TaskImpl extends _Task {
   _$TaskImpl(
       {required this.id,
       required this.project,
@@ -233,7 +233,8 @@ class _$TaskImpl implements _Task {
       required this.createdAt,
       required this.name,
       required this.estimation,
-      required this.status});
+      required this.status})
+      : super._();
 
   factory _$TaskImpl.fromJson(Map<String, dynamic> json) =>
       _$$TaskImplFromJson(json);
@@ -298,7 +299,7 @@ class _$TaskImpl implements _Task {
   }
 }
 
-abstract class _Task implements Task {
+abstract class _Task extends Task {
   factory _Task(
       {required final String id,
       required final Project project,
@@ -308,6 +309,7 @@ abstract class _Task implements Task {
       required final String name,
       required final EstimationChoices estimation,
       required final TaskStatusChoices status}) = _$TaskImpl;
+  _Task._() : super._();
 
   factory _Task.fromJson(Map<String, dynamic> json) = _$TaskImpl.fromJson;
 

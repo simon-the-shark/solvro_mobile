@@ -9,6 +9,8 @@ part 'task.g.dart';
 
 @freezed
 class Task with _$Task {
+  const Task._();
+
   factory Task({
     required String id,
     required Project project,
@@ -21,4 +23,20 @@ class Task with _$Task {
   }) = _Task;
 
   factory Task.fromJson(Map<String, Object?> json) => _$TaskFromJson(json);
+
+  Task assignTo(User user) {
+    return copyWith(assignedTo: user);
+  }
+
+  Task copyWithName(String name) {
+    return copyWith(name: name);
+  }
+
+  Task copyWithEstimation(EstimationChoices estimation) {
+    return copyWith(estimation: estimation);
+  }
+
+  Task copyWithStatus(TaskStatusChoices status) {
+    return copyWith(status: status);
+  }
 }
