@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:solvro_mobile/models/enums.dart';
-import 'package:solvro_mobile/models/user/user.dart';
+import 'package:solvro_mobile/models/user.dart';
 
 void main() {
   group('User Tests', () {

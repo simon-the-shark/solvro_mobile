@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:solvro_mobile/models/enums.dart';
-import 'package:solvro_mobile/models/project/project.dart';
-import 'package:solvro_mobile/models/task/task.dart';
-import 'package:solvro_mobile/models/user/user.dart';
+import 'package:solvro_mobile/models/project.dart';
+import 'package:solvro_mobile/models/task.dart';
+import 'package:solvro_mobile/models/user.dart';
 
 void main() {
   group('Task Tests', () {
