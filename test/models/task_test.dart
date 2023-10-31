@@ -12,7 +12,7 @@ void main() {
 
     setUp(() {
       user = User(
-          id: 'user_id',
+          id: 1,
           email: 'user@example.com',
           profession: ProfessionChoices.frontend,
           name: 'John Doe');

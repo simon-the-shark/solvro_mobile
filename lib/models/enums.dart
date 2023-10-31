@@ -1,3 +1,9 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'enums.freezed.dart';
+part 'enums.g.dart';
+
+@JsonEnum(fieldRename: FieldRename.screamingSnake)
 enum EstimationChoices {
   one,
   two,
@@ -8,30 +14,29 @@ enum EstimationChoices {
   twentyOne,
 }
 
+@JsonEnum(fieldRename: FieldRename.screamingSnake)
 enum ProfessionChoices {
   frontend,
   backend,
+  @JsonValue("DEVOPS")
   devOps,
+  @JsonValue("UX/UI")
   uxUi,
 }
 
+@JsonEnum(fieldRename: FieldRename.screamingSnake)
 enum TaskStatusChoices {
   notAssigned,
   inProgress,
   closed,
 }
 
-extension StringProfessionChoices on ProfessionChoices {
-  String get string {
-    switch (this) {
-      case ProfessionChoices.frontend:
-        return "FRONTEND";
-      case ProfessionChoices.backend:
-        return "BACKEND";
-      case ProfessionChoices.devOps:
-        return "DEVOPS";
-      case ProfessionChoices.uxUi:
-        return "UX/UI";
-    }
-  }
+@freezed
+class EnumJsonConverter with _$EnumJsonConverter {
+  factory EnumJsonConverter({
+    required ProfessionChoices profession,
+  }) = _EnumConverter;
+
+  factory EnumJsonConverter.fromJson(Map<String, Object?> json) =>
+      _$EnumJsonConverterFromJson(json);
 }

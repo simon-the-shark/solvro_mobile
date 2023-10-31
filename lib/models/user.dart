@@ -10,9 +10,9 @@ class User with _$User {
   const User._();
 
   factory User({
-    required String id,
+    required int id,
     required String email,
-    required ProfessionChoices profession,
+    ProfessionChoices? profession,
     required String name,
   }) = _User;
 

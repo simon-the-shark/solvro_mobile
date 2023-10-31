@@ -20,9 +20,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  ProfessionChoices get profession => throw _privateConstructorUsedError;
+  ProfessionChoices? get profession => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,8 +35,7 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call(
-      {String id, String email, ProfessionChoices profession, String name});
+  $Res call({int id, String email, ProfessionChoices? profession, String name});
 }
 
 /// @nodoc
@@ -54,22 +53,22 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   $Res call({
     Object? id = null,
     Object? email = null,
-    Object? profession = null,
+    Object? profession = freezed,
     Object? name = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      profession: null == profession
+      profession: freezed == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
-              as ProfessionChoices,
+              as ProfessionChoices?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -85,8 +84,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id, String email, ProfessionChoices profession, String name});
+  $Res call({int id, String email, ProfessionChoices? profession, String name});
 }
 
 /// @nodoc
@@ -101,22 +99,22 @@ class __$$UserImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? email = null,
-    Object? profession = null,
+    Object? profession = freezed,
     Object? name = null,
   }) {
     return _then(_$UserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      profession: null == profession
+      profession: freezed == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
-              as ProfessionChoices,
+              as ProfessionChoices?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -131,7 +129,7 @@ class _$UserImpl extends _User {
   _$UserImpl(
       {required this.id,
       required this.email,
-      required this.profession,
+      this.profession,
       required this.name})
       : super._();
 
@@ -139,11 +137,11 @@ class _$UserImpl extends _User {
       _$$UserImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String email;
   @override
-  final ProfessionChoices profession;
+  final ProfessionChoices? profession;
   @override
   final String name;
 
@@ -184,20 +182,20 @@ class _$UserImpl extends _User {
 
 abstract class _User extends User {
   factory _User(
-      {required final String id,
+      {required final int id,
       required final String email,
-      required final ProfessionChoices profession,
+      final ProfessionChoices? profession,
       required final String name}) = _$UserImpl;
   _User._() : super._();
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get email;
   @override
-  ProfessionChoices get profession;
+  ProfessionChoices? get profession;
   @override
   String get name;
   @override

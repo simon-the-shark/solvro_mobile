@@ -14,19 +14,19 @@ void main() {
         id: '1',
         name: 'Project 1',
         owner: User(
-            id: 'owner_id',
+            id: 1,
             name: 'Owner',
             email: "",
             profession: ProfessionChoices.backend),
         otherUsers: [],
       );
       user1 = User(
-          id: 'user_id_1',
+          id: 2,
           name: 'User 1',
           email: "",
           profession: ProfessionChoices.backend);
       user2 = User(
-          id: 'user_id_2',
+          id: 3,
           name: 'User 2',
           email: "",
           profession: ProfessionChoices.backend);

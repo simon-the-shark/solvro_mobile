@@ -32,17 +32,17 @@ Map<String, dynamic> _$$TaskImplToJson(_$TaskImpl instance) =>
     };
 
 const _$EstimationChoicesEnumMap = {
-  EstimationChoices.one: 'one',
-  EstimationChoices.two: 'two',
-  EstimationChoices.three: 'three',
-  EstimationChoices.five: 'five',
-  EstimationChoices.eight: 'eight',
-  EstimationChoices.thirteen: 'thirteen',
-  EstimationChoices.twentyOne: 'twentyOne',
+  EstimationChoices.one: 'ONE',
+  EstimationChoices.two: 'TWO',
+  EstimationChoices.three: 'THREE',
+  EstimationChoices.five: 'FIVE',
+  EstimationChoices.eight: 'EIGHT',
+  EstimationChoices.thirteen: 'THIRTEEN',
+  EstimationChoices.twentyOne: 'TWENTY_ONE',
 };
 
 const _$TaskStatusChoicesEnumMap = {
-  TaskStatusChoices.notAssigned: 'notAssigned',
-  TaskStatusChoices.inProgress: 'inProgress',
-  TaskStatusChoices.closed: 'closed',
+  TaskStatusChoices.notAssigned: 'NOT_ASSIGNED',
+  TaskStatusChoices.inProgress: 'IN_PROGRESS',
+  TaskStatusChoices.closed: 'CLOSED',
 };

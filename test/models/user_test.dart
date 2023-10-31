@@ -9,7 +9,7 @@ void main() {
     setUp(() {
       // Initialize a User instance before each test.
       user = User(
-          id: '1',
+          id: 1,
           email: 'user@test.com',
           profession: ProfessionChoices.frontend,
           name: 'Jan Kowalski');
