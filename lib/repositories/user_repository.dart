@@ -1,7 +1,3 @@
-import 'dart:convert';
-import 'package:flutter/foundation.dart';
-import 'package:json_annotation/json_annotation.dart';
-
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';

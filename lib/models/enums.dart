@@ -18,8 +18,7 @@ enum EstimationChoices {
 enum ProfessionChoices {
   frontend,
   backend,
-  @JsonValue("DEVOPS")
-  devOps,
+  devops,
   @JsonValue("UX/UI")
   uxUi,
 }

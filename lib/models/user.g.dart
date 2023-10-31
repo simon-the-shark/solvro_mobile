@@ -25,6 +25,6 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
 const _$ProfessionChoicesEnumMap = {
   ProfessionChoices.frontend: 'FRONTEND',
   ProfessionChoices.backend: 'BACKEND',
-  ProfessionChoices.devOps: 'DEVOPS',
+  ProfessionChoices.devops: 'DEVOPS',
   ProfessionChoices.uxUi: 'UX/UI',
 };
