@@ -33,9 +33,15 @@ enum TaskStatusChoices {
 @freezed
 class EnumJsonConverter with _$EnumJsonConverter {
   factory EnumJsonConverter({
-    required ProfessionChoices profession,
+    ProfessionChoices? profession,
   }) = _EnumConverter;
 
   factory EnumJsonConverter.fromJson(Map<String, Object?> json) =>
       _$EnumJsonConverterFromJson(json);
+
+  static String? valueString<T extends Enum>(T val) {
+    if (val is ProfessionChoices) {
+      return EnumJsonConverter(profession: val).toJson()["profession"];
+    }
+  }
 }

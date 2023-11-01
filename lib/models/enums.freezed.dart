@@ -20,7 +20,7 @@ EnumJsonConverter _$EnumJsonConverterFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EnumJsonConverter {
-  ProfessionChoices get profession => throw _privateConstructorUsedError;
+  ProfessionChoices? get profession => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $EnumJsonConverterCopyWith<$Res> {
           EnumJsonConverter value, $Res Function(EnumJsonConverter) then) =
       _$EnumJsonConverterCopyWithImpl<$Res, EnumJsonConverter>;
   @useResult
-  $Res call({ProfessionChoices profession});
+  $Res call({ProfessionChoices? profession});
 }
 
 /// @nodoc
@@ -50,13 +50,13 @@ class _$EnumJsonConverterCopyWithImpl<$Res, $Val extends EnumJsonConverter>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profession = null,
+    Object? profession = freezed,
   }) {
     return _then(_value.copyWith(
-      profession: null == profession
+      profession: freezed == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
-              as ProfessionChoices,
+              as ProfessionChoices?,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$EnumConverterImplCopyWith<$Res>
       __$$EnumConverterImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProfessionChoices profession});
+  $Res call({ProfessionChoices? profession});
 }
 
 /// @nodoc
@@ -83,13 +83,13 @@ class __$$EnumConverterImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? profession = null,
+    Object? profession = freezed,
   }) {
     return _then(_$EnumConverterImpl(
-      profession: null == profession
+      profession: freezed == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
-              as ProfessionChoices,
+              as ProfessionChoices?,
     ));
   }
 }
@@ -97,13 +97,13 @@ class __$$EnumConverterImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EnumConverterImpl implements _EnumConverter {
-  _$EnumConverterImpl({required this.profession});
+  _$EnumConverterImpl({this.profession});
 
   factory _$EnumConverterImpl.fromJson(Map<String, dynamic> json) =>
       _$$EnumConverterImplFromJson(json);
 
   @override
-  final ProfessionChoices profession;
+  final ProfessionChoices? profession;
 
   @override
   String toString() {
@@ -138,14 +138,14 @@ class _$EnumConverterImpl implements _EnumConverter {
 }
 
 abstract class _EnumConverter implements EnumJsonConverter {
-  factory _EnumConverter({required final ProfessionChoices profession}) =
+  factory _EnumConverter({final ProfessionChoices? profession}) =
       _$EnumConverterImpl;
 
   factory _EnumConverter.fromJson(Map<String, dynamic> json) =
       _$EnumConverterImpl.fromJson;
 
   @override
-  ProfessionChoices get profession;
+  ProfessionChoices? get profession;
   @override
   @JsonKey(ignore: true)
   _$$EnumConverterImplCopyWith<_$EnumConverterImpl> get copyWith =>

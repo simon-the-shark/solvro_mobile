@@ -8,12 +8,13 @@ part of 'enums.dart';
 
 _$EnumConverterImpl _$$EnumConverterImplFromJson(Map<String, dynamic> json) =>
     _$EnumConverterImpl(
-      profession: $enumDecode(_$ProfessionChoicesEnumMap, json['profession']),
+      profession:
+          $enumDecodeNullable(_$ProfessionChoicesEnumMap, json['profession']),
     );
 
 Map<String, dynamic> _$$EnumConverterImplToJson(_$EnumConverterImpl instance) =>
     <String, dynamic>{
-      'profession': _$ProfessionChoicesEnumMap[instance.profession]!,
+      'profession': _$ProfessionChoicesEnumMap[instance.profession],
     };
 
 const _$ProfessionChoicesEnumMap = {

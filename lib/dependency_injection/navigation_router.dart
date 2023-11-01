@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../repositories/user_repository.dart';
 import '../views/home_view.dart';
 import '../views/login_view.dart';
+import '../views/signup_view.dart';
 
 part 'navigation_router.g.dart';
 
@@ -12,7 +13,8 @@ part 'navigation_router.g.dart';
 GoRouter navigationRouter(NavigationRouterRef ref) {
   return GoRouter(
     redirect: (BuildContext context, GoRouterState state) {
-      if (ref.read(userRepositoryProvider).value == null) {
+      if (ref.read(userRepositoryProvider).value == null &&
+          state.fullPath != "/signup") {
         return '/login';
       } else {
         return null;
@@ -26,6 +28,10 @@ GoRouter navigationRouter(NavigationRouterRef ref) {
       GoRoute(
         path: '/login',
         builder: (context, state) => LoginView(),
+      ),
+      GoRoute(
+        path: '/signup',
+        builder: (context, state) => SignupView(),
       ),
     ],
   );

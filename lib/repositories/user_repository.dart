@@ -54,8 +54,7 @@ class UserRepository extends _$UserRepository {
       final response = await _dio.post("${_apiUrl}register/", data: {
         "email": email,
         "password": password,
-        "profession":
-            EnumJsonConverter(profession: profession).toJson()["profession"],
+        "profession": EnumJsonConverter.valueString(profession),
         if (name != null) "name": name,
       });
       print(response.data);
