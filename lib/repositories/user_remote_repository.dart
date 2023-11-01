@@ -6,12 +6,12 @@ import '../models/user.dart';
 import 'api_details.dart';
 
 final userRemoteRepositoryProvider = Provider<UserRemoteRepository>((ref) {
-  return UserRemoteRepository(const ApiDetails(), Dio());
+  return UserRemoteRepository(ApiDetails(ref), Dio());
 });
 
 class UserRemoteRepository {
   UserRemoteRepository(this._apiDetails, this._dio);
-  static const _apiUrl = "http://localhost:8000/api/auth/";
+
   late final Dio _dio;
   final ApiDetails _apiDetails;
 
@@ -48,9 +48,9 @@ class UserRemoteRepository {
 
   Future<void> logout() async {
     try {
-      await _dio.post(_apiDetails.logoutUrl);
+      await _dio.post(_apiDetails.logoutUrl, options: _apiDetails.authHeaders);
     } on DioException catch (e) {
-      print(e.message);
+      throw Exception(e.response);
     }
   }
 }

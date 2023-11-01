@@ -8,12 +8,11 @@ part of 'project.dart';
 
 _$ProjectImpl _$$ProjectImplFromJson(Map<String, dynamic> json) =>
     _$ProjectImpl(
-      id: json['id'] as String,
+      id: json['id'] as int,
       name: json['name'] as String,
-      owner: User.fromJson(json['owner'] as Map<String, dynamic>),
-      otherUsers: (json['otherUsers'] as List<dynamic>)
-          .map((e) => User.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      owner: json['owner'] as int,
+      otherUsers:
+          (json['other_users'] as List<dynamic>).map((e) => e as int).toList(),
     );
 
 Map<String, dynamic> _$$ProjectImplToJson(_$ProjectImpl instance) =>
@@ -21,5 +20,5 @@ Map<String, dynamic> _$$ProjectImplToJson(_$ProjectImpl instance) =>
       'id': instance.id,
       'name': instance.name,
       'owner': instance.owner,
-      'otherUsers': instance.otherUsers,
+      'other_users': instance.otherUsers,
     };

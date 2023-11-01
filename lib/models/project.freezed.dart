@@ -20,10 +20,11 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Project {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  User get owner => throw _privateConstructorUsedError;
-  List<User> get otherUsers => throw _privateConstructorUsedError;
+  int get owner => throw _privateConstructorUsedError;
+  @JsonKey(name: "other_users")
+  List<int> get otherUsers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +36,11 @@ abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res, Project>;
   @useResult
-  $Res call({String id, String name, User owner, List<User> otherUsers});
-
-  $UserCopyWith<$Res> get owner;
+  $Res call(
+      {int id,
+      String name,
+      int owner,
+      @JsonKey(name: "other_users") List<int> otherUsers});
 }
 
 /// @nodoc
@@ -62,7 +65,7 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -70,20 +73,12 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as User,
+              as int,
       otherUsers: null == otherUsers
           ? _value.otherUsers
           : otherUsers // ignore: cast_nullable_to_non_nullable
-              as List<User>,
+              as List<int>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get owner {
-    return $UserCopyWith<$Res>(_value.owner, (value) {
-      return _then(_value.copyWith(owner: value) as $Val);
-    });
   }
 }
 
@@ -94,10 +89,11 @@ abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
       __$$ProjectImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, User owner, List<User> otherUsers});
-
-  @override
-  $UserCopyWith<$Res> get owner;
+  $Res call(
+      {int id,
+      String name,
+      int owner,
+      @JsonKey(name: "other_users") List<int> otherUsers});
 }
 
 /// @nodoc
@@ -120,7 +116,7 @@ class __$$ProjectImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -128,11 +124,11 @@ class __$$ProjectImplCopyWithImpl<$Res>
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as User,
+              as int,
       otherUsers: null == otherUsers
           ? _value._otherUsers
           : otherUsers // ignore: cast_nullable_to_non_nullable
-              as List<User>,
+              as List<int>,
     ));
   }
 }
@@ -144,7 +140,7 @@ class _$ProjectImpl extends _Project {
       {required this.id,
       required this.name,
       required this.owner,
-      required final List<User> otherUsers})
+      @JsonKey(name: "other_users") required final List<int> otherUsers})
       : _otherUsers = otherUsers,
         super._();
 
@@ -152,14 +148,15 @@ class _$ProjectImpl extends _Project {
       _$$ProjectImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   @override
-  final User owner;
-  final List<User> _otherUsers;
+  final int owner;
+  final List<int> _otherUsers;
   @override
-  List<User> get otherUsers {
+  @JsonKey(name: "other_users")
+  List<int> get otherUsers {
     if (_otherUsers is EqualUnmodifiableListView) return _otherUsers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_otherUsers);
@@ -203,22 +200,24 @@ class _$ProjectImpl extends _Project {
 
 abstract class _Project extends Project {
   factory _Project(
-      {required final String id,
-      required final String name,
-      required final User owner,
-      required final List<User> otherUsers}) = _$ProjectImpl;
+          {required final int id,
+          required final String name,
+          required final int owner,
+          @JsonKey(name: "other_users") required final List<int> otherUsers}) =
+      _$ProjectImpl;
   _Project._() : super._();
 
   factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
-  User get owner;
+  int get owner;
   @override
-  List<User> get otherUsers;
+  @JsonKey(name: "other_users")
+  List<int> get otherUsers;
   @override
   @JsonKey(ignore: true)
   _$$ProjectImplCopyWith<_$ProjectImpl> get copyWith =>
