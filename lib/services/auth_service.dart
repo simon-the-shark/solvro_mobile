@@ -36,7 +36,7 @@ class AuthService extends _$AuthService {
   }
 
   Future<void> logout() async {
-    final user = await ref.read(userRemoteRepositoryProvider).logout();
+    await ref.read(userRemoteRepositoryProvider).logout();
     await ref.read(userLocalRepositoryProvider).deleteUser();
     state = const AsyncData(null);
   }
