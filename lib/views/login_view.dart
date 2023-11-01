@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../widgets/double_color_text_button.dart';
+import '../widgets/name_header.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/standard_text_form_field.dart';
+
 class LoginView extends ConsumerWidget {
   LoginView({super.key});
 
@@ -8,9 +13,6 @@ class LoginView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const inputPadding = EdgeInsets.symmetric(horizontal: 22, vertical: 4);
-    const inputHeight = 60.0;
-    const radius = Radius.circular(10);
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       body: SafeArea(
@@ -33,94 +35,39 @@ class LoginView extends ConsumerWidget {
                   ),
                   Transform.translate(
                     offset: const Offset(0, -10),
-                    child: Text(
-                      "Solvro Taskmanager",
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
+                    child: const NameHeader(),
                   ),
                   const SizedBox(height: 40),
-                  Container(
-                    height: inputHeight,
-                    padding: inputPadding,
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                        hintText: 'Login email',
-                        labelText: 'Email',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            radius,
-                          ),
-                        ),
-                      ),
-                    ),
+                  const StandardTextFormField(
+                    hintText: 'Login email',
+                    labelText: 'Email',
                   ),
-                  Container(
-                    height: inputHeight,
-                    padding: inputPadding,
-                    child: TextFormField(
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            radius,
-                          ),
-                        ),
-                        hintText: 'Login password',
-                        labelText: 'Password',
-                      ),
-                    ),
+                  const StandardTextFormField(
+                    labelText: 'Password',
+                    hintText: 'Login password',
+                    obscureText: true,
                   ),
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 20, right: 20, top: 20),
-                    child: SizedBox(
-                      width: 150,
-                      height: 45,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Processing Data')),
-                            );
-                          }
-                        },
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(
-                            Theme.of(context).colorScheme.primary,
-                          ),
-                        ),
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                          ),
-                        ),
-                      ),
+                    child: PrimaryButton(
+                      text: 'Login',
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Processing Data')),
+                          );
+                        }
+                      },
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: TextButton(
-                        onPressed: () {},
-                        child: RichText(
-                          text: TextSpan(
-                              text: "New user? ",
-                              style: TextStyle(
-                                color: Theme.of(context).colorScheme.onSurface,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: "Register instead.",
-                                  style: TextStyle(
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                )
-                              ]),
-                        )),
+                    child: DoubleColorTextButton(
+                      textBlack: "New user? ",
+                      textBlue: "Register instead.",
+                      onPressed: () {},
+                    ),
                   ),
                   const SizedBox(
                     height: 30,
