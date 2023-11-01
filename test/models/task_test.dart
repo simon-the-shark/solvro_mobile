@@ -1,55 +1,104 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:solvro_mobile/models/enums.dart';
-import 'package:solvro_mobile/models/project.dart';
 import 'package:solvro_mobile/models/task.dart';
-import 'package:solvro_mobile/models/user.dart';
 
 void main() {
-  group('Task Tests', () {
-    late Task task;
-    late User user;
-    late Project project;
+  group('Task tests', () {
+    final task = Task(
+      id: 1,
+      project: 2,
+      createdBy: 3,
+      assignedTo: 4,
+      createdAt: DateTime(2023, 1, 1),
+      name: 'Task 1',
+      estimation: EstimationChoices.one,
+      status: TaskStatusChoices.inProgress,
+    );
 
-    setUp(() {
-      user = User(
-          id: 1,
-          email: 'user@example.com',
-          profession: ProfessionChoices.frontend,
-          name: 'John Doe');
-      project = Project(
-          id: 'project_id', name: 'Project 1', owner: user, otherUsers: []);
-      task = Task(
-        id: 'task_id',
-        project: project,
-        createdBy: user,
-        assignedTo: null,
-        createdAt: DateTime.now(),
-        name: 'Task 1',
-        estimation: EstimationChoices.one,
-        status: TaskStatusChoices.notAssigned,
-      );
+    test('Task creation', () {
+      expect(
+          task,
+          Task(
+            id: 1,
+            project: 2,
+            createdBy: 3,
+            assignedTo: 4,
+            createdAt: DateTime(2023, 1, 1),
+            name: 'Task 1',
+            estimation: EstimationChoices.one,
+            status: TaskStatusChoices.inProgress,
+          ));
     });
 
-    test('assignTo should assign the task to a user', () {
-      final updatedTask = task.assignTo(user);
-      expect(updatedTask.assignedTo, user);
+    test('Task assignTo', () {
+      final updatedTask = task.assignTo(5);
+      expect(
+          updatedTask,
+          Task(
+            id: task.id,
+            project: task.project,
+            createdBy: task.createdBy,
+            assignedTo: 5,
+            createdAt: task.createdAt,
+            name: task.name,
+            estimation: task.estimation,
+            status: task.status,
+          ));
     });
 
-    test('copyWithName should create a new Task with the updated name', () {
-      final updatedTask = task.copyWithName('Updated Task Name');
-      expect(updatedTask.name, 'Updated Task Name');
+    test('Task copyWithName', () {
+      final updatedTask = task.copyWithName('Updated Task');
+      expect(
+          updatedTask,
+          Task(
+            id: task.id,
+            project: task.project,
+            createdBy: task.createdBy,
+            assignedTo: task.assignedTo,
+            createdAt: task.createdAt,
+            name: 'Updated Task',
+            estimation: task.estimation,
+            status: task.status,
+          ));
     });
 
-    test(
-        'copyWithEstimation should create a new Task with the updated estimation',
-        () {
-      final updatedTask = task.copyWithEstimation(EstimationChoices.two);
-      expect(updatedTask.estimation, EstimationChoices.two);
+    test('Task copyWithEstimation', () {
+      final updatedTask = task.copyWithEstimation(EstimationChoices.twentyOne);
+      expect(
+          updatedTask,
+          Task(
+            id: task.id,
+            project: task.project,
+            createdBy: task.createdBy,
+            assignedTo: task.assignedTo,
+            createdAt: task.createdAt,
+            name: task.name,
+            estimation: EstimationChoices.twentyOne,
+            status: task.status,
+          ));
     });
 
-    test('copyWithStatus should create a new Task with the updated status', () {
-      final updatedTask = task.copyWithStatus(TaskStatusChoices.inProgress);
-      expect(updatedTask.status, TaskStatusChoices.inProgress);
+    test('Task copyWithStatus', () {
+      final updatedTask = task.copyWithStatus(TaskStatusChoices.closed);
+      expect(
+          updatedTask,
+          Task(
+            id: task.id,
+            project: task.project,
+            createdBy: task.createdBy,
+            assignedTo: task.assignedTo,
+            createdAt: task.createdAt,
+            name: task.name,
+            estimation: task.estimation,
+            status: TaskStatusChoices.closed,
+          ));
+    });
+
+    test('Task JSON serialization and deserialization', () {
+      final jsonMap = task.toJson();
+      final fromJsonTask = Task.fromJson(jsonMap);
+
+      expect(fromJsonTask, task);
     });
   });
 }

@@ -3,30 +3,57 @@ import 'package:solvro_mobile/models/enums.dart';
 import 'package:solvro_mobile/models/user.dart';
 
 void main() {
-  group('User Tests', () {
-    late User user;
+  group('User tests', () {
+    final user = User(
+      id: 1,
+      token: 'token123',
+      email: 'user@example.com',
+      profession: ProfessionChoices.frontend,
+      name: 'John Doe',
+    );
 
-    setUp(() {
-      // Initialize a User instance before each test.
-      user = User(
-          id: 1,
-          email: 'user@test.com',
-          profession: ProfessionChoices.frontend,
-          name: 'Jan Kowalski');
+    test('User creation', () {
+      expect(
+          user,
+          User(
+            id: 1,
+            token: 'token123',
+            email: 'user@example.com',
+            profession: ProfessionChoices.frontend,
+            name: 'John Doe',
+          ));
     });
 
-    test('copyWithName should create a new User with the updated name', () {
-      final updatedUser = user.copyWithName('Janina Kowalska');
-      expect(updatedUser.name, 'Janina Kowalska');
-      expect(updatedUser, user.copyWithName('Janina Kowalska'));
+    test('User copyWithName', () {
+      final updatedUser = user.copyWithName('Jane Doe');
+      expect(
+          updatedUser,
+          User(
+            id: user.id,
+            token: user.token,
+            email: user.email,
+            profession: user.profession,
+            name: 'Jane Doe',
+          ));
     });
 
-    test(
-        'copyWithProfession should create a new User with the updated profession',
-        () {
-      final updatedUser = user.copyWithProfession(ProfessionChoices.backend);
-      expect(updatedUser.profession, ProfessionChoices.backend);
-      expect(updatedUser, user.copyWithProfession(ProfessionChoices.backend));
+    test('User copyWithProfession', () {
+      final updatedUser = user.copyWithProfession(ProfessionChoices.uxUi);
+      expect(
+          updatedUser,
+          User(
+            id: user.id,
+            token: user.token,
+            email: user.email,
+            profession: ProfessionChoices.uxUi,
+            name: user.name,
+          ));
+    });
+
+    test('User JSON serialization and deserialization', () {
+      final jsonMap = user.toJson();
+      final fromJsonUser = User.fromJson(jsonMap);
+      expect(fromJsonUser, user);
     });
   });
 }

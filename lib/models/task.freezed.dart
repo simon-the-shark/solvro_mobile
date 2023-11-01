@@ -20,10 +20,10 @@ Task _$TaskFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Task {
-  String get id => throw _privateConstructorUsedError;
-  Project get project => throw _privateConstructorUsedError;
-  User get createdBy => throw _privateConstructorUsedError;
-  User? get assignedTo => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  int get project => throw _privateConstructorUsedError;
+  int get createdBy => throw _privateConstructorUsedError;
+  int? get assignedTo => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   EstimationChoices get estimation => throw _privateConstructorUsedError;
@@ -40,18 +40,14 @@ abstract class $TaskCopyWith<$Res> {
       _$TaskCopyWithImpl<$Res, Task>;
   @useResult
   $Res call(
-      {String id,
-      Project project,
-      User createdBy,
-      User? assignedTo,
+      {int id,
+      int project,
+      int createdBy,
+      int? assignedTo,
       DateTime createdAt,
       String name,
       EstimationChoices estimation,
       TaskStatusChoices status});
-
-  $ProjectCopyWith<$Res> get project;
-  $UserCopyWith<$Res> get createdBy;
-  $UserCopyWith<$Res>? get assignedTo;
 }
 
 /// @nodoc
@@ -80,19 +76,19 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       project: null == project
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
-              as Project,
+              as int,
       createdBy: null == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as User,
+              as int,
       assignedTo: freezed == assignedTo
           ? _value.assignedTo
           : assignedTo // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as int?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -111,34 +107,6 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
               as TaskStatusChoices,
     ) as $Val);
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ProjectCopyWith<$Res> get project {
-    return $ProjectCopyWith<$Res>(_value.project, (value) {
-      return _then(_value.copyWith(project: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res> get createdBy {
-    return $UserCopyWith<$Res>(_value.createdBy, (value) {
-      return _then(_value.copyWith(createdBy: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get assignedTo {
-    if (_value.assignedTo == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.assignedTo!, (value) {
-      return _then(_value.copyWith(assignedTo: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -149,21 +117,14 @@ abstract class _$$TaskImplCopyWith<$Res> implements $TaskCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      Project project,
-      User createdBy,
-      User? assignedTo,
+      {int id,
+      int project,
+      int createdBy,
+      int? assignedTo,
       DateTime createdAt,
       String name,
       EstimationChoices estimation,
       TaskStatusChoices status});
-
-  @override
-  $ProjectCopyWith<$Res> get project;
-  @override
-  $UserCopyWith<$Res> get createdBy;
-  @override
-  $UserCopyWith<$Res>? get assignedTo;
 }
 
 /// @nodoc
@@ -189,19 +150,19 @@ class __$$TaskImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       project: null == project
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
-              as Project,
+              as int,
       createdBy: null == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
-              as User,
+              as int,
       assignedTo: freezed == assignedTo
           ? _value.assignedTo
           : assignedTo // ignore: cast_nullable_to_non_nullable
-              as User?,
+              as int?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -240,13 +201,13 @@ class _$TaskImpl extends _Task {
       _$$TaskImplFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
-  final Project project;
+  final int project;
   @override
-  final User createdBy;
+  final int createdBy;
   @override
-  final User? assignedTo;
+  final int? assignedTo;
   @override
   final DateTime createdAt;
   @override
@@ -301,10 +262,10 @@ class _$TaskImpl extends _Task {
 
 abstract class _Task extends Task {
   factory _Task(
-      {required final String id,
-      required final Project project,
-      required final User createdBy,
-      required final User? assignedTo,
+      {required final int id,
+      required final int project,
+      required final int createdBy,
+      required final int? assignedTo,
       required final DateTime createdAt,
       required final String name,
       required final EstimationChoices estimation,
@@ -314,13 +275,13 @@ abstract class _Task extends Task {
   factory _Task.fromJson(Map<String, dynamic> json) = _$TaskImpl.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
-  Project get project;
+  int get project;
   @override
-  User get createdBy;
+  int get createdBy;
   @override
-  User? get assignedTo;
+  int? get assignedTo;
   @override
   DateTime get createdAt;
   @override

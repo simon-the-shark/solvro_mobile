@@ -7,12 +7,10 @@ part of 'task.dart';
 // **************************************************************************
 
 _$TaskImpl _$$TaskImplFromJson(Map<String, dynamic> json) => _$TaskImpl(
-      id: json['id'] as String,
-      project: Project.fromJson(json['project'] as Map<String, dynamic>),
-      createdBy: User.fromJson(json['createdBy'] as Map<String, dynamic>),
-      assignedTo: json['assignedTo'] == null
-          ? null
-          : User.fromJson(json['assignedTo'] as Map<String, dynamic>),
+      id: json['id'] as int,
+      project: json['project'] as int,
+      createdBy: json['createdBy'] as int,
+      assignedTo: json['assignedTo'] as int?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       name: json['name'] as String,
       estimation: $enumDecode(_$EstimationChoicesEnumMap, json['estimation']),
