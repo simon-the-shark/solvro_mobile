@@ -16,8 +16,7 @@ class MyApp extends ConsumerWidget {
       routerConfig: ref.watch(navigationRouterProvider),
       title: 'Solvro Taskmanager',
       theme: ThemeData(
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Colors.blueAccent.shade400),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2E4272)),
         useMaterial3: true,
       ),
     );
