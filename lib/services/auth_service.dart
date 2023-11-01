@@ -28,6 +28,7 @@ class AuthService extends _$AuthService {
     ProfessionChoices profession, [
     String? name,
   ]) async {
+    state = const AsyncLoading();
     final user = await ref
         .read(userRemoteRepositoryProvider)
         .register(email, password, profession, name);
@@ -36,6 +37,7 @@ class AuthService extends _$AuthService {
   }
 
   Future<void> logout() async {
+    state = const AsyncLoading();
     await ref.read(userRemoteRepositoryProvider).logout();
     await ref.read(userLocalRepositoryProvider).deleteUser();
     state = const AsyncData(null);
