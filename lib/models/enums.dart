@@ -21,6 +21,8 @@ enum ProfessionChoices {
   devops,
   @JsonValue("UX/UI")
   uxUi,
+  @JsonValue("")
+  none,
 }
 
 @JsonEnum(fieldRename: FieldRename.screamingSnake)
@@ -39,9 +41,10 @@ class EnumJsonConverter with _$EnumJsonConverter {
   factory EnumJsonConverter.fromJson(Map<String, Object?> json) =>
       _$EnumJsonConverterFromJson(json);
 
-  static String? valueString<T extends Enum>(T val) {
+  static String? valueString<T extends Enum>(T? val) {
     if (val is ProfessionChoices) {
       return EnumJsonConverter(profession: val).toJson()["profession"];
     }
+    return null;
   }
 }

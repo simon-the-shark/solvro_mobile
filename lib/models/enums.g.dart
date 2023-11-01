@@ -22,4 +22,5 @@ const _$ProfessionChoicesEnumMap = {
   ProfessionChoices.backend: 'BACKEND',
   ProfessionChoices.devops: 'DEVOPS',
   ProfessionChoices.uxUi: 'UX/UI',
+  ProfessionChoices.none: '',
 };

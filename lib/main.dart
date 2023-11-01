@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'dependency_injection/navigation_router.dart';
+import 'go_router.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -13,7 +13,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      routerConfig: ref.watch(navigationRouterProvider),
+      routerConfig: ref.watch(goRouterProvider),
       title: 'Solvro Taskmanager',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2E4272)),

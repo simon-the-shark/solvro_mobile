@@ -1,24 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'dio.dart';
+part of 'auth_service.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioHash() => r'b68241c569c369f9b6e97b5d1b0fea3d1a02e787';
+String _$authServiceHash() => r'7c23974322ee8c66eecd17aad7a90e8a180b55cd';
 
-/// See also [dio].
-@ProviderFor(dio)
-final dioProvider = AutoDisposeProvider<Dio>.internal(
-  dio,
-  name: r'dioProvider',
+/// See also [AuthService].
+@ProviderFor(AuthService)
+final authServiceProvider = AsyncNotifierProvider<AuthService, User?>.internal(
+  AuthService.new,
+  name: r'authServiceProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$dioHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$authServiceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef DioRef = AutoDisposeProviderRef<Dio>;
+typedef _$AuthService = AsyncNotifier<User?>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

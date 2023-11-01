@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../services/auth_service.dart';
+import '../widgets/primary_button.dart';
+
 class HomeView extends ConsumerWidget {
   const HomeView({super.key});
 
@@ -11,7 +14,11 @@ class HomeView extends ConsumerWidget {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Solvro Taskmanager'),
       ),
-      body: Container(),
+      body: Center(
+        child: PrimaryButton(
+            onPressed: () => ref.read(authServiceProvider.notifier).logout(),
+            text: "Log out"),
+      ),
     );
   }
 }

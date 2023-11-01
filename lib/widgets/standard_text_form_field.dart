@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
 class StandardTextFormField extends StatelessWidget {
-  const StandardTextFormField(
-      {super.key,
-      this.inputHeight = 60.0,
-      this.inputPadding =
-          const EdgeInsets.symmetric(horizontal: 22, vertical: 4),
-      this.radius = const Radius.circular(10),
-      this.hintText,
-      this.labelText,
-      this.obscureText = false});
+  const StandardTextFormField({
+    super.key,
+    this.inputHeight = 60.0,
+    this.inputPadding = const EdgeInsets.symmetric(horizontal: 22, vertical: 4),
+    this.radius = const Radius.circular(10),
+    this.hintText,
+    this.labelText,
+    this.obscureText = false,
+    this.onChanged,
+    this.errorText,
+    this.validator,
+  });
 
   final double inputHeight;
   final EdgeInsets inputPadding;
@@ -17,22 +20,33 @@ class StandardTextFormField extends StatelessWidget {
   final String? hintText;
   final String? labelText;
   final bool obscureText;
+  final void Function(String val)? onChanged;
+  final String? errorText;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: inputHeight,
-      padding: inputPadding,
-      child: TextFormField(
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              radius,
+    const errorExtraHeight = 25.0;
+    return Transform.translate(
+      offset: errorText == "" ? const Offset(0, errorExtraHeight) : Offset.zero,
+      child: Container(
+        height:
+            errorText == null ? inputHeight : inputHeight + errorExtraHeight,
+        padding: inputPadding,
+        child: TextFormField(
+          validator: validator,
+          onChanged: onChanged,
+          obscureText: obscureText,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                radius,
+              ),
             ),
+            errorText: errorText,
+            hintText: hintText,
+            labelText: labelText,
           ),
-          hintText: hintText,
-          labelText: labelText,
         ),
       ),
     );

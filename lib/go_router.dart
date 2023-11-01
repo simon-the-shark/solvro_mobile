@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../repositories/user_repository.dart';
-import '../views/home_view.dart';
-import '../views/login_view.dart';
-import '../views/signup_view.dart';
+import 'services/auth_service.dart';
+import 'views/home_view.dart';
+import 'views/login_view/login_view.dart';
+import 'views/signup_view.dart';
 
-part 'navigation_router.g.dart';
-
-@Riverpod(keepAlive: true)
-GoRouter navigationRouter(NavigationRouterRef ref) {
+final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     redirect: (BuildContext context, GoRouterState state) {
-      if (ref.read(userRepositoryProvider).value == null &&
-          state.fullPath != "/signup") {
+      if ((state.fullPath == "/signup" || state.fullPath == "/login") &&
+          ref.watch(authServiceProvider).value != null) {
+        return "/";
+      } else if (ref.watch(authServiceProvider).value == null &&
+          state.fullPath != "/signup" &&
+          state.fullPath != "/login") {
         return '/login';
       } else {
         return null;
@@ -35,4 +36,4 @@ GoRouter navigationRouter(NavigationRouterRef ref) {
       ),
     ],
   );
-}
+});

@@ -21,6 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   int get id => throw _privateConstructorUsedError;
+  String get token => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   ProfessionChoices? get profession => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -35,7 +36,12 @@ abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res, User>;
   @useResult
-  $Res call({int id, String email, ProfessionChoices? profession, String name});
+  $Res call(
+      {int id,
+      String token,
+      String email,
+      ProfessionChoices? profession,
+      String name});
 }
 
 /// @nodoc
@@ -52,6 +58,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
+    Object? token = null,
     Object? email = null,
     Object? profession = freezed,
     Object? name = null,
@@ -61,6 +68,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -84,7 +95,12 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       __$$UserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String email, ProfessionChoices? profession, String name});
+  $Res call(
+      {int id,
+      String token,
+      String email,
+      ProfessionChoices? profession,
+      String name});
 }
 
 /// @nodoc
@@ -98,6 +114,7 @@ class __$$UserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? token = null,
     Object? email = null,
     Object? profession = freezed,
     Object? name = null,
@@ -107,6 +124,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      token: null == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -128,6 +149,7 @@ class __$$UserImplCopyWithImpl<$Res>
 class _$UserImpl extends _User {
   _$UserImpl(
       {required this.id,
+      required this.token,
       required this.email,
       this.profession,
       required this.name})
@@ -139,6 +161,8 @@ class _$UserImpl extends _User {
   @override
   final int id;
   @override
+  final String token;
+  @override
   final String email;
   @override
   final ProfessionChoices? profession;
@@ -147,7 +171,7 @@ class _$UserImpl extends _User {
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, profession: $profession, name: $name)';
+    return 'User(id: $id, token: $token, email: $email, profession: $profession, name: $name)';
   }
 
   @override
@@ -156,6 +180,7 @@ class _$UserImpl extends _User {
         (other.runtimeType == runtimeType &&
             other is _$UserImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.token, token) || other.token == token) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.profession, profession) ||
                 other.profession == profession) &&
@@ -164,7 +189,8 @@ class _$UserImpl extends _User {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, profession, name);
+  int get hashCode =>
+      Object.hash(runtimeType, id, token, email, profession, name);
 
   @JsonKey(ignore: true)
   @override
@@ -183,6 +209,7 @@ class _$UserImpl extends _User {
 abstract class _User extends User {
   factory _User(
       {required final int id,
+      required final String token,
       required final String email,
       final ProfessionChoices? profession,
       required final String name}) = _$UserImpl;
@@ -192,6 +219,8 @@ abstract class _User extends User {
 
   @override
   int get id;
+  @override
+  String get token;
   @override
   String get email;
   @override
