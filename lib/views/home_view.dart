@@ -10,7 +10,11 @@ class HomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(projectsRepositoryProvider).getProjects().then(print);
+    ref.read(projectsRepositoryProvider).getProjects().then(
+          (value) => ref
+              .read(projectsRepositoryProvider)
+              .updateProject(value[0], "EMINEM", [4]).then(print),
+        );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,

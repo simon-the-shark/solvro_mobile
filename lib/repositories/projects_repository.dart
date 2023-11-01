@@ -38,4 +38,20 @@ class ProjectsRepository {
       throw Exception(e.response);
     }
   }
+
+  Future<void> updateProject(
+      Project project, String newName, List<int> newOtherUsers) async {
+    try {
+      final response = await _dio.put(
+          "${_apiDetails.projectsUrl}${project.id}/",
+          options: _apiDetails.authHeaders,
+          data: {
+            "name": newName,
+            "other_users": newOtherUsers,
+          });
+      print(response.data);
+    } on DioException catch (e) {
+      throw Exception(e.response);
+    }
+  }
 }
