@@ -5,7 +5,7 @@ import '../models/projects/project.dart';
 import '../models/tasks/task.dart';
 import 'api_details.dart';
 
-final projectsRepositoryProvider = Provider<TasksRepository>((ref) {
+final tasksRepositoryProvider = Provider<TasksRepository>((ref) {
   return TasksRepository(ApiDetails(ref), Dio());
 });
 
@@ -21,6 +21,7 @@ class TasksRepository {
         _apiDetails.tasksUrl(currProject.id),
         options: _apiDetails.authHeaders,
       );
+      print(response.data);
       return response.data.map<Task>((e) => Task.fromJson(e)).toList();
     } on DioException catch (e) {
       throw Exception(e.response);
@@ -29,10 +30,12 @@ class TasksRepository {
 
   Future<void> addTask(Task task) async {
     try {
+      final taskJson = task.toJson();
+      // taskJson["assigned_to"] = task.assignedTo
       final response = await _dio.post(
         _apiDetails.tasksUrl(task.project),
         options: _apiDetails.authHeaders,
-        data: task.toJson(),
+        data: taskJson,
       );
       print(response.data);
     } on DioException catch (e) {

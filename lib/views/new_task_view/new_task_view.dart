@@ -6,6 +6,7 @@ import '../../models/users/user.dart';
 import '../../services/projects_service.dart';
 import '../../widgets/enum_dropdown_form_field.dart';
 import '../../widgets/gradient_button_primary.dart';
+import '../../widgets/loader_widget_wrapper.dart';
 import '../../widgets/standard_text_form_field.dart';
 import 'new_task_view_controller.dart';
 import 'widgets/users_dropdown_form_field.dart';
@@ -18,12 +19,9 @@ class NewTaskView extends ConsumerWidget {
     final state = ref.watch(newTaskViewControllerProvider);
     final controller = ref.watch(newTaskViewControllerProvider.notifier);
     final errorMap = controller.formatExceptionMap();
-    return Scaffold(
-      // backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+    final scaffoldWidget = Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-
-        // backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -63,47 +61,45 @@ class NewTaskView extends ConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 45),
-                  if (state.isLoading)
-                    const Center(
-                        child: Padding(
-                            padding: EdgeInsets.only(bottom: 70),
-                            child: CircularProgressIndicator())),
-                  if (!state.isLoading) ...[
-                    StandardTextFormField(
-                      hintText: 'Your super new task',
-                      labelText: 'Task name',
-                      onChanged: controller.nameOnChanged,
-                      errorText: errorMap["name"],
-                    ),
-                    const SizedBox(height: 10),
-                    EnumDropdownFormField<EstimationChoices>(
-                      hintText: "Estimation number",
-                      labelText: "Estimation number",
-                      items: EstimationChoices.values,
-                      onChanged: controller.estimationOnChanged,
-                      errorText: errorMap["estimation"],
-                    ),
-                    const SizedBox(height: 10),
-                    UsersDropdownFormField(
-                      hintText: "Assign to",
-                      labelText: "Assign to",
-                      itemsUsers: ref
-                              .watch(currentProjectSubServiceProvider)
-                              .value
-                              ?.otherUsers ??
-                          <User>[],
-                      onChanged: controller.onAssignedToChanged,
-                      errorText: errorMap["assignedTo"],
-                    ),
-                  ],
+                  StandardTextFormField(
+                    hintText: 'Your super new task',
+                    labelText: 'Task name',
+                    onChanged: controller.nameOnChanged,
+                    errorText: errorMap["name"],
+                  ),
+                  const SizedBox(height: 10),
+                  EnumDropdownFormField<EstimationChoices>(
+                    hintText: "Estimation number",
+                    labelText: "Estimation number",
+                    items: EstimationChoices.values,
+                    onChanged: controller.estimationOnChanged,
+                    errorText: errorMap["estimation"],
+                  ),
+                  const SizedBox(height: 10),
+                  UsersDropdownFormField(
+                    hintText: "Assign to",
+                    labelText: "Assign to",
+                    itemsUsers: ref
+                            .watch(currentProjectSubServiceProvider)
+                            .value
+                            ?.otherUsers ??
+                        <User>[],
+                    onChanged: controller.onAssignedToChanged,
+                    errorText: errorMap["assignedTo"],
+                  ),
                   const SizedBox(height: 45),
                 ],
               ),
             ),
-            GradientButtonPrimary(onPressed: () {}, text: "Add task"),
+            GradientButtonPrimary(
+              onPressed: controller.saveTask,
+              text: "Add task",
+            ),
           ],
         ),
       ),
     );
+    if (state.isLoading) return LoaderWidgetWrapper(child: scaffoldWidget);
+    return scaffoldWidget;
   }
 }

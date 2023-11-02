@@ -29,11 +29,11 @@ const _$ProfessionChoicesEnumMap = {
 };
 
 const _$EstimationChoicesEnumMap = {
-  EstimationChoices.one: 'ONE',
-  EstimationChoices.two: 'TWO',
-  EstimationChoices.three: 'THREE',
-  EstimationChoices.five: 'FIVE',
-  EstimationChoices.eight: 'EIGHT',
-  EstimationChoices.thirteen: 'THIRTEEN',
-  EstimationChoices.twentyOne: 'TWENTY_ONE',
+  EstimationChoices.one: 1,
+  EstimationChoices.two: 2,
+  EstimationChoices.three: 3,
+  EstimationChoices.five: 5,
+  EstimationChoices.eight: 8,
+  EstimationChoices.thirteen: 13,
+  EstimationChoices.twentyOne: 21,
 };

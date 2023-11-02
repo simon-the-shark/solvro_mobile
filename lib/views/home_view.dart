@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../services/projects_service.dart';
 import 'projects_drawer/projects_drawer.dart';
+import 'tasks_table_view/tasks_table_view.dart';
 import 'tasks_table_view/widgets/new_task_fab.dart';
 
 class HomeView extends ConsumerWidget {
@@ -21,7 +22,7 @@ class HomeView extends ConsumerWidget {
           ),
         ),
       ),
-      body: const Placeholder(),
+      body: const TasksTableView(),
       floatingActionButton: const NewTaskFloatingActionButton(),
     );
   }

@@ -3,14 +3,21 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'enums.freezed.dart';
 part 'enums.g.dart';
 
-@JsonEnum(fieldRename: FieldRename.screamingSnake)
+@JsonEnum()
 enum EstimationChoices {
+  @JsonValue(1)
   one,
+  @JsonValue(2)
   two,
+  @JsonValue(3)
   three,
+  @JsonValue(5)
   five,
+  @JsonValue(8)
   eight,
+  @JsonValue(13)
   thirteen,
+  @JsonValue(21)
   twentyOne,
 }
 
@@ -46,7 +53,11 @@ class EnumJsonConverter with _$EnumJsonConverter {
     if (val is ProfessionChoices) {
       return EnumJsonConverter(profession: val).toJson()["profession"];
     } else if (val is EstimationChoices) {
-      return EnumJsonConverter(estimation: val).toJson()["estimation"];
+      return val
+          .toString()
+          .toUpperCase()
+          .split("ESTIMATIONCHOICES.")[1]
+          .replaceFirst("TWENTYONE", "TWENTY_ONE");
     }
     return null;
   }

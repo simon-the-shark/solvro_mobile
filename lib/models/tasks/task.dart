@@ -9,8 +9,9 @@ part 'task.g.dart';
 class Task with _$Task {
   const Task._();
 
+  @JsonSerializable(fieldRename: FieldRename.snake)
   factory Task({
-    required int id,
+    required int? id,
     required int project,
     required int createdBy,
     required int? assignedTo,

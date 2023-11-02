@@ -2,8 +2,13 @@ import 'dart:convert';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../go_router.dart';
 import '../../models/enums/enums.dart';
+import '../../models/tasks/task.dart';
 import '../../models/users/user.dart';
+import '../../repositories/tasks_repository.dart';
+import '../../services/auth_service.dart';
+import '../../services/projects_service.dart';
 
 part 'new_task_view_controller.g.dart';
 
@@ -16,14 +21,28 @@ class NewTaskViewController extends _$NewTaskViewController {
 
   Future<void> saveTask() async {
     if (await validateForm()) {
-      // state = const AsyncLoading();
-      // state = await AsyncValue.guard(() async {
-      //   await ref.read(authServiceProvider.notifier).login(
-      //         _loginViewFormController.email!,
-      //         _loginViewFormController.password!,
-      //       );
-      //   return ref.read(authServiceProvider).value;
-      // });
+      state = const AsyncLoading();
+      state = await AsyncValue.guard(
+        () => ref
+            .read(tasksRepositoryProvider)
+            .addTask(
+              Task(
+                id: null,
+                project: ref.read(currentProjectSubServiceProvider).value!.id,
+                createdBy: ref.read(authServiceProvider).value!.id,
+                assignedTo: _formController.assignedTo?.id,
+                createdAt: DateTime.now(),
+                name: _formController.name!,
+                estimation: _formController.estimation!,
+                status: _formController.assignedTo?.id == null
+                    ? TaskStatusChoices.notAssigned
+                    : TaskStatusChoices.inProgress,
+              ),
+            )
+            .then(
+              (value) => ref.read(goRouterProvider).go("/"),
+            ),
+      );
     }
   }
 

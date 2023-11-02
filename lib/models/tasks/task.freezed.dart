@@ -20,7 +20,7 @@ Task _$TaskFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Task {
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   int get project => throw _privateConstructorUsedError;
   int get createdBy => throw _privateConstructorUsedError;
   int? get assignedTo => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $TaskCopyWith<$Res> {
       _$TaskCopyWithImpl<$Res, Task>;
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       int project,
       int createdBy,
       int? assignedTo,
@@ -63,7 +63,7 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? project = null,
     Object? createdBy = null,
     Object? assignedTo = freezed,
@@ -73,10 +73,10 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
     Object? status = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       project: null == project
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
@@ -117,7 +117,7 @@ abstract class _$$TaskImplCopyWith<$Res> implements $TaskCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {int? id,
       int project,
       int createdBy,
       int? assignedTo,
@@ -137,7 +137,7 @@ class __$$TaskImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? id = freezed,
     Object? project = null,
     Object? createdBy = null,
     Object? assignedTo = freezed,
@@ -147,10 +147,10 @@ class __$$TaskImplCopyWithImpl<$Res>
     Object? status = null,
   }) {
     return _then(_$TaskImpl(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       project: null == project
           ? _value.project
           : project // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,8 @@ class __$$TaskImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(fieldRename: FieldRename.snake)
 class _$TaskImpl extends _Task {
   _$TaskImpl(
       {required this.id,
@@ -201,7 +202,7 @@ class _$TaskImpl extends _Task {
       _$$TaskImplFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
   final int project;
   @override
@@ -262,7 +263,7 @@ class _$TaskImpl extends _Task {
 
 abstract class _Task extends Task {
   factory _Task(
-      {required final int id,
+      {required final int? id,
       required final int project,
       required final int createdBy,
       required final int? assignedTo,
@@ -275,7 +276,7 @@ abstract class _Task extends Task {
   factory _Task.fromJson(Map<String, dynamic> json) = _$TaskImpl.fromJson;
 
   @override
-  int get id;
+  int? get id;
   @override
   int get project;
   @override
