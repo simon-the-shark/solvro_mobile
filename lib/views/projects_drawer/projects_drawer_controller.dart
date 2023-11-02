@@ -4,10 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/project.dart';
 import '../../repositories/projects_repository.dart';
 
-part 'home_view_controller.g.dart';
+part 'projects_drawer_controller.g.dart';
 
 @riverpod
-class HomeViewController extends _$HomeViewController {
+class ProjectsDrawerController extends _$ProjectsDrawerController {
   final _prefs = SharedPreferences.getInstance();
   final _prefsCurrentProjectStringKey = "_currentProjectIdKey";
 

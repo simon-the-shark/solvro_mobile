@@ -1,28 +1,28 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'home_view_controller.dart';
+part of 'projects_drawer_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$homeViewControllerHash() =>
-    r'73290dc091e6842ddc202837cfb44a64a01315e4';
+String _$projectsDrawerControllerHash() =>
+    r'1c6cfea863a8e036cf2155ea272732981eebe413';
 
-/// See also [HomeViewController].
-@ProviderFor(HomeViewController)
-final homeViewControllerProvider = AutoDisposeAsyncNotifierProvider<
-    HomeViewController, (List<Project>, Project?)>.internal(
-  HomeViewController.new,
-  name: r'homeViewControllerProvider',
+/// See also [ProjectsDrawerController].
+@ProviderFor(ProjectsDrawerController)
+final projectsDrawerControllerProvider = AutoDisposeAsyncNotifierProvider<
+    ProjectsDrawerController, (List<Project>, Project?)>.internal(
+  ProjectsDrawerController.new,
+  name: r'projectsDrawerControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$homeViewControllerHash,
+      : _$projectsDrawerControllerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$HomeViewController
+typedef _$ProjectsDrawerController
     = AutoDisposeAsyncNotifier<(List<Project>, Project?)>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

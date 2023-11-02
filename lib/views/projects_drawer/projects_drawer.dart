@@ -6,7 +6,7 @@ import '../../services/auth_service.dart';
 import '../../widgets/gradient_button.dart';
 import '../../widgets/name_header.dart';
 import '../../widgets/secondary_button.dart';
-import 'home_view_controller.dart';
+import 'projects_drawer_controller.dart';
 import 'widgets/project_menu_item.dart';
 
 class ProjectsDrawer extends ConsumerWidget {
@@ -14,7 +14,7 @@ class ProjectsDrawer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final projects = ref.watch(homeViewControllerProvider).value?.$1;
+    final projects = ref.watch(projectsDrawerControllerProvider).value?.$1;
     return Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -109,7 +109,7 @@ class ProjectsDrawer extends ConsumerWidget {
                           project: e,
                           onTap: () {
                             ref
-                                .read(homeViewControllerProvider.notifier)
+                                .read(projectsDrawerControllerProvider.notifier)
                                 .setCurrentProject(e);
                             Scaffold.of(context).closeDrawer();
                           },

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'home_view_controller.dart';
-import 'projects_drawer.dart';
+import 'projects_drawer/projects_drawer_controller.dart';
+import 'projects_drawer/projects_drawer.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({super.key});
@@ -14,7 +14,7 @@ class HomeView extends ConsumerWidget {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: Text(
-            "${ref.watch(homeViewControllerProvider).value?.$2?.name}",
+            "${ref.watch(projectsDrawerControllerProvider).value?.$2?.name}",
             style: TextStyle(
               color: Theme.of(context).colorScheme.onPrimary,
             ),
