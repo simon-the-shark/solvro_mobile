@@ -61,7 +61,7 @@ class LoginViewFormController {
   void _emailValidator() {
     final value = email;
     if (value == "" || value == null) {
-      throw Exception(jsonEncode({"email": "Email is mandatory"}));
+      throw Exception(jsonEncode({"email": "Email can't be empty"}));
     }
     if (!RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$').hasMatch(value)) {
       throw Exception(jsonEncode({"email": "Invalid email format"}));
@@ -71,7 +71,7 @@ class LoginViewFormController {
   void _passwordValidator() {
     final value = password;
     if (value == "" || value == null) {
-      throw Exception(jsonEncode({"password": "Password is mandatory"}));
+      throw Exception(jsonEncode({"password": "Password can't be empty"}));
     }
   }
 }

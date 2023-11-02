@@ -73,7 +73,7 @@ class SignupViewFormController {
   void _emailValidator() {
     final value = email;
     if (value == "" || value == null) {
-      throw Exception(jsonEncode({"email": "Email is mandatory"}));
+      throw Exception(jsonEncode({"email": "Email can't be empty"}));
     }
     if (!RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$').hasMatch(value)) {
       throw Exception(jsonEncode({"email": "Invalid email format"}));
@@ -83,7 +83,7 @@ class SignupViewFormController {
   void _passwordValidator() {
     final value = password;
     if (value == "" || value == null) {
-      throw Exception(jsonEncode({"password": "Password is mandatory"}));
+      throw Exception(jsonEncode({"password": "Password can't be empty"}));
     }
     if (value.length < 6) {
       throw Exception(
@@ -93,8 +93,7 @@ class SignupViewFormController {
 
   void _professionValidator() {
     if (profession == null || profession == ProfessionChoices.none) {
-      throw Exception(
-          jsonEncode({"profession": "Profession choice is mandatory"}));
+      throw Exception(jsonEncode({"profession": "Profession can't be empty"}));
     }
   }
 }

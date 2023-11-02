@@ -65,7 +65,7 @@ class NewTaskViewFormController {
   void _nameValidator() {
     final value = name;
     if (value == "" || value == null) {
-      throw Exception(jsonEncode({"email": "Task name is mandatory"}));
+      throw Exception(jsonEncode({"email": "Task name can't be empty"}));
     }
   }
 
@@ -73,7 +73,7 @@ class NewTaskViewFormController {
     final value = name;
     if (value == "" || value == null) {
       throw Exception(
-          jsonEncode({"estimation": "Estimation number is mandatory"}));
+          jsonEncode({"estimation": "Estimation number can't be empty"}));
     }
   }
 }
