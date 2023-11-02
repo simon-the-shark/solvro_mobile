@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:solvro_mobile/models/project.dart';
+import 'package:solvro_mobile/models/projects/project.dart';
 
 final currentProjectLocalRepositoryProvider =
     Provider<CurrentProjectLocalRepository>((ref) {

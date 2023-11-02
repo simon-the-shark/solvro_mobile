@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../models/enums.dart';
-import '../models/user.dart';
+import '../models/enums/enums.dart';
+import '../models/users/user.dart';
 
 final userLocalRepositoryProvider = Provider<UserLocalRepository>((ref) {
   return UserLocalRepository();

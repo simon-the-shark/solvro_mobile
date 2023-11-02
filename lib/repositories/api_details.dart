@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../models/task.dart';
+import '../models/tasks/task.dart';
 import '../services/auth_service.dart';
 
 class ApiDetails {

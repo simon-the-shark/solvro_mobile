@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../models/enums.dart';
-import '../models/user.dart';
+import '../models/enums/enums.dart';
+import '../models/users/user.dart';
 import 'api_details.dart';
 
 final userRemoteRepositoryProvider = Provider<UserRemoteRepository>((ref) {

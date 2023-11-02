@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../models/project.dart';
-import '../models/task.dart';
+import '../models/projects/project.dart';
+import '../models/tasks/task.dart';
 import 'api_details.dart';
 
 final projectsRepositoryProvider = Provider<TasksRepository>((ref) {

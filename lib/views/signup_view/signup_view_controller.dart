@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../models/enums.dart';
-import '../../models/user.dart';
+import '../../models/enums/enums.dart';
+import '../../models/users/user.dart';
 import '../../services/auth_service.dart';
 
 part 'signup_view_controller.g.dart';

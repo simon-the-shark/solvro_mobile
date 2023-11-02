@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../models/enums.dart';
+import '../../models/enums/enums.dart';
 import '../../widgets/double_color_text_button.dart';
 import '../../widgets/enum_dropdown_form_field.dart';
 import '../../widgets/name_header.dart';

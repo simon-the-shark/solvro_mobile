@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:solvro_mobile/models/project.dart';
+import 'package:solvro_mobile/models/projects/project.dart';
 
 void main() {
   group('Project tests', () {

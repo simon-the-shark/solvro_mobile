@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../models/user.dart';
+import '../../models/users/user.dart';
 import '../../services/auth_service.dart';
 
 part 'login_view_controller.g.dart';

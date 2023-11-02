@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../models/enums.dart';
+import '../../../models/enums/enums.dart';
 import '../../../services/auth_service.dart';
 
 class ProfessionListTile extends ConsumerWidget {

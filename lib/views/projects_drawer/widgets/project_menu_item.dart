@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/project.dart';
+import '../../../models/projects/project.dart';
 
 class ProjectMenuItem extends StatelessWidget {
   final void Function() onTap;

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../models/enums.dart';
+import '../../models/enums/enums.dart';
 
 part 'new_task_view_controller.g.dart';
 

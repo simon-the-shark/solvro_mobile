@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:solvro_mobile/repositories/current_project_local_repository.dart';
 
-import '../../models/project.dart';
+import '../../models/projects/project.dart';
 import '../../repositories/projects_repository.dart';
 
 part 'projects_drawer_controller.g.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/enums.dart';
+import '../models/enums/enums.dart';
 
 class EnumDropdownFormField<T extends Enum> extends StatelessWidget {
   const EnumDropdownFormField({

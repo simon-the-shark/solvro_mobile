@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../models/enums.dart';
-import '../models/user.dart';
+import '../models/enums/enums.dart';
+import '../models/users/user.dart';
 import '../repositories/projects_repository.dart';
 import '../repositories/user_local_repository.dart';
 import '../repositories/user_remote_repository.dart';
