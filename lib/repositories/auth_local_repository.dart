@@ -4,11 +4,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/enums/enums.dart';
 import '../models/users/user.dart';
 
-final userLocalRepositoryProvider = Provider<UserLocalRepository>((ref) {
-  return UserLocalRepository();
+final authLocalRepositoryProvider = Provider<AuthLocalRepository>((ref) {
+  return AuthLocalRepository();
 });
 
-class UserLocalRepository {
+class AuthLocalRepository {
   static const _tokenStringKey = "user_auth_token";
   static const _emailStringKey = "user_email";
   static const _professionStringKey = "user_profession";

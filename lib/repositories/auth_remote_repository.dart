@@ -5,12 +5,12 @@ import '../models/enums/enums.dart';
 import '../models/users/user.dart';
 import 'api_details.dart';
 
-final userRemoteRepositoryProvider = Provider<UserRemoteRepository>((ref) {
-  return UserRemoteRepository(ApiDetails(ref), Dio());
+final authRemoteRepositoryProvider = Provider<AuthRemoteRepository>((ref) {
+  return AuthRemoteRepository(ApiDetails(ref), Dio());
 });
 
-class UserRemoteRepository {
-  UserRemoteRepository(this._apiDetails, this._dio);
+class AuthRemoteRepository {
+  AuthRemoteRepository(this._apiDetails, this._dio);
 
   late final Dio _dio;
   final ApiDetails _apiDetails;
