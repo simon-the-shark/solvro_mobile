@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'projects_drawer/projects_drawer.dart';
 import 'projects_drawer/projects_drawer_controller.dart';
-import 'tasks_table_view/new_task_fab.dart';
+import 'tasks_table_view/widgets/new_task_fab.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({super.key});

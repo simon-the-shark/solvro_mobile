@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../models/enums.dart';
 
-class DropdownFormField<T extends Enum> extends StatelessWidget {
-  const DropdownFormField({
+class EnumDropdownFormField<T extends Enum> extends StatelessWidget {
+  const EnumDropdownFormField({
     super.key,
     this.inputHeight = 60.0,
     this.inputPadding = const EdgeInsets.symmetric(horizontal: 22, vertical: 4),

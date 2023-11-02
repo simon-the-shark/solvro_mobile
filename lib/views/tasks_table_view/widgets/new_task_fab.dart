@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class NewTaskFloatingActionButton extends ConsumerWidget {
   const NewTaskFloatingActionButton({super.key});
@@ -7,7 +8,9 @@ class NewTaskFloatingActionButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return FloatingActionButton.extended(
-      onPressed: () {},
+      onPressed: () {
+        context.push("/newTask");
+      },
       label: Text(
         "Add new task",
         style: Theme.of(context).primaryTextTheme.labelLarge!.copyWith(

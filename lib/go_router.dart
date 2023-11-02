@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'services/auth_service.dart';
 import 'views/home_view.dart';
 import 'views/login_view/login_view.dart';
+import 'views/new_task_view/new_task_view.dart';
 import 'views/signup_view/signup_view.dart';
 
 final goRouterProvider = Provider<GoRouter>((ref) {
@@ -33,6 +34,10 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/signup',
         builder: (context, state) => const SignupView(),
+      ),
+      GoRoute(
+        path: '/newTask',
+        builder: (context, state) => const NewTaskView(),
       ),
     ],
   );

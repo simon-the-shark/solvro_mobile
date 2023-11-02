@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../models/enums.dart';
 import '../../widgets/double_color_text_button.dart';
-import '../../widgets/dropdown_form_field.dart';
+import '../../widgets/enum_dropdown_form_field.dart';
 import '../../widgets/name_header.dart';
 import '../../widgets/primary_button.dart';
 import '../../widgets/standard_text_form_field.dart';
@@ -64,7 +64,7 @@ class SignupView extends ConsumerWidget {
                       onChanged: controller.passwordOnChanged,
                       errorText: errorMap["password"] ?? errorMap["error"],
                     ),
-                    DropdownFormField<ProfessionChoices>(
+                    EnumDropdownFormField<ProfessionChoices>(
                       hintText: "Profession",
                       items: ProfessionChoices.values
                           .where((element) => element != ProfessionChoices.none)

@@ -21,6 +21,7 @@ EnumJsonConverter _$EnumJsonConverterFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$EnumJsonConverter {
   ProfessionChoices? get profession => throw _privateConstructorUsedError;
+  EstimationChoices? get estimation => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $EnumJsonConverterCopyWith<$Res> {
           EnumJsonConverter value, $Res Function(EnumJsonConverter) then) =
       _$EnumJsonConverterCopyWithImpl<$Res, EnumJsonConverter>;
   @useResult
-  $Res call({ProfessionChoices? profession});
+  $Res call({ProfessionChoices? profession, EstimationChoices? estimation});
 }
 
 /// @nodoc
@@ -51,12 +52,17 @@ class _$EnumJsonConverterCopyWithImpl<$Res, $Val extends EnumJsonConverter>
   @override
   $Res call({
     Object? profession = freezed,
+    Object? estimation = freezed,
   }) {
     return _then(_value.copyWith(
       profession: freezed == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as ProfessionChoices?,
+      estimation: freezed == estimation
+          ? _value.estimation
+          : estimation // ignore: cast_nullable_to_non_nullable
+              as EstimationChoices?,
     ) as $Val);
   }
 }
@@ -69,7 +75,7 @@ abstract class _$$EnumConverterImplCopyWith<$Res>
       __$$EnumConverterImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProfessionChoices? profession});
+  $Res call({ProfessionChoices? profession, EstimationChoices? estimation});
 }
 
 /// @nodoc
@@ -84,12 +90,17 @@ class __$$EnumConverterImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? profession = freezed,
+    Object? estimation = freezed,
   }) {
     return _then(_$EnumConverterImpl(
       profession: freezed == profession
           ? _value.profession
           : profession // ignore: cast_nullable_to_non_nullable
               as ProfessionChoices?,
+      estimation: freezed == estimation
+          ? _value.estimation
+          : estimation // ignore: cast_nullable_to_non_nullable
+              as EstimationChoices?,
     ));
   }
 }
@@ -97,17 +108,19 @@ class __$$EnumConverterImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EnumConverterImpl implements _EnumConverter {
-  _$EnumConverterImpl({this.profession});
+  _$EnumConverterImpl({this.profession, this.estimation});
 
   factory _$EnumConverterImpl.fromJson(Map<String, dynamic> json) =>
       _$$EnumConverterImplFromJson(json);
 
   @override
   final ProfessionChoices? profession;
+  @override
+  final EstimationChoices? estimation;
 
   @override
   String toString() {
-    return 'EnumJsonConverter(profession: $profession)';
+    return 'EnumJsonConverter(profession: $profession, estimation: $estimation)';
   }
 
   @override
@@ -116,12 +129,14 @@ class _$EnumConverterImpl implements _EnumConverter {
         (other.runtimeType == runtimeType &&
             other is _$EnumConverterImpl &&
             (identical(other.profession, profession) ||
-                other.profession == profession));
+                other.profession == profession) &&
+            (identical(other.estimation, estimation) ||
+                other.estimation == estimation));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, profession);
+  int get hashCode => Object.hash(runtimeType, profession, estimation);
 
   @JsonKey(ignore: true)
   @override
@@ -138,14 +153,17 @@ class _$EnumConverterImpl implements _EnumConverter {
 }
 
 abstract class _EnumConverter implements EnumJsonConverter {
-  factory _EnumConverter({final ProfessionChoices? profession}) =
-      _$EnumConverterImpl;
+  factory _EnumConverter(
+      {final ProfessionChoices? profession,
+      final EstimationChoices? estimation}) = _$EnumConverterImpl;
 
   factory _EnumConverter.fromJson(Map<String, dynamic> json) =
       _$EnumConverterImpl.fromJson;
 
   @override
   ProfessionChoices? get profession;
+  @override
+  EstimationChoices? get estimation;
   @override
   @JsonKey(ignore: true)
   _$$EnumConverterImplCopyWith<_$EnumConverterImpl> get copyWith =>

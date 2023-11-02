@@ -36,6 +36,7 @@ enum TaskStatusChoices {
 class EnumJsonConverter with _$EnumJsonConverter {
   factory EnumJsonConverter({
     ProfessionChoices? profession,
+    EstimationChoices? estimation,
   }) = _EnumConverter;
 
   factory EnumJsonConverter.fromJson(Map<String, Object?> json) =>
@@ -44,6 +45,8 @@ class EnumJsonConverter with _$EnumJsonConverter {
   static String? valueString<T extends Enum>(T? val) {
     if (val is ProfessionChoices) {
       return EnumJsonConverter(profession: val).toJson()["profession"];
+    } else if (val is EstimationChoices) {
+      return EnumJsonConverter(estimation: val).toJson()["estimation"];
     }
     return null;
   }

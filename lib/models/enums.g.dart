@@ -10,11 +10,14 @@ _$EnumConverterImpl _$$EnumConverterImplFromJson(Map<String, dynamic> json) =>
     _$EnumConverterImpl(
       profession:
           $enumDecodeNullable(_$ProfessionChoicesEnumMap, json['profession']),
+      estimation:
+          $enumDecodeNullable(_$EstimationChoicesEnumMap, json['estimation']),
     );
 
 Map<String, dynamic> _$$EnumConverterImplToJson(_$EnumConverterImpl instance) =>
     <String, dynamic>{
       'profession': _$ProfessionChoicesEnumMap[instance.profession],
+      'estimation': _$EstimationChoicesEnumMap[instance.estimation],
     };
 
 const _$ProfessionChoicesEnumMap = {
@@ -23,4 +26,14 @@ const _$ProfessionChoicesEnumMap = {
   ProfessionChoices.devops: 'DEVOPS',
   ProfessionChoices.uxUi: 'UX/UI',
   ProfessionChoices.none: '',
+};
+
+const _$EstimationChoicesEnumMap = {
+  EstimationChoices.one: 'ONE',
+  EstimationChoices.two: 'TWO',
+  EstimationChoices.three: 'THREE',
+  EstimationChoices.five: 'FIVE',
+  EstimationChoices.eight: 'EIGHT',
+  EstimationChoices.thirteen: 'THIRTEEN',
+  EstimationChoices.twentyOne: 'TWENTY_ONE',
 };
