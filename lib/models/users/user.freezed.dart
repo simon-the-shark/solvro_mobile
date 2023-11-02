@@ -21,7 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   int get id => throw _privateConstructorUsedError;
-  String get token => throw _privateConstructorUsedError;
+  String? get token => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   ProfessionChoices? get profession => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String token,
+      String? token,
       String email,
       ProfessionChoices? profession,
       String name});
@@ -58,7 +58,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @override
   $Res call({
     Object? id = null,
-    Object? token = null,
+    Object? token = freezed,
     Object? email = null,
     Object? profession = freezed,
     Object? name = null,
@@ -68,10 +68,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      token: null == token
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -97,7 +97,7 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String token,
+      String? token,
       String email,
       ProfessionChoices? profession,
       String name});
@@ -114,7 +114,7 @@ class __$$UserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? token = null,
+    Object? token = freezed,
     Object? email = null,
     Object? profession = freezed,
     Object? name = null,
@@ -124,10 +124,10 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      token: null == token
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ class _$UserImpl extends _User {
   @override
   final int id;
   @override
-  final String token;
+  final String? token;
   @override
   final String email;
   @override
@@ -209,7 +209,7 @@ class _$UserImpl extends _User {
 abstract class _User extends User {
   factory _User(
       {required final int id,
-      required final String token,
+      required final String? token,
       required final String email,
       final ProfessionChoices? profession,
       required final String name}) = _$UserImpl;
@@ -220,7 +220,7 @@ abstract class _User extends User {
   @override
   int get id;
   @override
-  String get token;
+  String? get token;
   @override
   String get email;
   @override

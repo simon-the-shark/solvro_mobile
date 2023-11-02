@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../models/enums/enums.dart';
+import '../../models/users/user.dart';
 
 part 'new_task_view_controller.g.dart';
 
@@ -49,13 +50,13 @@ class NewTaskViewController extends _$NewTaskViewController {
   void nameOnChanged(String val) => _formController.name = val;
   void estimationOnChanged(EstimationChoices? val) =>
       _formController.estimation = val;
-  void onAssignedToChanged(int? val) => _formController.assignedTo = val;
+  void onAssignedToChanged(User? val) => _formController.assignedTo = val;
 }
 
 class NewTaskViewFormController {
   String? name;
   EstimationChoices? estimation;
-  int? assignedTo;
+  User? assignedTo;
 
   void validate() {
     _nameValidator();

@@ -11,7 +11,7 @@ class User with _$User {
 
   factory User({
     required int id,
-    required String token,
+    required String? token,
     required String email,
     ProfessionChoices? profession,
     required String name,

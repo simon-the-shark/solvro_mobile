@@ -8,7 +8,7 @@ part of 'user.dart';
 
 _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       id: json['id'] as int,
-      token: json['token'] as String,
+      token: json['token'] as String?,
       email: json['email'] as String,
       profession:
           $enumDecodeNullable(_$ProfessionChoicesEnumMap, json['profession']),

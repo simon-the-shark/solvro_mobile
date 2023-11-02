@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../users/user.dart';
+
 part 'project.freezed.dart';
 part 'project.g.dart';
 
@@ -11,7 +13,7 @@ class Project with _$Project {
     required int id,
     required String name,
     required int owner,
-    @JsonKey(name: "other_users") required List<int> otherUsers,
+    @JsonKey(name: "other_users") required List<User> otherUsers,
   }) = _Project;
 
   factory Project.fromJson(Map<String, Object?> json) =>
@@ -21,11 +23,11 @@ class Project with _$Project {
     return copyWith(name: name);
   }
 
-  Project aadUser(int user) {
+  Project aadUser(User user) {
     return copyWith(otherUsers: [...otherUsers, user]);
   }
 
-  Project removeUser(int user) {
+  Project removeUser(User user) {
     return copyWith(
       otherUsers: otherUsers.where((element) => element != user).toList(),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class UsersDropdownFormField<int> extends StatelessWidget {
+class UsersDropdownFormField<User> extends StatelessWidget {
   const UsersDropdownFormField({
     super.key,
     this.inputHeight = 60.0,
@@ -10,18 +10,18 @@ class UsersDropdownFormField<int> extends StatelessWidget {
     this.labelText,
     this.obscureText = false,
     this.onChanged,
-    required this.itemsUsersIds,
+    required this.itemsUsers,
     this.errorText,
   });
   final String? errorText;
-  final void Function(int?)? onChanged;
+  final void Function(User?)? onChanged;
   final double inputHeight;
   final EdgeInsets inputPadding;
   final Radius radius;
   final String? hintText;
   final String? labelText;
   final bool obscureText;
-  final List<int> itemsUsersIds;
+  final List<User> itemsUsers;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class UsersDropdownFormField<int> extends StatelessWidget {
           errorText: errorText,
         ),
         itemHeight: inputHeight,
-        items: itemsUsersIds
+        items: itemsUsers
             .map((e) => DropdownMenuItem(
                   value: e,
                   child: Padding(

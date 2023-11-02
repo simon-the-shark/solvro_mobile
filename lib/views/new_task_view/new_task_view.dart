@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../models/enums/enums.dart';
+import '../../models/users/user.dart';
 import '../../widgets/enum_dropdown_form_field.dart';
 import '../../widgets/standard_text_form_field.dart';
 import '../projects_drawer/projects_drawer_controller.dart';
@@ -40,11 +41,11 @@ class NewTaskView extends ConsumerWidget {
             ),
             UsersDropdownFormField(
               hintText: "Assign to",
-              itemsUsersIds: ref
+              itemsUsers: ref
                       .watch(currentProjectSubcontrollerProvider)
                       .value
                       ?.otherUsers ??
-                  <int>[],
+                  <User>[],
               onChanged: controller.onAssignedToChanged,
               errorText: errorMap["assignedTo"],
             ),

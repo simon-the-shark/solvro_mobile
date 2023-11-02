@@ -19,7 +19,7 @@ class AuthLocalRepository {
 
   Future<void> saveUser(User user) async {
     final prefs = await _prefs;
-    await prefs.setString(_tokenStringKey, user.token);
+    await prefs.setString(_tokenStringKey, user.token!);
     await prefs.setString(_emailStringKey, user.email);
     await prefs.setString(_nameStringKey, user.name);
     await prefs.setInt(_idStringKey, user.id);
