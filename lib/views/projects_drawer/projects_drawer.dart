@@ -14,7 +14,7 @@ class ProjectsDrawer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final projects = ref.watch(projectsDrawerControllerProvider).value?.$1;
+    final projects = ref.watch(projectsDrawerControllerProvider).value;
     return Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -109,7 +109,8 @@ class ProjectsDrawer extends ConsumerWidget {
                           project: e,
                           onTap: () {
                             ref
-                                .read(projectsDrawerControllerProvider.notifier)
+                                .read(currentProjectSubcontrollerProvider
+                                    .notifier)
                                 .setCurrentProject(e);
                             Scaffold.of(context).closeDrawer();
                           },
