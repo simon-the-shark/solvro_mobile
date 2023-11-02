@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TonalButton extends StatelessWidget {
-  const TonalButton({
+class SecondaryButton extends StatelessWidget {
+  const SecondaryButton({
     super.key,
     required this.onPressed,
     required this.text,
@@ -17,14 +17,14 @@ class TonalButton extends StatelessWidget {
       child: FilledButton(
         style: ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(
-            Theme.of(context).colorScheme.tertiaryContainer,
+            Theme.of(context).colorScheme.secondary,
           ),
         ),
         onPressed: onPressed,
         child: Text(
           text,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onTertiaryContainer,
+            color: Theme.of(context).colorScheme.onTertiary,
           ),
         ),
       ),

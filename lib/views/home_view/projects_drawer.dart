@@ -4,8 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../services/auth_service.dart';
 import '../../widgets/gradient_button.dart';
 import '../../widgets/name_header.dart';
-import '../../widgets/project_menu_item.dart';
+import '../../widgets/secondary_button.dart';
 import 'home_view_controller.dart';
+import 'widgets/project_menu_item.dart';
 
 class ProjectsDrawer extends ConsumerWidget {
   const ProjectsDrawer({super.key});
@@ -103,6 +104,13 @@ class ProjectsDrawer extends ConsumerWidget {
                         ),
                       ) ??
                       const [],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SecondaryButton(
+                      onPressed: () {},
+                      text: "Dodaj nowy projekt",
+                    ),
+                  ),
                   const SizedBox(height: 20),
                 ],
               ),
