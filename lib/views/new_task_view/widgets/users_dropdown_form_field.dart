@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class UsersDropdownFormField<User> extends StatelessWidget {
+import '../../../models/users/user.dart';
+
+class UsersDropdownFormField extends StatelessWidget {
   const UsersDropdownFormField({
     super.key,
     this.inputHeight = 60.0,
@@ -28,7 +30,7 @@ class UsersDropdownFormField<User> extends StatelessWidget {
     return Container(
       height: errorText == null ? inputHeight : inputHeight + 25,
       padding: inputPadding,
-      child: DropdownButtonFormField(
+      child: DropdownButtonFormField<User?>(
         padding: EdgeInsets.zero,
         decoration: InputDecoration(
           isDense: true,
@@ -42,17 +44,26 @@ class UsersDropdownFormField<User> extends StatelessWidget {
           errorText: errorText,
         ),
         itemHeight: inputHeight,
-        items: itemsUsers
-            .map((e) => DropdownMenuItem(
+        items: [
+          const DropdownMenuItem(
+            value: null,
+            child: Padding(
+              padding: EdgeInsets.only(top: 2.0),
+              child: Text("---"),
+            ),
+          ),
+          ...itemsUsers
+              .map(
+                (e) => DropdownMenuItem(
                   value: e,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 2.0),
-                    child: Text(
-                      e.toString(),
-                    ),
+                    child: Text(e.email),
                   ),
-                ))
-            .toList(),
+                ),
+              )
+              .toList()
+        ],
         onChanged: onChanged,
       ),
     );

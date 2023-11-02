@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../services/projects_service.dart';
 import '../../widgets/name_header.dart';
-import 'projects_drawer_controller.dart';
 import 'widgets/email_list_tile.dart';
 import 'widgets/logout_button.dart';
 import 'widgets/name_list_tile.dart';
@@ -15,7 +15,7 @@ class ProjectsDrawer extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final projects = ref.watch(projectsDrawerControllerProvider).value;
+    final projects = ref.watch(projectsServiceProvider).value;
     return Drawer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -75,8 +75,7 @@ class ProjectsDrawer extends ConsumerWidget {
                           project: e,
                           onTap: () {
                             ref
-                                .read(currentProjectSubcontrollerProvider
-                                    .notifier)
+                                .read(currentProjectSubServiceProvider.notifier)
                                 .setCurrentProject(e);
                             Scaffold.of(context).closeDrawer();
                           },

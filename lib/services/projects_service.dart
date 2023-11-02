@@ -1,14 +1,13 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:solvro_mobile/repositories/current_project_local_repository.dart';
 
-import '../../models/projects/project.dart';
-import '../../repositories/projects_repository.dart';
+import '../models/projects/project.dart';
+import '../repositories/current_project_local_repository.dart';
+import '../repositories/projects_repository.dart';
 
-part 'projects_drawer_controller.g.dart';
+part 'projects_service.g.dart';
 
 @riverpod
-class ProjectsDrawerController extends _$ProjectsDrawerController {
+class ProjectsService extends _$ProjectsService {
   @override
   FutureOr<List<Project>> build() async {
     return await ref.watch(projectsRepositoryProvider).getProjects();
@@ -16,10 +15,10 @@ class ProjectsDrawerController extends _$ProjectsDrawerController {
 }
 
 @riverpod
-class CurrentProjectSubcontroller extends _$CurrentProjectSubcontroller {
+class CurrentProjectSubService extends _$CurrentProjectSubService {
   @override
   FutureOr<Project?> build() async {
-    final projects = ref.watch(projectsDrawerControllerProvider).value;
+    final projects = ref.watch(projectsServiceProvider).value;
     if (projects?.isEmpty != false) {
       return null;
     }

@@ -30,7 +30,6 @@ class NewTaskViewController extends _$NewTaskViewController {
   Future<bool> validateForm() async {
     state = await AsyncValue.guard(() async {
       _formController.validate();
-      // return ref.read(authServiceProvider).value;
     });
     return !state.hasError;
   }
