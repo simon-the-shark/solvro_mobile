@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+class TonalButton extends StatelessWidget {
+  const TonalButton({
     super.key,
     required this.onPressed,
     required this.text,
@@ -12,19 +12,19 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 150,
+      width: 200,
       height: 45,
-      child: OutlinedButton(
-        onPressed: onPressed,
+      child: FilledButton(
         style: ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(
-            Theme.of(context).colorScheme.primary,
+            Theme.of(context).colorScheme.tertiaryContainer,
           ),
         ),
+        onPressed: onPressed,
         child: Text(
           text,
           style: TextStyle(
-            color: Theme.of(context).colorScheme.onPrimary,
+            color: Theme.of(context).colorScheme.onTertiaryContainer,
           ),
         ),
       ),
