@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'go_router.dart';
-import 'widgets/hamburger_menu.dart';
+import 'views/projects_drawer/widgets/hamburger_menu.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
