@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../models/enums.dart';
-import '../../services/auth_service.dart';
-import '../../widgets/gradient_button.dart';
 import '../../widgets/name_header.dart';
-import '../../widgets/secondary_button.dart';
 import 'projects_drawer_controller.dart';
+import 'widgets/email_list_tile.dart';
+import 'widgets/logout_button.dart';
+import 'widgets/name_list_tile.dart';
+import 'widgets/new_project_button.dart';
+import 'widgets/profession_list_tile.dart';
 import 'widgets/project_menu_item.dart';
 
 class ProjectsDrawer extends ConsumerWidget {
@@ -47,46 +48,11 @@ class ProjectsDrawer extends ConsumerWidget {
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
                     const SizedBox(height: 20),
-                    ListTile(
-                      title: Text(
-                          ref.watch(authServiceProvider).value?.name ?? ""),
-                      leading: const Icon(Icons.person),
-                      dense: true,
-                      iconColor: Theme.of(context).colorScheme.onSecondary,
-                      textColor: Theme.of(context).colorScheme.onSecondary,
-                    ),
-                    ListTile(
-                      dense: true,
-                      title: Text(
-                          ref.watch(authServiceProvider).value?.email ?? ""),
-                      leading: const Icon(Icons.email),
-                      iconColor: Theme.of(context).colorScheme.onTertiary,
-                      textColor: Theme.of(context).colorScheme.onTertiary,
-                    ),
-                    ListTile(
-                      dense: true,
-                      title: Text(EnumJsonConverter.valueString(ref
-                              .watch(authServiceProvider)
-                              .value
-                              ?.profession) ??
-                          ""),
-                      leading: const Icon(Icons.work_outline),
-                      iconColor: Theme.of(context).colorScheme.onTertiary,
-                      textColor: Theme.of(context).colorScheme.onTertiary,
-                    ),
+                    const NameListTile(),
+                    const EmailListTile(),
+                    const ProfessionListTile(),
                     const SizedBox(height: 5),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GradientButton(
-                          onPressed: () =>
-                              ref.read(authServiceProvider.notifier).logout(),
-                          text: "Log out",
-                        ),
-                      ],
-                    ),
+                    const LogoutButton(),
                     const SizedBox(height: 25),
                   ]),
             ),
@@ -118,13 +84,7 @@ class ProjectsDrawer extends ConsumerWidget {
                       ) ??
                       const [],
                   const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SecondaryButton(
-                      onPressed: () {},
-                      text: "Dodaj nowy projekt",
-                    ),
-                  ),
+                  const NewProjectButton(),
                   const SizedBox(height: 20),
                 ],
               ),

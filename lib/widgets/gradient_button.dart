@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GradientButton extends StatelessWidget {
-  GradientButton({this.text, this.onPressed, Key? key}) : super(key: key);
+  const GradientButton({this.text, this.onPressed, Key? key}) : super(key: key);
   final String? text;
   final Function()? onPressed;
 
