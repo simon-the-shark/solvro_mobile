@@ -44,6 +44,7 @@ class EnumJsonConverter with _$EnumJsonConverter {
   factory EnumJsonConverter({
     ProfessionChoices? profession,
     EstimationChoices? estimation,
+    TaskStatusChoices? taskStatus,
   }) = _EnumConverter;
 
   factory EnumJsonConverter.fromJson(Map<String, Object?> json) =>
@@ -58,6 +59,10 @@ class EnumJsonConverter with _$EnumJsonConverter {
           .toUpperCase()
           .split("ESTIMATIONCHOICES.")[1]
           .replaceFirst("TWENTYONE", "TWENTY_ONE");
+    } else if (val is TaskStatusChoices) {
+      return EnumJsonConverter(taskStatus: val)
+          .toJson()["taskStatus"]
+          .replaceAll("_", " ");
     }
     return null;
   }

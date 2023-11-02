@@ -22,6 +22,7 @@ EnumJsonConverter _$EnumJsonConverterFromJson(Map<String, dynamic> json) {
 mixin _$EnumJsonConverter {
   ProfessionChoices? get profession => throw _privateConstructorUsedError;
   EstimationChoices? get estimation => throw _privateConstructorUsedError;
+  TaskStatusChoices? get taskStatus => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,10 @@ abstract class $EnumJsonConverterCopyWith<$Res> {
           EnumJsonConverter value, $Res Function(EnumJsonConverter) then) =
       _$EnumJsonConverterCopyWithImpl<$Res, EnumJsonConverter>;
   @useResult
-  $Res call({ProfessionChoices? profession, EstimationChoices? estimation});
+  $Res call(
+      {ProfessionChoices? profession,
+      EstimationChoices? estimation,
+      TaskStatusChoices? taskStatus});
 }
 
 /// @nodoc
@@ -53,6 +57,7 @@ class _$EnumJsonConverterCopyWithImpl<$Res, $Val extends EnumJsonConverter>
   $Res call({
     Object? profession = freezed,
     Object? estimation = freezed,
+    Object? taskStatus = freezed,
   }) {
     return _then(_value.copyWith(
       profession: freezed == profession
@@ -63,6 +68,10 @@ class _$EnumJsonConverterCopyWithImpl<$Res, $Val extends EnumJsonConverter>
           ? _value.estimation
           : estimation // ignore: cast_nullable_to_non_nullable
               as EstimationChoices?,
+      taskStatus: freezed == taskStatus
+          ? _value.taskStatus
+          : taskStatus // ignore: cast_nullable_to_non_nullable
+              as TaskStatusChoices?,
     ) as $Val);
   }
 }
@@ -75,7 +84,10 @@ abstract class _$$EnumConverterImplCopyWith<$Res>
       __$$EnumConverterImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProfessionChoices? profession, EstimationChoices? estimation});
+  $Res call(
+      {ProfessionChoices? profession,
+      EstimationChoices? estimation,
+      TaskStatusChoices? taskStatus});
 }
 
 /// @nodoc
@@ -91,6 +103,7 @@ class __$$EnumConverterImplCopyWithImpl<$Res>
   $Res call({
     Object? profession = freezed,
     Object? estimation = freezed,
+    Object? taskStatus = freezed,
   }) {
     return _then(_$EnumConverterImpl(
       profession: freezed == profession
@@ -101,6 +114,10 @@ class __$$EnumConverterImplCopyWithImpl<$Res>
           ? _value.estimation
           : estimation // ignore: cast_nullable_to_non_nullable
               as EstimationChoices?,
+      taskStatus: freezed == taskStatus
+          ? _value.taskStatus
+          : taskStatus // ignore: cast_nullable_to_non_nullable
+              as TaskStatusChoices?,
     ));
   }
 }
@@ -108,7 +125,7 @@ class __$$EnumConverterImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$EnumConverterImpl implements _EnumConverter {
-  _$EnumConverterImpl({this.profession, this.estimation});
+  _$EnumConverterImpl({this.profession, this.estimation, this.taskStatus});
 
   factory _$EnumConverterImpl.fromJson(Map<String, dynamic> json) =>
       _$$EnumConverterImplFromJson(json);
@@ -117,10 +134,12 @@ class _$EnumConverterImpl implements _EnumConverter {
   final ProfessionChoices? profession;
   @override
   final EstimationChoices? estimation;
+  @override
+  final TaskStatusChoices? taskStatus;
 
   @override
   String toString() {
-    return 'EnumJsonConverter(profession: $profession, estimation: $estimation)';
+    return 'EnumJsonConverter(profession: $profession, estimation: $estimation, taskStatus: $taskStatus)';
   }
 
   @override
@@ -131,12 +150,15 @@ class _$EnumConverterImpl implements _EnumConverter {
             (identical(other.profession, profession) ||
                 other.profession == profession) &&
             (identical(other.estimation, estimation) ||
-                other.estimation == estimation));
+                other.estimation == estimation) &&
+            (identical(other.taskStatus, taskStatus) ||
+                other.taskStatus == taskStatus));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, profession, estimation);
+  int get hashCode =>
+      Object.hash(runtimeType, profession, estimation, taskStatus);
 
   @JsonKey(ignore: true)
   @override
@@ -155,7 +177,8 @@ class _$EnumConverterImpl implements _EnumConverter {
 abstract class _EnumConverter implements EnumJsonConverter {
   factory _EnumConverter(
       {final ProfessionChoices? profession,
-      final EstimationChoices? estimation}) = _$EnumConverterImpl;
+      final EstimationChoices? estimation,
+      final TaskStatusChoices? taskStatus}) = _$EnumConverterImpl;
 
   factory _EnumConverter.fromJson(Map<String, dynamic> json) =
       _$EnumConverterImpl.fromJson;
@@ -164,6 +187,8 @@ abstract class _EnumConverter implements EnumJsonConverter {
   ProfessionChoices? get profession;
   @override
   EstimationChoices? get estimation;
+  @override
+  TaskStatusChoices? get taskStatus;
   @override
   @JsonKey(ignore: true)
   _$$EnumConverterImplCopyWith<_$EnumConverterImpl> get copyWith =>
