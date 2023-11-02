@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../services/projects_service.dart';
 import 'projects_drawer/projects_drawer.dart';
@@ -15,12 +16,12 @@ class HomeView extends ConsumerWidget {
       drawer: const ProjectsDrawer(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(
-          "${ref.watch(currentProjectSubServiceProvider).value?.name}",
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onPrimary,
-          ),
-        ),
+        centerTitle: true,
+        title:
+            Text("${ref.watch(currentProjectSubServiceProvider).value?.name}",
+                style: GoogleFonts.grandstander(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                )),
       ),
       body: const TasksTableView(),
       floatingActionButton: const NewTaskFloatingActionButton(),
