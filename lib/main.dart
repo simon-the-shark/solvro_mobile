@@ -17,11 +17,12 @@ class MyApp extends ConsumerWidget {
       routerConfig: ref.watch(goRouterProvider),
       title: 'Solvro Taskmanager',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2E4272)),
-          useMaterial3: true,
-          actionIconTheme: ActionIconThemeData(
-            drawerButtonIconBuilder: (context) => const HamburgerMenu(),
-          )),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2E4272)),
+        useMaterial3: true,
+        actionIconTheme: ActionIconThemeData(
+          drawerButtonIconBuilder: (context) => const HamburgerMenu(),
+        ),
+      ),
     );
   }
 }
