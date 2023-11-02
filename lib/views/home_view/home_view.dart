@@ -14,7 +14,7 @@ class HomeView extends ConsumerWidget {
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
           title: Text(
-            "Proj: ${ref.watch(homeViewControllerProvider).value?.$2?.name}",
+            "${ref.watch(homeViewControllerProvider).value?.$2?.name}",
             style: TextStyle(
               color: Theme.of(context).colorScheme.onPrimary,
             ),

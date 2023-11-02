@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../models/enums.dart';
 import '../../services/auth_service.dart';
 import '../../widgets/gradient_button.dart';
 import '../../widgets/name_header.dart';
@@ -45,7 +46,7 @@ class ProjectsDrawer extends ConsumerWidget {
                     NameHeader(
                       color: Theme.of(context).colorScheme.onSecondary,
                     ),
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 20),
                     ListTile(
                       title: Text(
                           ref.watch(authServiceProvider).value?.name ?? ""),
@@ -62,7 +63,18 @@ class ProjectsDrawer extends ConsumerWidget {
                       iconColor: Theme.of(context).colorScheme.onTertiary,
                       textColor: Theme.of(context).colorScheme.onTertiary,
                     ),
-                    const SizedBox(height: 12),
+                    ListTile(
+                      dense: true,
+                      title: Text(EnumJsonConverter.valueString(ref
+                              .watch(authServiceProvider)
+                              .value
+                              ?.profession) ??
+                          ""),
+                      leading: const Icon(Icons.work_outline),
+                      iconColor: Theme.of(context).colorScheme.onTertiary,
+                      textColor: Theme.of(context).colorScheme.onTertiary,
+                    ),
+                    const SizedBox(height: 5),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,6 +116,7 @@ class ProjectsDrawer extends ConsumerWidget {
                         ),
                       ) ??
                       const [],
+                  const SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SecondaryButton(

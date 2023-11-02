@@ -2,6 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../models/enums.dart';
 import '../models/user.dart';
+import '../repositories/projects_repository.dart';
 import '../repositories/user_local_repository.dart';
 import '../repositories/user_remote_repository.dart';
 
@@ -34,6 +35,9 @@ class AuthService extends _$AuthService {
         .register(email, password, profession, name);
     await ref.read(userLocalRepositoryProvider).saveUser(user);
     state = AsyncData(user);
+    await ref
+        .read(projectsRepositoryProvider)
+        .addProject("Your first project", []);
   }
 
   Future<void> logout() async {
