@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../models/enums/enums.dart';
 import 'task_type_subtable_controller.dart';
+import 'widgets/empty_task_status_list.dart';
+import 'widgets/expansion_title.dart';
+import 'widgets/task_tile.dart';
 
 extension ColorsStatuses on TaskStatusChoices {
   List<Color>? get gradientColors {
@@ -47,7 +50,7 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
       borderRadius: BorderRadius.all(Radius.circular(12)),
     );
     return Card(
-      margin: const EdgeInsets.all(30),
+      margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Stack(
         children: [
           Positioned(
@@ -55,29 +58,27 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
             left: 0,
             right: 0,
             height: 75,
-            child: Builder(builder: (context) {
-              return AnimatedContainer(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    stops: const [0.5, 1],
-                    colors: widget.statusChoice.gradientColors ??
-                        [
-                          Theme.of(context).colorScheme.secondary,
-                          Theme.of(context).colorScheme.inverseSurface,
-                        ],
-                  ),
-                  borderRadius: isExpanded
-                      ? const BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(12),
-                        )
-                      : BorderRadius.circular(12),
+            child: AnimatedContainer(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  stops: const [0.5, 1],
+                  colors: widget.statusChoice.gradientColors ??
+                      [
+                        Theme.of(context).colorScheme.secondary,
+                        Theme.of(context).colorScheme.inverseSurface,
+                      ],
                 ),
-                duration: const Duration(milliseconds: 300),
-              );
-            }),
+                borderRadius: isExpanded
+                    ? const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        topRight: Radius.circular(12),
+                      )
+                    : BorderRadius.circular(12),
+              ),
+              duration: const Duration(milliseconds: 300),
+            ),
           ),
           ExpansionTile(
             onExpansionChanged: (value) {
@@ -87,20 +88,22 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
             },
             shape: shape,
             collapsedShape: shape,
-            title: ListTile(
-                title: Text(
-              EnumJsonConverter.valueString(widget.statusChoice) ?? "",
-              style: Theme.of(context).primaryTextTheme.titleMedium!.copyWith(
-                    color: Colors.white,
-                  ),
-            )),
+            title: ExpansionTitle(widget.statusChoice),
             initiallyExpanded: true,
             children: [
-              ...tasks?.map((e) => ListTile(
-                        title: Text(e.name),
-                      )) ??
-                  const [],
-            ],
+              const SizedBox(height: 15),
+              ...(tasks
+                      ?.map((e) => TaskTile(e))
+                      .expand((element) => [
+                            const Divider(),
+                            element,
+                          ])
+                      .toList() ??
+                  const []),
+              if (tasks == null || tasks.isEmpty) Container(),
+              if (tasks == null || tasks.isEmpty) const EmptyTaskStatusList(),
+              const SizedBox(height: 15),
+            ]..removeAt(1),
           ),
         ],
       ),

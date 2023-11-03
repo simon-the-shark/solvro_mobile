@@ -9,12 +9,14 @@ class TasksTableView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Column(
-      children: [
-        TaskTypeSubtable(TaskStatusChoices.notAssigned),
-        TaskTypeSubtable(TaskStatusChoices.inProgress),
-        TaskTypeSubtable(TaskStatusChoices.closed),
-      ],
+    return const SingleChildScrollView(
+      child: Column(
+        children: [
+          TaskTypeSubtable(TaskStatusChoices.notAssigned),
+          TaskTypeSubtable(TaskStatusChoices.inProgress),
+          TaskTypeSubtable(TaskStatusChoices.closed),
+        ],
+      ),
     );
   }
 }

@@ -10,7 +10,7 @@ _$ProjectImpl _$$ProjectImplFromJson(Map<String, dynamic> json) =>
     _$ProjectImpl(
       id: json['id'] as int,
       name: json['name'] as String,
-      owner: json['owner'] as int,
+      owner: User.fromJson(json['owner'] as Map<String, dynamic>),
       otherUsers: (json['other_users'] as List<dynamic>)
           .map((e) => User.fromJson(e as Map<String, dynamic>))
           .toList(),

@@ -82,7 +82,7 @@ class NewTaskView extends ConsumerWidget {
                     itemsUsers: ref
                             .watch(currentProjectSubServiceProvider)
                             .value
-                            ?.otherUsers ??
+                            ?.allUsers ??
                         <User>[],
                     onChanged: controller.onAssignedToChanged,
                     errorText: errorMap["assignedTo"],

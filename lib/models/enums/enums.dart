@@ -54,11 +54,14 @@ class EnumJsonConverter with _$EnumJsonConverter {
     if (val is ProfessionChoices) {
       return EnumJsonConverter(profession: val).toJson()["profession"];
     } else if (val is EstimationChoices) {
-      return val
-          .toString()
-          .toUpperCase()
-          .split("ESTIMATIONCHOICES.")[1]
-          .replaceFirst("TWENTYONE", "TWENTY_ONE");
+      return EnumJsonConverter(estimation: val)
+          .toJson()["estimation"]
+          .toString();
+      // return val
+      //     .toString()
+      //     .toUpperCase()
+      //     .split("ESTIMATIONCHOICES.")[1]
+      //     .replaceFirst("TWENTYONE", "TWENTY_ONE");
     } else if (val is TaskStatusChoices) {
       return EnumJsonConverter(taskStatus: val)
           .toJson()["taskStatus"]

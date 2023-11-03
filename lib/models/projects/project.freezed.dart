@@ -22,7 +22,7 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 mixin _$Project {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get owner => throw _privateConstructorUsedError;
+  User get owner => throw _privateConstructorUsedError;
   @JsonKey(name: "other_users")
   List<User> get otherUsers => throw _privateConstructorUsedError;
 
@@ -39,8 +39,10 @@ abstract class $ProjectCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      int owner,
+      User owner,
       @JsonKey(name: "other_users") List<User> otherUsers});
+
+  $UserCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -73,12 +75,20 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as int,
+              as User,
       otherUsers: null == otherUsers
           ? _value.otherUsers
           : otherUsers // ignore: cast_nullable_to_non_nullable
               as List<User>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get owner {
+    return $UserCopyWith<$Res>(_value.owner, (value) {
+      return _then(_value.copyWith(owner: value) as $Val);
+    });
   }
 }
 
@@ -92,8 +102,11 @@ abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   $Res call(
       {int id,
       String name,
-      int owner,
+      User owner,
       @JsonKey(name: "other_users") List<User> otherUsers});
+
+  @override
+  $UserCopyWith<$Res> get owner;
 }
 
 /// @nodoc
@@ -124,7 +137,7 @@ class __$$ProjectImplCopyWithImpl<$Res>
       owner: null == owner
           ? _value.owner
           : owner // ignore: cast_nullable_to_non_nullable
-              as int,
+              as User,
       otherUsers: null == otherUsers
           ? _value._otherUsers
           : otherUsers // ignore: cast_nullable_to_non_nullable
@@ -152,7 +165,7 @@ class _$ProjectImpl extends _Project {
   @override
   final String name;
   @override
-  final int owner;
+  final User owner;
   final List<User> _otherUsers;
   @override
   @JsonKey(name: "other_users")
@@ -202,7 +215,7 @@ abstract class _Project extends Project {
   factory _Project(
           {required final int id,
           required final String name,
-          required final int owner,
+          required final User owner,
           @JsonKey(name: "other_users") required final List<User> otherUsers}) =
       _$ProjectImpl;
   _Project._() : super._();
@@ -214,7 +227,7 @@ abstract class _Project extends Project {
   @override
   String get name;
   @override
-  int get owner;
+  User get owner;
   @override
   @JsonKey(name: "other_users")
   List<User> get otherUsers;

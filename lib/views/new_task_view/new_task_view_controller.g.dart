@@ -7,7 +7,7 @@ part of 'new_task_view_controller.dart';
 // **************************************************************************
 
 String _$newTaskViewControllerHash() =>
-    r'b2b262287d72a4c39ea677d7b08bcdc77282e776';
+    r'71a6f00c322a4a7e43d25e1b0779cc4bbbba6ed7';
 
 /// See also [NewTaskViewController].
 @ProviderFor(NewTaskViewController)

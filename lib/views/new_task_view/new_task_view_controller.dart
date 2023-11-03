@@ -39,6 +39,7 @@ class NewTaskViewController extends _$NewTaskViewController {
                     : TaskStatusChoices.inProgress,
               ),
             )
+            .then((value) => ref.refresh(tasksRepositoryProvider))
             .then(
               (value) => ref.read(goRouterProvider).go("/"),
             ),

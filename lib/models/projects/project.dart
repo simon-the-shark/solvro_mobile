@@ -12,7 +12,7 @@ class Project with _$Project {
   factory Project({
     required int id,
     required String name,
-    required int owner,
+    required User owner,
     @JsonKey(name: "other_users") required List<User> otherUsers,
   }) = _Project;
 
@@ -32,4 +32,6 @@ class Project with _$Project {
       otherUsers: otherUsers.where((element) => element != user).toList(),
     );
   }
+
+  List<User> get allUsers => [owner, ...otherUsers];
 }
