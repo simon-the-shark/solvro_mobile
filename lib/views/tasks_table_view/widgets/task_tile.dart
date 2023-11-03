@@ -28,7 +28,7 @@ class TaskTile extends ConsumerWidget {
           leading: showExclamation
               ? Icon(
                   Icons.warning_amber_outlined,
-                  color: Colors.yellow.shade900,
+                  color: Colors.yellow.shade800,
                 )
               : null,
           trailing: Container(
