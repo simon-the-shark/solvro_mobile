@@ -36,7 +36,16 @@ class TaskTile extends ConsumerWidget {
             width: 40,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Theme.of(context).colorScheme.secondary,
+              gradient: LinearGradient(
+                begin: Alignment.bottomLeft,
+                end: Alignment.topRight,
+                stops: const [0.4, 1],
+                colors: [
+                  Theme.of(context).colorScheme.secondary,
+                  Theme.of(context).colorScheme.secondaryContainer
+                ],
+              ),
+              // color: Theme.of(context).colorScheme.secondary,
             ),
             child: Center(
               child: Text(
