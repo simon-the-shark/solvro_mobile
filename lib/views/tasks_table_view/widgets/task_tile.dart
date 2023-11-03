@@ -32,14 +32,14 @@ class TaskTile extends ConsumerWidget {
                 )
               : null,
           trailing: Container(
-            height: 40,
-            width: 40,
+            height: 37,
+            width: 37,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
                 begin: Alignment.bottomLeft,
                 end: Alignment.topRight,
-                stops: const [0.4, 1],
+                stops: const [0.48, 1],
                 colors: [
                   Theme.of(context).colorScheme.secondary,
                   Theme.of(context).colorScheme.secondaryContainer
