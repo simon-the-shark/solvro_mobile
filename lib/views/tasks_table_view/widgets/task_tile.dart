@@ -17,12 +17,20 @@ class TaskTile extends ConsumerWidget {
           (e) => e.id == task.assignedTo,
         )
         ?.name;
+    final showExclamation = task.status == TaskStatusChoices.notAssigned &&
+        task.createdAt.difference(DateTime.now()).inDays <= -14;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         ListTile(
           title: Text(task.name),
           subtitle: subtitle == null ? null : Text(subtitle),
+          leading: showExclamation
+              ? Icon(
+                  Icons.warning_amber_outlined,
+                  color: Colors.yellow.shade900,
+                )
+              : null,
           trailing: Container(
             height: 40,
             width: 40,
