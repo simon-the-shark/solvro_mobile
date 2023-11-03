@@ -15,12 +15,10 @@ class ProjectMenuItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       child: GestureDetector(
         onTap: onTap,
-        child: Chip(
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              color: Theme.of(context).colorScheme.tertiary,
-            ),
-            borderRadius: const BorderRadius.all(
+        child: FilterChip(
+          shape: const RoundedRectangleBorder(
+            side: BorderSide.none,
+            borderRadius: BorderRadius.all(
               Radius.circular(12),
             ),
           ),
@@ -41,6 +39,7 @@ class ProjectMenuItem extends StatelessWidget {
               ),
             ],
           ),
+          onSelected: (bool value) {},
         ),
       ),
     );
