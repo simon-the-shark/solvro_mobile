@@ -86,13 +86,19 @@ class TaskEditView extends ConsumerWidget {
                         (element) => element.id == task.createdBy),
                     datetime: task.createdAt,
                   ),
+                  Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      PrimaryButton(
+                        size: const Size(200, 45),
+                        onPressed: controller.editTask,
+                        text: "Edit task",
+                      ),
+                      const SizedBox(height: 25),
+                    ],
+                  ),
                 ],
               ),
-            ),
-            PrimaryButton(
-              size: const Size(200, 45),
-              onPressed: controller.editTask,
-              text: "Edit task",
             ),
           ],
         ),

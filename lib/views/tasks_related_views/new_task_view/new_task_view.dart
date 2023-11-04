@@ -86,13 +86,19 @@ class _NewTaskViewState extends ConsumerState<NewTaskView> {
                   ),
                   const SizedBox(height: 20),
                   const NewTaskCreatorAppendix(),
+                  Column(
+                    children: [
+                      const SizedBox(height: 15),
+                      PrimaryButton(
+                        size: const Size(200, 45),
+                        onPressed: controller.saveTask,
+                        text: "Add task",
+                      ),
+                      const SizedBox(height: 30),
+                    ],
+                  ),
                 ],
               ),
-            ),
-            PrimaryButton(
-              size: const Size(200, 45),
-              onPressed: controller.saveTask,
-              text: "Add task",
             ),
           ],
         ),
