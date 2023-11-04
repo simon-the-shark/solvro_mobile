@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../repositories/projects_repository.dart';
 import '../../services/projects_service.dart';
 import '../../widgets/name_header.dart';
+import 'widgets/app_info_tile.dart';
 import 'widgets/email_list_tile.dart';
 import 'widgets/logout_button.dart';
 import 'widgets/name_list_tile.dart';
@@ -38,7 +39,8 @@ class ProjectsDrawer extends ConsumerWidget {
                 const [],
             const SizedBox(height: 10),
             const NewProjectButton(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 50),
+            const AppInfoTile()
           ],
         ),
       ),
