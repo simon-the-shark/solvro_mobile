@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../models/enums/enums.dart';
 import '../../../../models/tasks/task.dart';
 import '../../../../services/projects_service.dart';
-import 'estimation_medal.dart';
+import '../../widgets/estimation_medal.dart';
 
 class TaskTile extends ConsumerWidget {
   const TaskTile(this.task, {super.key});

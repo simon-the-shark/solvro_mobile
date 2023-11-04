@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import '../../../../models/enums/enums.dart';
 import '../../../../models/tasks/task.dart';
 import '../../../../models/users/user.dart';
-import '../../new_task_view/widgets/status_header_and_title.dart';
+import '../../widgets/status_header_and_title.dart';
 
 class TaskDetailCard extends StatelessWidget {
   const TaskDetailCard({

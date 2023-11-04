@@ -10,7 +10,7 @@ import '../../../widgets/standard_app_bar.dart';
 import '../../../widgets/standard_text_form_field.dart';
 import 'new_task_view_controller.dart';
 import 'widgets/new_task_creator_appendix.dart';
-import 'widgets/status_header_and_title.dart';
+import '../widgets/status_header_and_title.dart';
 import 'widgets/users_dropdown_form_field.dart';
 
 class NewTaskView extends ConsumerStatefulWidget {
