@@ -37,7 +37,7 @@ class TaskDetailView extends ConsumerWidget {
             actions: [
               const SizedBox(height: 15),
               SecondaryButton(
-                color: Theme.of(context).colorScheme.tertiary,
+                color: Theme.of(context).colorScheme.primary,
                 text: "Edit task",
                 onPressed: () {
                   context.push("/tasks/edit/$taskId");

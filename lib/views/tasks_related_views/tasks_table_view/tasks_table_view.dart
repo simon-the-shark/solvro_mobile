@@ -5,7 +5,6 @@ import '../../../models/enums/enums.dart';
 import '../../../repositories/tasks_repository.dart';
 import 'task_type_subtable.dart';
 import 'widgets/empty_table.dart';
-import 'widgets/status_filter_chip.dart';
 
 class TasksTableView extends ConsumerWidget {
   const TasksTableView({super.key});
@@ -19,27 +18,6 @@ class TasksTableView extends ConsumerWidget {
           SingleChildScrollView(
             child: Column(
               children: [
-                // Divider(),
-                // Text("Filter table"),
-                // Divider(),
-                ExpansionTile(
-                    collapsedBackgroundColor: Colors.white,
-                    backgroundColor: Colors.white,
-                    title: Text("Filter table options"),
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 12.0),
-                        child: Wrap(
-                          spacing: 10,
-                          children: [
-                            StatusFilterChip(TaskStatusChoices.notAssigned),
-                            StatusFilterChip(TaskStatusChoices.inProgress),
-                            StatusFilterChip(TaskStatusChoices.closed),
-                          ],
-                        ),
-                      ),
-                    ]),
-                // ListTile(),
                 SizedBox(height: 15),
                 TaskTypeSubtable(TaskStatusChoices.notAssigned),
                 TaskTypeSubtable(TaskStatusChoices.inProgress),
@@ -49,7 +27,6 @@ class TasksTableView extends ConsumerWidget {
               ],
             ),
           ),
-          //Expansion tile here?
         ],
       ),
     );

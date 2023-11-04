@@ -5,7 +5,8 @@ import '../services/projects_service.dart';
 import '../widgets/standard_app_bar.dart';
 import 'projects_drawer/projects_drawer.dart';
 import 'tasks_related_views/tasks_table_view/tasks_table_view.dart';
-import 'tasks_related_views/tasks_table_view/widgets/new_task_fab.dart';
+import 'tasks_related_views/tasks_table_view/widgets/app_bar_actions.dart';
+import 'tasks_related_views/tasks_table_view/widgets/filter_expansion_section.dart';
 
 class HomeView extends ConsumerWidget {
   const HomeView({super.key});
@@ -17,9 +18,10 @@ class HomeView extends ConsumerWidget {
       appBar: StandardAppBar(
         context,
         titleText: "${ref.watch(currentProjectSubServiceProvider).value?.name}",
+        actions: AppBarActions(context),
       ),
       body: const TasksTableView(),
-      floatingActionButton: const NewTaskFloatingActionButton(),
+      bottomNavigationBar: const FilterExpansionSection(),
     );
   }
 }
