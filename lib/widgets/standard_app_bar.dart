@@ -9,9 +9,9 @@ class StandardAppBar extends AppBar {
     required String titleText,
   }) : super(
           backgroundColor: Theme.of(context).colorScheme.primary,
-          centerTitle: true,
+          // centerTitle: true,
           title: Text(titleText,
-              style: GoogleFonts.grandstander(
+              style: GoogleFonts.nunito(
                 color: Theme.of(context).colorScheme.onPrimary,
               )),
           actions: actions,
