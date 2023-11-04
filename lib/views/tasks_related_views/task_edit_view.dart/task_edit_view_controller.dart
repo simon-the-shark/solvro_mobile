@@ -33,7 +33,7 @@ class TaskEditViewController extends _$TaskEditViewController {
           .read(tasksRepositoryProvider)
           .updateTask(updatedTask)
           .then(
-            (value) => ref.read(goRouterProvider).go("/"),
+            (value) => ref.read(goRouterProvider).pop(true),
           )
           .then((value) => state.value!),
     );

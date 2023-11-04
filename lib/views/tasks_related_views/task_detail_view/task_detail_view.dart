@@ -39,8 +39,9 @@ class TaskDetailView extends ConsumerWidget {
               PrimaryButton(
                 size: const Size(200, 45),
                 text: "Edit task",
-                onPressed: () {
-                  context.push("/tasks/edit/$taskId");
+                onPressed: () async {
+                  final response = await context.push("/tasks/edit/$taskId");
+                  if (response == true) Navigator.of(context).pop();
                 },
               ),
               const SizedBox(height: 15),
