@@ -37,7 +37,7 @@ class TaskDetailCard extends StatelessWidget {
                     subtitle: const Text("Task name"),
                   ),
                   ListTile(
-                    title: Text(user?.name ?? "NOT ASSIGNED"),
+                    title: Text(user?.representationName ?? "NOT ASSIGNED"),
                     subtitle: const Text("Assigned user"),
                   ),
                   ListTile(
@@ -46,7 +46,7 @@ class TaskDetailCard extends StatelessWidget {
                     subtitle: const Text("Estimation number"),
                   ),
                   ListTile(
-                    title: Text(creator?.name ?? "NOT ASSIGNED"),
+                    title: Text(creator?.representationName ?? "NOT ASSIGNED"),
                     subtitle: const Text("Created by"),
                   ),
                   ListTile(

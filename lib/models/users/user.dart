@@ -26,4 +26,9 @@ class User with _$User {
   User copyWithProfession(ProfessionChoices profession) {
     return copyWith(profession: profession);
   }
+
+  String get representationName {
+    if (name == "" || name == "<default_name>") return email;
+    return name;
+  }
 }

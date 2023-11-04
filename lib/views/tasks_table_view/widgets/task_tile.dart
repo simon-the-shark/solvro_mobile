@@ -18,7 +18,7 @@ class TaskTile extends ConsumerWidget {
         ?.firstWhereOrNull(
           (e) => e.id == task.assignedTo,
         )
-        ?.name;
+        ?.representationName;
     final showExclamation = task.status == TaskStatusChoices.notAssigned &&
         task.createdAt.difference(DateTime.now()).inDays <= -14;
     return ListTile(

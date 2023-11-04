@@ -58,7 +58,7 @@ class UsersDropdownFormField extends StatelessWidget {
                   value: e,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 2.0),
-                    child: Text(e.email),
+                    child: Text(e.representationName),
                   ),
                 ),
               )
