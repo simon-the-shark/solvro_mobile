@@ -16,7 +16,6 @@ class TaskDetailViewController extends _$TaskDetailViewController {
     if (currProject != null) {
       final tasks =
           await ref.watch(tasksRepositoryProvider).getTasks(currProject);
-
       final task = tasks?.firstWhereOrNull((element) => element.id == taskId);
       final users =
           ref.watch(currentProjectSubServiceProvider).value?.allUsers ??

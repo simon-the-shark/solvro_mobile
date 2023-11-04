@@ -10,19 +10,24 @@ class TaskDetailView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final status = ref.watch(taskDetailViewControllerProvider(taskId)).value;
-    final task = status?.$1;
-    final user = status?.$2;
-    final creator = status?.$3;
+    final status = ref.watch(taskDetailViewControllerProvider(taskId));
+    final task = status.value?.$1;
+    final user = status.value?.$2;
+    final creator = status.value?.$3;
     return Stack(children: [
       const ModalBarrier(
         color: Colors.black54,
       ),
-      Column(
-        children: [
-          TaskDetailCard(task: task, user: user, creator: creator),
-        ],
-      )
+      if (status.isLoading)
+        const Center(
+          child: CircularProgressIndicator(),
+        ),
+      if (!status.isLoading)
+        Column(
+          children: [
+            TaskDetailCard(task: task, user: user, creator: creator),
+          ],
+        )
     ]);
   }
 }
