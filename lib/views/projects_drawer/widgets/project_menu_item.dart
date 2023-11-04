@@ -21,38 +21,33 @@ class ProjectMenuItem extends StatelessWidget {
             child: ListTile(
               onTap: onTap,
               dense: true,
-              leading: Icon(
-                Icons.folder,
-                color: Theme.of(context).colorScheme.inverseSurface,
+              leading: Transform.translate(
+                offset: const Offset(-10, 0),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.settings,
+                    color: Theme.of(context).colorScheme.inverseSurface,
+                    size: 20,
+                  ),
+                ),
               ),
               trailing: const Icon(Icons.navigate_next_sharp),
-              title: Text(
-                project.name,
-                style: Theme.of(context).primaryTextTheme.titleSmall!.copyWith(
-                      color: Theme.of(context).colorScheme.inverseSurface,
-                      fontSize: 16,
-                    ),
+              title: Transform.translate(
+                offset: const Offset(-10, 0),
+                child: Text(
+                  project.name,
+                  style:
+                      Theme.of(context).primaryTextTheme.titleSmall!.copyWith(
+                            color: Theme.of(context).colorScheme.inverseSurface,
+                            fontSize: 16,
+                          ),
+                ),
               ),
             ),
           ),
         ],
       ),
-      // FilterChip(
-      //   shape: const RoundedRectangleBorder(
-      //     side: BorderSide.none,
-      //     borderRadius: BorderRadius.all(
-      //       Radius.circular(12),
-      //     ),
-      //   ),
-      //   avatar: Icon(
-      //     Icons.folder,
-      //     color: Theme.of(context).colorScheme.inverseSurface,
-      //   ),
-      //   label:
-      //   onSelected: (bool value) {
-      //     onTap();
-      //   },
-      // ),
     );
   }
 }
