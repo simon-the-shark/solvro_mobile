@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/enums/enums.dart';
+import '../../../../models/enums/enums.dart';
 
 class ExpansionTitle extends StatelessWidget {
   const ExpansionTitle(

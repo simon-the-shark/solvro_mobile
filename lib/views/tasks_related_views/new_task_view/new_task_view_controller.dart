@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../go_router.dart';
-import '../../models/enums/enums.dart';
-import '../../models/tasks/task.dart';
-import '../../models/users/user.dart';
-import '../../repositories/tasks_repository.dart';
-import '../../services/auth_service.dart';
-import '../../services/projects_service.dart';
+import '../../../go_router.dart';
+import '../../../models/enums/enums.dart';
+import '../../../models/tasks/task.dart';
+import '../../../models/users/user.dart';
+import '../../../repositories/tasks_repository.dart';
+import '../../../services/auth_service.dart';
+import '../../../services/projects_service.dart';
 
 part 'new_task_view_controller.g.dart';
 

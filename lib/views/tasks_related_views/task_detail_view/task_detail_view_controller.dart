@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../models/tasks/task.dart';
-import '../../models/users/user.dart';
-import '../../repositories/tasks_repository.dart';
-import '../../services/projects_service.dart';
+import '../../../models/tasks/task.dart';
+import '../../../models/users/user.dart';
+import '../../../repositories/tasks_repository.dart';
+import '../../../services/projects_service.dart';
 
 part 'task_detail_view_controller.g.dart';
 

@@ -1,9 +1,9 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../models/enums/enums.dart';
-import '../../models/tasks/task.dart';
-import '../../repositories/tasks_repository.dart';
-import '../../services/projects_service.dart';
+import '../../../models/enums/enums.dart';
+import '../../../models/tasks/task.dart';
+import '../../../repositories/tasks_repository.dart';
+import '../../../services/projects_service.dart';
 
 part 'task_type_subtable_controller.g.dart';
 

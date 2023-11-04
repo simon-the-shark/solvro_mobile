@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../models/enums/enums.dart';
-import '../../../models/tasks/task.dart';
-import '../../../services/projects_service.dart';
+import '../../../../models/enums/enums.dart';
+import '../../../../models/tasks/task.dart';
+import '../../../../services/projects_service.dart';
 import 'estimation_medal.dart';
 
 class TaskTile extends ConsumerWidget {

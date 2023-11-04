@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../models/enums/enums.dart';
-import '../../widgets/status_header_tile.dart';
+import '../../../models/enums/enums.dart';
+import '../../../widgets/status_header_tile.dart';
 import 'task_type_subtable_controller.dart';
 import 'widgets/empty_task_status_list.dart';
 import 'widgets/expansion_title.dart';

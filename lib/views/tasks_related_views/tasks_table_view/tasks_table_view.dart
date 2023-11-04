@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../models/enums/enums.dart';
-import '../../repositories/tasks_repository.dart';
+import '../../../models/enums/enums.dart';
+import '../../../repositories/tasks_repository.dart';
 import 'task_type_subtable.dart';
 
 class TasksTableView extends ConsumerWidget {
