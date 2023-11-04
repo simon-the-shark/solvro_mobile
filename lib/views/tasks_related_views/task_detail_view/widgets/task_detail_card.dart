@@ -12,11 +12,13 @@ class TaskDetailCard extends StatelessWidget {
     required this.task,
     required this.user,
     required this.creator,
+    required this.actions,
   });
 
   final Task? task;
   final User? user;
   final User? creator;
+  final List<Widget> actions;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,14 @@ class TaskDetailCard extends StatelessWidget {
                           )
                         : null,
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        ...actions,
+                      ],
+                    ),
+                  )
                 ],
               ));
   }

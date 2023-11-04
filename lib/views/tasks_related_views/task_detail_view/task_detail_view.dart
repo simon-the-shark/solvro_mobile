@@ -30,39 +30,48 @@ class TaskDetailView extends ConsumerWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const Spacer(),
-          TaskDetailCard(task: task, user: user, creator: creator),
-          const Spacer(),
-          SecondaryButton(
-            color: Theme.of(context).colorScheme.tertiary,
-            text: "Edit task",
-            onPressed: () {
-              context.push("/tasks/edit/$taskId");
-            },
-          ),
-          const SizedBox(height: 15),
-          if (task?.status != TaskStatusChoices.closed)
-            DeleteButton(onLoaded: () {
-              Navigator.of(context).pop();
-              showDialog(
-                barrierColor: Colors.black.withOpacity(0.9),
-                context: context,
-                builder: (context) {
-                  final container = ProviderScope.containerOf(context);
-                  return ProviderScope(
-                    parent: container,
-                    child: Theme(
-                      data: Theme.of(context),
-                      child: DeleteDialog(
-                        task: task!,
-                      ),
-                    ),
-                  );
+          TaskDetailCard(
+            task: task,
+            user: user,
+            creator: creator,
+            actions: [
+              const SizedBox(height: 15),
+              SecondaryButton(
+                color: Theme.of(context).colorScheme.tertiary,
+                text: "Edit task",
+                onPressed: () {
+                  context.push("/tasks/edit/$taskId");
                 },
-              );
-            }),
-          if (task?.status == TaskStatusChoices.closed)
-            const BlockedDeleteButton(),
-          const Spacer(flex: 2),
+              ),
+              const SizedBox(height: 15),
+              if (task?.status != TaskStatusChoices.closed)
+                DeleteButton(
+                  onLoaded: () {
+                    Navigator.of(context).pop();
+                    showDialog(
+                      barrierColor: Colors.black.withOpacity(0.9),
+                      context: context,
+                      builder: (context) {
+                        final container = ProviderScope.containerOf(context);
+                        return ProviderScope(
+                          parent: container,
+                          child: Theme(
+                            data: Theme.of(context),
+                            child: DeleteDialog(
+                              task: task!,
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              if (task?.status == TaskStatusChoices.closed)
+                const BlockedDeleteButton(),
+              const SizedBox(height: 15),
+            ],
+          ),
+          const Spacer(flex: 6),
         ],
       ),
     );
