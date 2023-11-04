@@ -2,32 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../models/enums/enums.dart';
+import '../../widgets/status_header_tile.dart';
 import 'task_type_subtable_controller.dart';
 import 'widgets/empty_task_status_list.dart';
 import 'widgets/expansion_title.dart';
 import 'widgets/task_tile.dart';
-
-extension ColorsStatuses on TaskStatusChoices {
-  List<Color>? get gradientColors {
-    switch (this) {
-      case TaskStatusChoices.notAssigned:
-        return [
-          Colors.yellow.shade800,
-          Colors.yellow.shade500,
-        ];
-      case TaskStatusChoices.inProgress:
-        return [
-          Colors.blue.shade700,
-          Colors.blue.shade300,
-        ];
-      case TaskStatusChoices.closed:
-        return [
-          Colors.grey.shade700,
-          Colors.grey.shade500,
-        ];
-    }
-  }
-}
 
 class TaskTypeSubtable extends ConsumerStatefulWidget {
   const TaskTypeSubtable(this.statusChoice, {super.key});
@@ -57,28 +36,8 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
             top: 0,
             left: 0,
             right: 0,
-            height: 75,
-            child: AnimatedContainer(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  stops: const [0.5, 1],
-                  colors: widget.statusChoice.gradientColors ??
-                      [
-                        Theme.of(context).colorScheme.secondary,
-                        Theme.of(context).colorScheme.inverseSurface,
-                      ],
-                ),
-                borderRadius: isExpanded
-                    ? const BorderRadius.only(
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(12),
-                      )
-                    : BorderRadius.circular(12),
-              ),
-              duration: const Duration(milliseconds: 300),
-            ),
+            child: StatusHeaderTile(
+                statusChoice: widget.statusChoice, isExpanded: isExpanded),
           ),
           ExpansionTile(
             onExpansionChanged: (value) {

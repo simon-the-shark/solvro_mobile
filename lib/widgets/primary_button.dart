@@ -5,15 +5,16 @@ class PrimaryButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.text,
+    this.size = const Size(150, 45),
   });
 
   final void Function() onPressed;
   final String text;
+  final Size size;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 150,
-      height: 45,
+    return SizedBox.fromSize(
+      size: size,
       child: OutlinedButton(
         onPressed: onPressed,
         style: ButtonStyle(

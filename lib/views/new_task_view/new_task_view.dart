@@ -5,23 +5,33 @@ import '../../models/enums/enums.dart';
 import '../../models/users/user.dart';
 import '../../services/projects_service.dart';
 import '../../widgets/enum_dropdown_form_field.dart';
-import '../../widgets/gradient_button_primary.dart';
 import '../../widgets/loader_widget_wrapper.dart';
+import '../../widgets/primary_button.dart';
+import '../../widgets/standard_app_bar.dart';
 import '../../widgets/standard_text_form_field.dart';
+import '../../widgets/status_header_tile.dart';
+import '../tasks_table_view/widgets/expansion_title.dart';
 import 'new_task_view_controller.dart';
 import 'widgets/users_dropdown_form_field.dart';
 
-class NewTaskView extends ConsumerWidget {
+class NewTaskView extends ConsumerStatefulWidget {
   const NewTaskView({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<NewTaskView> createState() => _NewTaskViewState();
+}
+
+class _NewTaskViewState extends ConsumerState<NewTaskView> {
+  bool isAssigned = false;
+  @override
+  Widget build(BuildContext context) {
     final state = ref.watch(newTaskViewControllerProvider);
     final controller = ref.watch(newTaskViewControllerProvider.notifier);
     final errorMap = controller.formatExceptionMap();
     final scaffoldWidget = Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+      appBar: StandardAppBar(
+        context,
+        titleText: "ADD NEW TASK",
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -32,33 +42,22 @@ class NewTaskView extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                        stops: const [0, 1],
-                        colors: [
-                          Theme.of(context).colorScheme.secondary,
-                          Theme.of(context).colorScheme.primary,
-                        ],
+                  Stack(
+                    children: [
+                      StatusHeaderTile(
+                        statusChoice: isAssigned
+                            ? TaskStatusChoices.inProgress
+                            : TaskStatusChoices.notAssigned,
+                        isExpanded: true,
                       ),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        topRight: Radius.circular(8.0),
+                      ListTile(
+                        title: ExpansionTitle(
+                          isAssigned
+                              ? TaskStatusChoices.inProgress
+                              : TaskStatusChoices.notAssigned,
+                        ),
                       ),
-                    ),
-                    padding: const EdgeInsets.all(20),
-                    child: Text(
-                      "Your super new task",
-                      style: Theme.of(context)
-                          .primaryTextTheme
-                          .labelLarge!
-                          .copyWith(
-                            color: Theme.of(context).colorScheme.onPrimary,
-                            fontSize: 18,
-                          ),
-                    ),
+                    ],
                   ),
                   const SizedBox(height: 45),
                   StandardTextFormField(
@@ -84,14 +83,20 @@ class NewTaskView extends ConsumerWidget {
                             .value
                             ?.allUsers ??
                         <User>[],
-                    onChanged: controller.onAssignedToChanged,
+                    onChanged: (p0) {
+                      setState(() {
+                        isAssigned = p0 != null;
+                      });
+                      controller.onAssignedToChanged(p0);
+                    },
                     errorText: errorMap["assignedTo"],
                   ),
                   const SizedBox(height: 45),
                 ],
               ),
             ),
-            GradientButtonPrimary(
+            PrimaryButton(
+              size: const Size(200, 45),
               onPressed: controller.saveTask,
               text: "Add task",
             ),

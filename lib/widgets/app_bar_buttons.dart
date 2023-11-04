@@ -13,3 +13,17 @@ class HamburgerMenu extends StatelessWidget {
     );
   }
 }
+
+class BackIcon extends StatelessWidget {
+  const BackIcon({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      Icons.arrow_back_outlined,
+      color: Theme.of(context).colorScheme.onPrimary,
+    );
+  }
+}
