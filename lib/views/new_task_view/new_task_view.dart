@@ -21,6 +21,8 @@ class NewTaskView extends ConsumerStatefulWidget {
 
 class _NewTaskViewState extends ConsumerState<NewTaskView> {
   bool isAssigned = false;
+  EstimationChoices? estimation;
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(newTaskViewControllerProvider);
@@ -46,6 +48,7 @@ class _NewTaskViewState extends ConsumerState<NewTaskView> {
                     statusChoice: isAssigned
                         ? TaskStatusChoices.inProgress
                         : TaskStatusChoices.notAssigned,
+                    showEstimation: estimation,
                   ),
                   const SizedBox(height: 45),
                   StandardTextFormField(
@@ -59,7 +62,12 @@ class _NewTaskViewState extends ConsumerState<NewTaskView> {
                     hintText: "Estimation number",
                     labelText: "Estimation number",
                     items: EstimationChoices.values,
-                    onChanged: controller.estimationOnChanged,
+                    onChanged: (p0) {
+                      setState(() {
+                        estimation = p0;
+                      });
+                      controller.estimationOnChanged(p0);
+                    },
                     errorText: errorMap["estimation"],
                   ),
                   const SizedBox(height: 10),

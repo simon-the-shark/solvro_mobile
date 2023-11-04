@@ -33,7 +33,7 @@ class TaskTile extends ConsumerWidget {
               color: Colors.yellow.shade800,
             )
           : null,
-      trailing: EstimationMedal(task: task),
+      trailing: EstimationMedal(estimation: task.estimation),
     );
   }
 }

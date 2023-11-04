@@ -1,18 +1,44 @@
 import 'package:flutter/material.dart';
 
 import '../../../models/enums/enums.dart';
-import '../../../models/tasks/task.dart';
 
-class EstimationMedal extends StatelessWidget {
+class EstimationMedal extends StatefulWidget {
   const EstimationMedal({
     super.key,
-    required this.task,
+    required this.estimation,
   });
 
-  final Task task;
+  final EstimationChoices? estimation;
+
+  @override
+  State<EstimationMedal> createState() => _EstimationMedalState();
+}
+
+class _EstimationMedalState extends State<EstimationMedal> {
+  EstimationChoices? previousValue;
+  CrossFadeState state = CrossFadeState.showFirst;
+
+  CrossFadeState toogleState() {
+    if (widget.estimation != previousValue) {
+      previousValue = widget.estimation;
+      if (state == CrossFadeState.showFirst) {
+        state = CrossFadeState.showSecond;
+      } else {
+        state = CrossFadeState.showFirst;
+      }
+    }
+    return state;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final textValue = EnumJsonConverter.valueString(widget.estimation) ?? "";
+    final style = TextStyle(
+      fontSize: 15,
+      color: Theme.of(context).colorScheme.onSecondary,
+    );
+    const duration = Duration(milliseconds: 100);
+
     return Container(
       height: 37,
       width: 37,
@@ -27,16 +53,18 @@ class EstimationMedal extends StatelessWidget {
             Theme.of(context).colorScheme.secondaryContainer
           ],
         ),
-        // color: Theme.of(context).colorScheme.secondary,
       ),
       child: Center(
-        child: Text(
-          EnumJsonConverter.valueString(task.estimation) ?? "",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 15,
-            color: Theme.of(context).colorScheme.onSecondary,
+        child: AnimatedCrossFade(
+          firstChild: Text(
+            textValue,
+            textAlign: TextAlign.center,
+            style: style,
           ),
+          secondChild:
+              Text(textValue, textAlign: TextAlign.center, style: style),
+          duration: duration,
+          crossFadeState: toogleState(),
         ),
       ),
     );

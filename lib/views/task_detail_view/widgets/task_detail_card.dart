@@ -30,7 +30,7 @@ class TaskDetailCard extends StatelessWidget {
                 children: [
                   WidgetStatusHeaderAndTitle(
                     statusChoice: task!.status,
-                    showMedalTask: task,
+                    showEstimation: task!.estimation,
                   ),
                   ListTile(
                     title: Text(task!.name),
