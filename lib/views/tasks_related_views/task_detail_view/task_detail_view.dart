@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../models/enums/enums.dart';
 import '../../../widgets/secondary_button.dart';
 import 'task_detail_view_controller.dart';
+import 'widgets/blocked_delete_button.dart';
 import 'widgets/delete_button.dart';
 import 'widgets/delete_dialog.dart';
 import 'widgets/task_detail_card.dart';
@@ -38,25 +40,28 @@ class TaskDetailView extends ConsumerWidget {
             },
           ),
           const SizedBox(height: 15),
-          DeleteButton(onLoaded: () {
-            Navigator.of(context).pop();
-            showDialog(
-              barrierColor: Colors.black.withOpacity(0.9),
-              context: context,
-              builder: (context) {
-                final container = ProviderScope.containerOf(context);
-                return ProviderScope(
-                  parent: container,
-                  child: Theme(
-                    data: Theme.of(context),
-                    child: DeleteDialog(
-                      task: task!,
+          if (task?.status != TaskStatusChoices.closed)
+            DeleteButton(onLoaded: () {
+              Navigator.of(context).pop();
+              showDialog(
+                barrierColor: Colors.black.withOpacity(0.9),
+                context: context,
+                builder: (context) {
+                  final container = ProviderScope.containerOf(context);
+                  return ProviderScope(
+                    parent: container,
+                    child: Theme(
+                      data: Theme.of(context),
+                      child: DeleteDialog(
+                        task: task!,
+                      ),
                     ),
-                  ),
-                );
-              },
-            );
-          }),
+                  );
+                },
+              );
+            }),
+          if (task?.status == TaskStatusChoices.closed)
+            const BlockedDeleteButton(),
           const Spacer(flex: 2),
         ],
       ),
