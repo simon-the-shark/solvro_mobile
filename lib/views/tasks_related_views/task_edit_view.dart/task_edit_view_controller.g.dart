@@ -7,7 +7,7 @@ part of 'task_edit_view_controller.dart';
 // **************************************************************************
 
 String _$taskEditViewControllerHash() =>
-    r'f41e18639455fd03261e7286b5f4a251c0ed5371';
+    r'f6055cbff2ede1de1d9521dc8cde3ff51ccdd014';
 
 /// Copied from Dart SDK
 class _SystemHash {

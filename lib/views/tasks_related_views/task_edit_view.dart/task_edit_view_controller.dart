@@ -14,8 +14,6 @@ part 'task_edit_view_controller.g.dart';
 
 @riverpod
 class TaskEditViewController extends _$TaskEditViewController {
-  // late TaskEditViewFormController _formController;
-
   @override
   FutureOr<(List<User>, Task)> build(int taskId) async {
     final tasks = await ref
@@ -24,12 +22,10 @@ class TaskEditViewController extends _$TaskEditViewController {
     final task = tasks!.firstWhereOrNull((element) => element.id == taskId);
     final users =
         ref.watch(currentProjectSubServiceProvider).value?.allUsers ?? <User>[];
-    // _formController = TaskEditViewFormController(task!, users);
     return (users, task!);
   }
 
   Future<void> editTask() async {
-    // if (await validateForm()) {
     final updatedTask = state.value!.$2;
     state = const AsyncLoading();
     state = await AsyncValue.guard(
@@ -41,16 +37,7 @@ class TaskEditViewController extends _$TaskEditViewController {
           )
           .then((value) => state.value!),
     );
-    // }
   }
-
-  // Future<bool> validateForm() async {
-  //   state = await AsyncValue.guard(() async {
-  //     _formController.validate();
-  //     return state.value!;
-  //   });
-  //   return !state.hasError;
-  // }
 
   Map<String, dynamic> formatExceptionMap() {
     if (state.error == null) return {};
@@ -74,51 +61,28 @@ class TaskEditViewController extends _$TaskEditViewController {
   }
 
   void onAssignedToChanged(User? val) {
-    state = AsyncData((state.value!.$1, state.value!.$2.assignTo(val?.id)));
+    if (state.value!.$2.status == TaskStatusChoices.notAssigned &&
+        val != null) {
+      state = AsyncData((
+        state.value!.$1,
+        state.value!.$2
+            .assignTo(val.id)
+            .copyWithStatus(TaskStatusChoices.inProgress)
+      ));
+    } else if (state.value!.$2.status == TaskStatusChoices.inProgress &&
+        val == null) {
+      state = AsyncData((
+        state.value!.$1,
+        state.value!.$2
+            .assignTo(val?.id)
+            .copyWithStatus(TaskStatusChoices.notAssigned)
+      ));
+    } else {
+      state = AsyncData((state.value!.$1, state.value!.$2.assignTo(val?.id)));
+    }
   }
 
   void onStatusChanged(TaskStatusChoices? val) {
     state = AsyncData((state.value!.$1, state.value!.$2.copyWithStatus(val!)));
   }
 }
-
-// class TaskEditViewFormController {
-//   String? name;
-//   EstimationChoices? estimation;
-//   User? assignedTo;
-//   TaskStatusChoices? status;
-
-//   TaskEditViewFormController(Task task, List<User> users)
-//       : name = task.name,
-//         estimation = task.estimation,
-//         status = task.status,
-//         assignedTo =
-//             users.firstWhereOrNull((element) => task.assignedTo == element.id);
-
-//   void validate() {
-//     _nameValidator();
-//     _estimationValidator();
-//     _statusValidator();
-//   }
-
-//   void _nameValidator() {
-//     final value = name;
-//     if (value == "" || value == null) {
-//       throw Exception(jsonEncode({"email": "Task name can't be empty"}));
-//     }
-//   }
-
-//   void _estimationValidator() {
-//     final value = estimation;
-//     if (value == null) {
-//       throw Exception(
-//           jsonEncode({"estimation": "Estimation number can't be empty"}));
-//     }
-//   }
-
-//   void _statusValidator() {
-//     if (status == null) {
-//       throw Exception(jsonEncode({"status": "Status can't be empty"}));
-//     }
-//   }
-// }
