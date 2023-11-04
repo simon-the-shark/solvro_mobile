@@ -69,8 +69,16 @@ class TaskDetailView extends ConsumerWidget {
               if (task?.status == TaskStatusChoices.closed)
                 const BlockedDeleteButton(),
               const SizedBox(height: 15),
+              const SizedBox(height: 15),
             ],
           ),
+          IconButton(
+              onPressed: Navigator.of(context).pop,
+              icon: const Icon(
+                Icons.close,
+                size: 30,
+                color: Colors.white,
+              )),
           const Spacer(flex: 6),
         ],
       ),
