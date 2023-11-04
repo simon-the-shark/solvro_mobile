@@ -40,6 +40,7 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
                 statusChoice: widget.statusChoice, isExpanded: isExpanded),
           ),
           ExpansionTile(
+            iconColor: Theme.of(context).colorScheme.onPrimary,
             onExpansionChanged: (value) {
               setState(() {
                 isExpanded = value;
