@@ -63,9 +63,9 @@ class TaskEditView extends ConsumerWidget {
                   ),
                   const SizedBox(height: 10),
                   EnumDropdownFormField<TaskStatusChoices>(
-                    hintText: "Estimation number",
+                    hintText: "Status",
                     initialValue: task.status,
-                    labelText: "Estimation number",
+                    labelText: "Status",
                     items: TaskStatusChoices.values,
                     onChanged: controller.onStatusChanged,
                     errorText: errorMap["status"],
