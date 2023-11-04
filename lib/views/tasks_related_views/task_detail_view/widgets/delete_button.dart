@@ -89,7 +89,7 @@ class _DeleteButtonState extends State<DeleteButton>
             ),
             Container(
               width: 200,
-              clipBehavior: Clip.hardEdge,
+              clipBehavior: Clip.antiAliasWithSaveLayer,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(22),
                 // color: Colors.red.shade200,

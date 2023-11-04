@@ -35,6 +35,8 @@ class TaskEditView extends ConsumerWidget {
         child: Column(
           children: [
             Card(
+              color: Colors.white,
+              elevation: 20,
               margin: const EdgeInsets.all(30.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -44,7 +46,7 @@ class TaskEditView extends ConsumerWidget {
                     statusChoice: task.status,
                     showEstimation: task.estimation,
                   ),
-                  const SizedBox(height: 45),
+                  const SizedBox(height: 20),
                   StandardTextFormField(
                     hintText: 'Your new name for this task',
                     labelText: 'Task name',

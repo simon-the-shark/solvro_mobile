@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../models/enums/enums.dart';
-import '../../../widgets/secondary_button.dart';
+import '../../../widgets/primary_button.dart';
 import 'task_detail_view_controller.dart';
 import 'widgets/blocked_delete_button.dart';
 import 'widgets/delete_button.dart';
@@ -36,8 +36,8 @@ class TaskDetailView extends ConsumerWidget {
             creator: creator,
             actions: [
               const SizedBox(height: 15),
-              SecondaryButton(
-                color: Theme.of(context).colorScheme.primary,
+              PrimaryButton(
+                size: const Size(200, 45),
                 text: "Edit task",
                 onPressed: () {
                   context.push("/tasks/edit/$taskId");

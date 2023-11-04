@@ -40,6 +40,8 @@ class _NewTaskViewState extends ConsumerState<NewTaskView> {
         child: Column(
           children: [
             Card(
+              color: Colors.white,
+              elevation: 20,
               margin: const EdgeInsets.all(30.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -51,7 +53,7 @@ class _NewTaskViewState extends ConsumerState<NewTaskView> {
                         : TaskStatusChoices.notAssigned,
                     showEstimation: estimation,
                   ),
-                  const SizedBox(height: 45),
+                  const SizedBox(height: 20),
                   StandardTextFormField(
                     hintText: 'Your super new task',
                     labelText: 'Task name',
