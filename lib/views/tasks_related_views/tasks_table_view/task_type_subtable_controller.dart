@@ -19,4 +19,12 @@ class TaskTypeSubtableController extends _$TaskTypeSubtableController {
     }
     return null;
   }
+
+  void setShowFilterState(bool show) {
+    if (!show) {
+      state = const AsyncData(null);
+    } else {
+      ref.invalidateSelf();
+    }
+  }
 }

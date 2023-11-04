@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StandardAppBar extends AppBar {
-  final String titleText;
-
   StandardAppBar(
     BuildContext context, {
     super.key,
-    required this.titleText,
+    List<Widget>? actions,
+    required String titleText,
   }) : super(
           backgroundColor: Theme.of(context).colorScheme.primary,
           centerTitle: true,
@@ -15,5 +14,6 @@ class StandardAppBar extends AppBar {
               style: GoogleFonts.grandstander(
                 color: Theme.of(context).colorScheme.onPrimary,
               )),
+          actions: actions,
         );
 }

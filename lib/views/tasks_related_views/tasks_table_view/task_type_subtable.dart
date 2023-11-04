@@ -21,6 +21,9 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
 
   @override
   Widget build(BuildContext context) {
+    final isLoading = ref
+        .watch(taskTypeSubtableControllerProvider(widget.statusChoice))
+        .isLoading;
     final tasks = ref
         .watch(taskTypeSubtableControllerProvider(widget.statusChoice))
         .value;
@@ -28,6 +31,9 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
       side: BorderSide(color: Colors.transparent),
       borderRadius: BorderRadius.all(Radius.circular(12)),
     );
+    if (!isLoading && tasks == null) {
+      return Container();
+    }
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Stack(
@@ -50,20 +56,30 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
             collapsedShape: shape,
             title: ExpansionTitle(widget.statusChoice),
             initiallyExpanded: true,
-            children: [
-              const SizedBox(height: 15),
-              ...(tasks
-                      ?.map((e) => TaskTile(e))
-                      .expand((element) => [
-                            const Divider(),
-                            element,
-                          ])
-                      .toList() ??
-                  const []),
-              if (tasks == null || tasks.isEmpty) Container(),
-              if (tasks == null || tasks.isEmpty) const EmptyTaskStatusList(),
-              const SizedBox(height: 15),
-            ]..removeAt(1),
+            children: isLoading
+                ? [
+                    const Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(100.0),
+                        child: CircularProgressIndicator(),
+                      ),
+                    )
+                  ]
+                : ([
+                    const SizedBox(height: 15),
+                    ...(tasks
+                            ?.map((e) => TaskTile(e))
+                            .expand((element) => [
+                                  const Divider(),
+                                  element,
+                                ])
+                            .toList() ??
+                        const []),
+                    if (tasks == null || tasks.isEmpty) Container(),
+                    if (tasks == null || tasks.isEmpty)
+                      const EmptyTaskStatusList(),
+                    const SizedBox(height: 15),
+                  ]..removeAt(1)),
           ),
         ],
       ),
