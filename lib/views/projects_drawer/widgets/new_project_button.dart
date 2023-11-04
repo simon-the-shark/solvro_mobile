@@ -1,7 +1,8 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../widgets/secondary_button.dart';
+import '../../simple_dialogs/new_project_dialog.dart';
 
 class NewProjectButton extends ConsumerWidget {
   const NewProjectButton({super.key});
@@ -11,7 +12,15 @@ class NewProjectButton extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SecondaryButton(
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return Theme(
+                  data: Theme.of(context), child: const NewProjectDialog());
+            },
+          );
+        },
         text: "Dodaj nowy projekt",
       ),
     );

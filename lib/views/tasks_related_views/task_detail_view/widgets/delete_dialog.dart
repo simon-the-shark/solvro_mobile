@@ -11,16 +11,19 @@ class DeleteDialog extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AlertDialog(
-      title: const Text("DELETION CONFIRMATION"),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      title: const Text("Confirm deletion"),
       // titleTextStyle:
       content: RichText(
         text: TextSpan(
           style: Theme.of(context).textTheme.bodyLarge,
           text:
-              'It`s your last chance to turn back.\n\nAre you sure you want to ',
+              "It's your last chance to turn back!\n\nAre you sure you want to ",
           children: [
             TextSpan(
-              text: 'delete "${task.name} task?\n\n',
+              text: 'delete "${task.name}" task?\n\n',
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!
@@ -30,14 +33,17 @@ class DeleteDialog extends ConsumerWidget {
         ),
       ),
       actionsAlignment: MainAxisAlignment.center,
+      actionsOverflowAlignment: OverflowBarAlignment.center,
+      actionsOverflowButtonSpacing: 12,
+      actionsOverflowDirection: VerticalDirection.up,
       actions: [
         SecondaryButton(
           onPressed: Navigator.of(context).pop,
           text: "Cancel",
-          size: const Size(120, 40),
+          // size: const Size(120, 40),
         ),
         SizedBox.fromSize(
-          size: const Size(120, 40),
+          size: const Size(200, 45),
           child: FilledButton(
             onPressed: () {
               ref.read(tasksRepositoryProvider).deleteTask(task);

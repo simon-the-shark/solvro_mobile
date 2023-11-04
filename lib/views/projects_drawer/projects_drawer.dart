@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../repositories/projects_repository.dart';
 import '../../services/projects_service.dart';
 import '../../widgets/name_header.dart';
 import 'widgets/email_list_tile.dart';
@@ -18,25 +19,28 @@ class ProjectsDrawer extends ConsumerWidget {
     final projects = ref.watch(projectsServiceProvider).value;
     final isLandscape =
         MediaQuery.of(context).orientation == Orientation.landscape;
-    Widget projectsColumn = SingleChildScrollView(
-      child: Column(
-        children: [
-          ...projects?.map(
-                (e) => ProjectMenuItem(
-                  project: e,
-                  onTap: () {
-                    ref
-                        .read(currentProjectSubServiceProvider.notifier)
-                        .setCurrentProject(e);
-                    Scaffold.of(context).closeDrawer();
-                  },
-                ),
-              ) ??
-              const [],
-          const SizedBox(height: 10),
-          const NewProjectButton(),
-          const SizedBox(height: 20),
-        ],
+    Widget projectsColumn = RefreshIndicator(
+      onRefresh: () async => ref.refresh(projectsRepositoryProvider),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            ...projects?.map(
+                  (e) => ProjectMenuItem(
+                    project: e,
+                    onTap: () {
+                      ref
+                          .read(currentProjectSubServiceProvider.notifier)
+                          .setCurrentProject(e);
+                      Scaffold.of(context).closeDrawer();
+                    },
+                  ),
+                ) ??
+                const [],
+            const SizedBox(height: 10),
+            const NewProjectButton(),
+            const SizedBox(height: 20),
+          ],
+        ),
       ),
     );
     if (!isLandscape) {
