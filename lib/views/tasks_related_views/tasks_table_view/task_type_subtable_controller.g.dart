@@ -7,7 +7,7 @@ part of 'task_type_subtable_controller.dart';
 // **************************************************************************
 
 String _$taskTypeSubtableControllerHash() =>
-    r'c1d17e947d80b899963069b2961ff565a0c0c381';
+    r'8f6408a03fdde8d10b8c2d71ae00d2ad77cf3f66';
 
 /// Copied from Dart SDK
 class _SystemHash {

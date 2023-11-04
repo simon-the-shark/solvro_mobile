@@ -54,4 +54,20 @@ class ProjectsRepository {
       throw Exception(e.response);
     }
   }
+
+  Future<void> addUsersToProjectsByEmails(
+      Project project, List<String> emails) async {
+    try {
+      final response = await _dio.post(
+          "${_apiDetails.projectsUrl}${project.id}/add-users-to-project/",
+          options: _apiDetails.authHeaders,
+          data: {
+            "emails": emails,
+          });
+      print(response.data);
+      _ref.invalidateSelf();
+    } on DioException catch (e) {
+      throw Exception(e.response);
+    }
+  }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'services/auth_service.dart';
+import 'views/add_users_view/add_users_view.dart';
 import 'views/auth_views/login_view/login_view.dart';
 import 'views/auth_views/signup_view/signup_view.dart';
 import 'views/home_view.dart';
@@ -44,6 +45,10 @@ final goRouterProvider = Provider<GoRouter>((ref) {
         path: '/tasks/edit/:taskId',
         builder: (context, state) =>
             TaskEditView(taskId: int.parse(state.pathParameters['taskId']!)),
+      ),
+      GoRoute(
+        path: '/addUsers',
+        builder: (context, state) => const AddUsersView(),
       ),
     ],
   );

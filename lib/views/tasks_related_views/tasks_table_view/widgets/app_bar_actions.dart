@@ -11,6 +11,15 @@ class AppBarActions extends DelegatingList<Widget> {
           [
             IconButton(
               onPressed: () {
+                context.push("/addUsers");
+              },
+              icon: const Icon(
+                Icons.person_add_alt,
+                color: Colors.white,
+              ),
+            ),
+            IconButton(
+              onPressed: () {
                 context.push("/newTask");
               },
               icon: const Icon(
@@ -28,6 +37,7 @@ class RefreshIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    return Container();
     return IconButton(
       onPressed: () {
         ref.invalidate(tasksRepositoryProvider);
