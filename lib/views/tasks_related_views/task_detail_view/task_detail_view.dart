@@ -41,10 +41,14 @@ class TaskDetailView extends ConsumerWidget {
               barrierColor: Colors.black.withOpacity(0.9),
               context: context,
               builder: (context) {
-                return Theme(
-                  data: Theme.of(context),
-                  child: DeleteDialog(
-                    task: task!,
+                final container = ProviderScope.containerOf(context);
+                return ProviderScope(
+                  parent: container,
+                  child: Theme(
+                    data: Theme.of(context),
+                    child: DeleteDialog(
+                      task: task!,
+                    ),
                   ),
                 );
               },

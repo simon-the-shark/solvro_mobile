@@ -33,7 +33,7 @@ class ApiDetails {
   String get projectsUrl => apiMasterUrl + _projectsApndx;
   String tasksUrl(int projectId) =>
       "$apiMasterUrl$_projectsApndx$projectId/$_tasksApndx";
-  String tasksUrlForTask(Task task) => "${tasksUrl(task.project)}/${task.id}/";
+  String tasksUrlForTask(Task task) => "${tasksUrl(task.project)}${task.id}/";
 
   Options? get authHeaders => Options(headers: {
         "Authorization": "Token ${_ref.read(authServiceProvider).value?.token}"

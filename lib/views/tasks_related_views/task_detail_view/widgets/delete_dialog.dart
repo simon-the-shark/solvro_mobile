@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../models/tasks/task.dart';
+import '../../../../repositories/tasks_repository.dart';
 import '../../../../widgets/secondary_button.dart';
 
-class DeleteDialog extends StatelessWidget {
+class DeleteDialog extends ConsumerWidget {
   const DeleteDialog({super.key, required this.task});
   final Task task;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return AlertDialog(
       title: const Text("DELETION CONFIRMATION"),
       // titleTextStyle:
@@ -37,7 +39,10 @@ class DeleteDialog extends StatelessWidget {
         SizedBox.fromSize(
           size: const Size(120, 40),
           child: FilledButton(
-            onPressed: null,
+            onPressed: () {
+              ref.read(tasksRepositoryProvider).deleteTask(task);
+              Navigator.of(context).pop();
+            },
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
                 Theme.of(context).colorScheme.error,

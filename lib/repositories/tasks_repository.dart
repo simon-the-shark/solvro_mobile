@@ -6,14 +6,14 @@ import '../models/tasks/task.dart';
 import 'api_details.dart';
 
 final tasksRepositoryProvider = Provider<TasksRepository>((ref) {
-  return TasksRepository(ApiDetails(ref), Dio());
+  return TasksRepository(ApiDetails(ref), Dio(), ref);
 });
 
 class TasksRepository {
   final Dio _dio;
   final ApiDetails _apiDetails;
-
-  TasksRepository(this._apiDetails, this._dio);
+  final ProviderRef<TasksRepository> ref;
+  TasksRepository(this._apiDetails, this._dio, this.ref);
 
   Future<List<Task>?> getTasks(Project currProject) async {
     try {
@@ -38,6 +38,7 @@ class TasksRepository {
         data: taskJson,
       );
       print(response.data);
+      ref.invalidateSelf();
     } on DioException catch (e) {
       throw Exception(e.response);
     }
@@ -51,6 +52,21 @@ class TasksRepository {
         data: task.toJson(),
       );
       print(response.data);
+      ref.invalidateSelf();
+    } on DioException catch (e) {
+      throw Exception(e.response);
+    }
+  }
+
+  Future<void> deleteTask(Task task) async {
+    try {
+      final response = await _dio.delete(
+        _apiDetails.tasksUrlForTask(task),
+        options: _apiDetails.authHeaders,
+        data: task.toJson(),
+      );
+      print(response.data);
+      ref.invalidateSelf();
     } on DioException catch (e) {
       throw Exception(e.response);
     }
