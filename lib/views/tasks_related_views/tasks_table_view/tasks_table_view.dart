@@ -40,7 +40,7 @@ class TasksTableView extends ConsumerWidget {
                       ),
                     ]),
                 // ListTile(),
-                // SizedBox(height: 30),
+                SizedBox(height: 15),
                 TaskTypeSubtable(TaskStatusChoices.notAssigned),
                 TaskTypeSubtable(TaskStatusChoices.inProgress),
                 TaskTypeSubtable(TaskStatusChoices.closed),
