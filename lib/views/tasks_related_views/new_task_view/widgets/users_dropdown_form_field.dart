@@ -14,6 +14,7 @@ class UsersDropdownFormField extends StatelessWidget {
     this.onChanged,
     required this.itemsUsers,
     this.errorText,
+    this.initialUser,
   });
   final String? errorText;
   final void Function(User?)? onChanged;
@@ -24,6 +25,7 @@ class UsersDropdownFormField extends StatelessWidget {
   final String? labelText;
   final bool obscureText;
   final List<User> itemsUsers;
+  final User? initialUser;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,7 @@ class UsersDropdownFormField extends StatelessWidget {
       padding: inputPadding,
       child: DropdownButtonFormField<User?>(
         padding: EdgeInsets.zero,
+        value: initialUser,
         decoration: InputDecoration(
           isDense: true,
           border: OutlineInputBorder(

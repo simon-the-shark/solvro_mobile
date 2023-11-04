@@ -23,7 +23,7 @@ class Task with _$Task {
 
   factory Task.fromJson(Map<String, Object?> json) => _$TaskFromJson(json);
 
-  Task assignTo(int user) {
+  Task assignTo(int? user) {
     return copyWith(assignedTo: user);
   }
 

@@ -94,8 +94,8 @@ class NewTaskViewFormController {
   }
 
   void _estimationValidator() {
-    final value = name;
-    if (value == "" || value == null) {
+    final value = estimation;
+    if (value == null) {
       throw Exception(
           jsonEncode({"estimation": "Estimation number can't be empty"}));
     }

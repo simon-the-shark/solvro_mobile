@@ -14,6 +14,7 @@ class EnumDropdownFormField<T extends Enum> extends StatelessWidget {
     this.onChanged,
     required this.items,
     this.errorText,
+    this.initialValue,
   });
   final String? errorText;
   final void Function(T?)? onChanged;
@@ -24,13 +25,14 @@ class EnumDropdownFormField<T extends Enum> extends StatelessWidget {
   final String? labelText;
   final bool obscureText;
   final List<T> items;
-
+  final T? initialValue;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: errorText == null ? inputHeight : inputHeight + 25,
       padding: inputPadding,
       child: DropdownButtonFormField(
+        value: initialValue,
         padding: EdgeInsets.zero,
         decoration: InputDecoration(
           isDense: true,

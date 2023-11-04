@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../widgets/secondary_button.dart';
 import 'task_detail_view_controller.dart';
@@ -32,7 +33,9 @@ class TaskDetailView extends ConsumerWidget {
           SecondaryButton(
             color: Theme.of(context).colorScheme.tertiary,
             text: "Edit task",
-            onPressed: () {},
+            onPressed: () {
+              context.push("/tasks/edit/$taskId");
+            },
           ),
           const SizedBox(height: 15),
           DeleteButton(onLoaded: () {
