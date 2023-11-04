@@ -13,34 +13,46 @@ class ProjectMenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-      child: FilterChip(
-        shape: const RoundedRectangleBorder(
-          side: BorderSide.none,
-          borderRadius: BorderRadius.all(
-            Radius.circular(12),
-          ),
-        ),
-        avatar: Icon(
-          Icons.folder,
-          color: Theme.of(context).colorScheme.inverseSurface,
-        ),
-        label: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: Text(
+      child: Column(
+        children: [
+          Card(
+            margin: EdgeInsets.zero,
+            elevation: 0,
+            child: ListTile(
+              onTap: onTap,
+              dense: true,
+              leading: Icon(
+                Icons.folder,
+                color: Theme.of(context).colorScheme.inverseSurface,
+              ),
+              trailing: const Icon(Icons.navigate_next_sharp),
+              title: Text(
                 project.name,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.inverseSurface,
-                ),
+                style: Theme.of(context).primaryTextTheme.titleSmall!.copyWith(
+                      color: Theme.of(context).colorScheme.inverseSurface,
+                      fontSize: 16,
+                    ),
               ),
             ),
-          ],
-        ),
-        onSelected: (bool value) {
-          onTap();
-        },
+          ),
+        ],
       ),
+      // FilterChip(
+      //   shape: const RoundedRectangleBorder(
+      //     side: BorderSide.none,
+      //     borderRadius: BorderRadius.all(
+      //       Radius.circular(12),
+      //     ),
+      //   ),
+      //   avatar: Icon(
+      //     Icons.folder,
+      //     color: Theme.of(context).colorScheme.inverseSurface,
+      //   ),
+      //   label:
+      //   onSelected: (bool value) {
+      //     onTap();
+      //   },
+      // ),
     );
   }
 }
