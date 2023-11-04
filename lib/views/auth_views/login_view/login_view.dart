@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../widgets/double_color_text_button.dart';
+import '../widgets/double_color_text_button.dart';
 import '../../../widgets/name_header.dart';
 import '../../../widgets/primary_button.dart';
 import '../../../widgets/standard_text_form_field.dart';
