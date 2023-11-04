@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/enums/enums.dart';
+import '../../../models/enums/enums.dart';
 
 extension ColorsStatuses on TaskStatusChoices {
   List<Color>? get gradientColors {
