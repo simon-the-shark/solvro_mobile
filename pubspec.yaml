@@ -41,6 +41,8 @@ dependencies:
   google_fonts: ^6.1.0
   collection: ^1.17.2
   intl: ^0.18.1
+  holding_gesture: ^1.2.0
+  fluttertoast: ^8.2.2
 
 dev_dependencies:
   flutter_test:

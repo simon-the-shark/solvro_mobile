@@ -54,6 +54,12 @@ class TaskDetailCard extends StatelessWidget {
                       DateFormat.yMMMd("pl").add_jm().format(task!.createdAt),
                     ),
                     subtitle: const Text("Creation date"),
+                    leading: task!.showExclamation
+                        ? Icon(
+                            Icons.warning_amber_outlined,
+                            color: Colors.yellow.shade800,
+                          )
+                        : null,
                   ),
                 ],
               ));

@@ -38,4 +38,8 @@ class Task with _$Task {
   Task copyWithStatus(TaskStatusChoices status) {
     return copyWith(status: status);
   }
+
+  bool get showExclamation =>
+      status == TaskStatusChoices.notAssigned &&
+      createdAt.difference(DateTime.now()).inDays <= -14;
 }

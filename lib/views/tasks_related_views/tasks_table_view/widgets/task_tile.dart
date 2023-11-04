@@ -1,11 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../models/enums/enums.dart';
 import '../../../../models/tasks/task.dart';
 import '../../../../services/projects_service.dart';
+import '../../task_detail_view/task_detail_view.dart';
 import '../../widgets/estimation_medal.dart';
 
 class TaskTile extends ConsumerWidget {
@@ -19,15 +18,22 @@ class TaskTile extends ConsumerWidget {
           (e) => e.id == task.assignedTo,
         )
         ?.representationName;
-    final showExclamation = task.status == TaskStatusChoices.notAssigned &&
-        task.createdAt.difference(DateTime.now()).inDays <= -14;
+
     return ListTile(
       onTap: () {
-        context.push("/tasks/${task.id}");
+        showDialog(
+          context: context,
+          builder: (context) {
+            return TaskDetailView(
+              taskId: task.id!,
+            );
+          },
+          barrierColor: Colors.black.withOpacity(0.9),
+        );
       },
       title: Text(task.name),
       subtitle: subtitle == null ? null : Text(subtitle),
-      leading: showExclamation
+      leading: task.showExclamation
           ? Icon(
               Icons.warning_amber_outlined,
               color: Colors.yellow.shade800,
