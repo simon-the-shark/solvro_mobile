@@ -7,6 +7,7 @@ import 'views/home_view.dart';
 import 'views/login_view/login_view.dart';
 import 'views/new_task_view/new_task_view.dart';
 import 'views/signup_view/signup_view.dart';
+import 'views/task_detail_view/task_detail_view.dart';
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
@@ -38,6 +39,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/newTask',
         builder: (context, state) => const NewTaskView(),
+      ),
+      GoRoute(
+        path: '/tasks/:taskId',
+        builder: (context, state) =>
+            TaskDetailView(taskId: int.parse(state.pathParameters['taskId']!)),
       ),
     ],
   );

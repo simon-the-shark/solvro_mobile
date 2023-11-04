@@ -7,12 +7,12 @@ part of 'new_task_view_controller.dart';
 // **************************************************************************
 
 String _$newTaskViewControllerHash() =>
-    r'71a6f00c322a4a7e43d25e1b0779cc4bbbba6ed7';
+    r'9e3bb52047e5c9a2c46e00a8bd1c5a0ef391df14';
 
 /// See also [NewTaskViewController].
 @ProviderFor(NewTaskViewController)
-final newTaskViewControllerProvider =
-    AutoDisposeAsyncNotifierProvider<NewTaskViewController, void>.internal(
+final newTaskViewControllerProvider = AutoDisposeAsyncNotifierProvider<
+    NewTaskViewController, List<User>>.internal(
   NewTaskViewController.new,
   name: r'newTaskViewControllerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -22,6 +22,6 @@ final newTaskViewControllerProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$NewTaskViewController = AutoDisposeAsyncNotifier<void>;
+typedef _$NewTaskViewController = AutoDisposeAsyncNotifier<List<User>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

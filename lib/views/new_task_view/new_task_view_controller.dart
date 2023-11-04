@@ -17,7 +17,10 @@ class NewTaskViewController extends _$NewTaskViewController {
   final NewTaskViewFormController _formController = NewTaskViewFormController();
 
   @override
-  FutureOr<void> build() {}
+  FutureOr<List<User>> build() {
+    return ref.watch(currentProjectSubServiceProvider).value?.allUsers ??
+        <User>[];
+  }
 
   Future<void> saveTask() async {
     if (await validateForm()) {
@@ -42,7 +45,8 @@ class NewTaskViewController extends _$NewTaskViewController {
             .then((value) => ref.refresh(tasksRepositoryProvider))
             .then(
               (value) => ref.read(goRouterProvider).go("/"),
-            ),
+            )
+            .then((value) => state.value ?? <User>[]),
       );
     }
   }
@@ -50,6 +54,7 @@ class NewTaskViewController extends _$NewTaskViewController {
   Future<bool> validateForm() async {
     state = await AsyncValue.guard(() async {
       _formController.validate();
+      return state.value ?? <User>[];
     });
     return !state.hasError;
   }
