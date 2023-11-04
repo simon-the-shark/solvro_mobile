@@ -5,9 +5,9 @@ import 'package:go_router/go_router.dart';
 import 'services/auth_service.dart';
 import 'views/home_view.dart';
 import 'views/login_view/login_view.dart';
-import 'views/new_task_view/new_task_view.dart';
 import 'views/signup_view/signup_view.dart';
-import 'views/task_detail_view/task_detail_view.dart';
+import 'views/tasks_related_views/new_task_view/new_task_view.dart';
+import 'views/tasks_related_views/task_detail_view/task_detail_view.dart';
 
 final goRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(

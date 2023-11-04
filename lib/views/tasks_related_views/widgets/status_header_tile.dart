@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../models/enums/enums.dart';
-import 'gradients.dart';
+import '../../../models/enums/enums.dart';
+import '../../../widgets/gradients.dart';
 
 class StatusHeaderTile extends StatelessWidget {
   const StatusHeaderTile({

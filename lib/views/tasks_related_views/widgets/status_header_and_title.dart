@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../models/enums/enums.dart';
-import '../../../widgets/status_header_tile.dart';
+import 'status_header_tile.dart';
 import '../tasks_table_view/widgets/expansion_title.dart';
 import 'estimation_medal.dart';
 
