@@ -29,13 +29,13 @@ class EnumDropdownFormField<T extends Enum> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: errorText == null ? inputHeight : inputHeight + 25,
       padding: inputPadding,
       child: DropdownButtonFormField(
         value: initialValue,
         padding: EdgeInsets.zero,
         decoration: InputDecoration(
           isDense: true,
+          contentPadding: const EdgeInsets.all(14),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
               radius,

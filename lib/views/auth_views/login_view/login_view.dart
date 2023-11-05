@@ -41,6 +41,7 @@ class LoginView extends ConsumerWidget {
                     child: const NameHeader(),
                   ),
                   const SizedBox(height: 40),
+                  if (state.isLoading) const SizedBox(height: 170),
                   if (!state.isLoading) ...[
                     StandardTextFormField(
                       keyboardType: TextInputType.emailAddress,

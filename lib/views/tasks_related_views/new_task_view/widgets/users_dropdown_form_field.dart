@@ -30,12 +30,12 @@ class UsersDropdownFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: errorText == null ? inputHeight : inputHeight + 25,
       padding: inputPadding,
       child: DropdownButtonFormField<User?>(
         padding: EdgeInsets.zero,
         value: initialUser,
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(14),
           isDense: true,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(
