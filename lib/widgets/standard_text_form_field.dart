@@ -15,6 +15,7 @@ class StandardTextFormField extends StatelessWidget {
     this.isReadOnly = false,
     this.initValue,
     this.controller,
+    this.keyboardType = TextInputType.name,
   });
 
   final double inputHeight;
@@ -29,6 +30,7 @@ class StandardTextFormField extends StatelessWidget {
   final bool isReadOnly;
   final String? initValue;
   final TextEditingController? controller;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     const errorExtraHeight = 25.0;
@@ -39,6 +41,7 @@ class StandardTextFormField extends StatelessWidget {
             errorText == null ? inputHeight : inputHeight + errorExtraHeight,
         padding: inputPadding,
         child: TextFormField(
+          keyboardType: keyboardType,
           controller: controller,
           initialValue: initValue,
           readOnly: isReadOnly,

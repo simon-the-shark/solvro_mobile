@@ -35,7 +35,9 @@ class _EstimationMedalState extends State<EstimationMedal> {
     final textValue = EnumJsonConverter.valueString(widget.estimation) ?? "";
     final style = TextStyle(
       fontSize: 15,
-      color: Theme.of(context).colorScheme.onSecondary,
+      color: Colors.black,
+
+      // color: Theme.of(context).colorScheme.,
     );
     const duration = Duration(milliseconds: 100);
 
@@ -44,15 +46,25 @@ class _EstimationMedalState extends State<EstimationMedal> {
       width: 37,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: LinearGradient(
-          begin: Alignment.bottomLeft,
-          end: Alignment.topRight,
-          stops: const [0.48, 1],
-          colors: [
-            Theme.of(context).colorScheme.secondary,
-            Theme.of(context).colorScheme.secondaryContainer
-          ],
+        color: Colors.white,
+
+        // color: Theme.of(context).colorScheme.secondary,
+        border: Border.all(
+          color: Colors.black,
+
+          // color: Theme.of(context).colorScheme.primary,
+          width: 2.0,
+          style: BorderStyle.solid,
         ),
+        // gradient: LinearGradient(
+        //   begin: Alignment.bottomLeft,
+        //   end: Alignment.topRight,
+        //   stops: const [0.48, 1],
+        //   colors: [
+        //     Theme.of(context).colorScheme.secondary,
+        //     Theme.of(context).colorScheme.secondaryContainer
+        //   ],
+        // ),
       ),
       child: Center(
         child: AnimatedCrossFade(

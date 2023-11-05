@@ -47,6 +47,7 @@ class SignupView extends ConsumerWidget {
                   if (!state.isLoading) ...[
                     const SizedBox(height: 40),
                     StandardTextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       hintText: 'user@email.com',
                       labelText: 'Email',
                       onChanged: controller.emailOnChanged,

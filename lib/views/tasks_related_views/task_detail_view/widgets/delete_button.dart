@@ -17,7 +17,7 @@ class DeleteButton extends StatefulWidget {
 class _DeleteButtonState extends State<DeleteButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  static const duration = Duration(seconds: 5);
+  static const duration = Duration(milliseconds: 2500);
   @override
   void initState() {
     super.initState();
@@ -65,7 +65,7 @@ class _DeleteButtonState extends State<DeleteButton>
       enableHapticFeedback: true,
       onTap: () {
         Fluttertoast.showToast(
-          msg: "Hold for 5s to delete this task",
+          msg: "Hold for 2.5s to delete this task",
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           timeInSecForIosWeb: 1,

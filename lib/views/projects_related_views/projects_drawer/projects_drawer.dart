@@ -77,6 +77,7 @@ class ProjectsDrawer extends ConsumerWidget {
                       ),
                       const SizedBox(height: 12),
                       NameHeader(
+                        fontSize: 24,
                         color: Theme.of(context).colorScheme.onSecondary,
                       ),
                       const SizedBox(height: 20),

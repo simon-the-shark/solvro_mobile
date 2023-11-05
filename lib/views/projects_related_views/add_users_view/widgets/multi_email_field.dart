@@ -30,6 +30,7 @@ class _MultiEmailFieldState extends ConsumerState<MultiEmailField> {
       children: [
         Expanded(
           child: StandardTextFormField(
+            keyboardType: TextInputType.emailAddress,
             controller: _textController,
             hintText: 'user@email.com',
             labelText: 'Email',

@@ -43,6 +43,7 @@ class LoginView extends ConsumerWidget {
                   const SizedBox(height: 40),
                   if (!state.isLoading) ...[
                     StandardTextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       hintText: 'user@email.com',
                       labelText: 'Email',
                       onChanged: controller.emailOnChanged,
