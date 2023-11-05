@@ -50,7 +50,8 @@ class AuthRemoteRepository {
     try {
       await _dio.post(_apiDetails.logoutUrl, options: _apiDetails.authHeaders);
     } on DioException catch (e) {
-      throw Exception(e.response);
+      print(e.response);
+      // throw Exception(e.response);
     }
   }
 }

@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/projects/project.dart';
+import '../services/auth_service.dart';
 import 'api_details.dart';
 
 final projectsRepositoryProvider = Provider<ProjectsRepository>((ref) {
@@ -22,6 +23,10 @@ class ProjectsRepository {
       );
       return response.data.map<Project>((e) => Project.fromJson(e)).toList();
     } on DioException catch (e) {
+      if ((e.response?.data as Map<String, dynamic>?)?["detail"] ==
+          "Niepoprawny token.") {
+        _ref.read(authServiceProvider.notifier).logout();
+      }
       throw Exception(e.response);
     }
   }

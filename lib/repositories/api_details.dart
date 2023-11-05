@@ -7,7 +7,7 @@ import '../services/auth_service.dart';
 class ApiDetails {
   const ApiDetails(
     this._ref, {
-    this.apiMasterUrl = "http://localhost:8000/api/",
+    this.apiMasterUrl = "http://srv22.mikr.us:40041/api/",
     String loginApndx = "auth/login/",
     String registerApndx = "auth/register/",
     String logoutApndx = "auth/logout/",
