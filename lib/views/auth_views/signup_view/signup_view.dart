@@ -44,11 +44,6 @@ class SignupView extends ConsumerWidget {
                     offset: const Offset(0, -10),
                     child: const NameHeader(),
                   ),
-                  if (state.isLoading)
-                    const Center(
-                        child: Padding(
-                            padding: EdgeInsets.only(bottom: 70),
-                            child: CircularProgressIndicator())),
                   if (!state.isLoading) ...[
                     const SizedBox(height: 40),
                     StandardTextFormField(

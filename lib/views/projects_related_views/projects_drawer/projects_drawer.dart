@@ -7,7 +7,6 @@ import '../../../widgets/name_header.dart';
 import 'widgets/app_info_tile.dart';
 import 'widgets/email_list_tile.dart';
 import 'widgets/logout_button.dart';
-import 'widgets/name_list_tile.dart';
 import 'widgets/new_project_button.dart';
 import 'widgets/profession_list_tile.dart';
 import 'widgets/project_menu_item.dart';
@@ -37,10 +36,9 @@ class ProjectsDrawer extends ConsumerWidget {
                   ),
                 ) ??
                 const [],
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             const NewProjectButton(),
-            const SizedBox(height: 50),
-            const AppInfoTile()
+            // const SizedBox(height: 30),
           ],
         ),
       ),
@@ -48,57 +46,63 @@ class ProjectsDrawer extends ConsumerWidget {
     if (!isLandscape) {
       projectsColumn = Expanded(child: projectsColumn);
     }
-    final drawer = Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    final drawer = Stack(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              stops: const [0.2, 1.0],
-              colors: [
-                Theme.of(context).colorScheme.secondary,
-                Theme.of(context).colorScheme.inverseSurface,
-              ],
-            ),
-          ),
-          child: SafeArea(
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  const SizedBox(height: 30),
-                  SizedBox(
-                    height: 80,
-                    child: Image.asset(
-                      "assets/logo_solvro.png",
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  NameHeader(
-                    color: Theme.of(context).colorScheme.onSecondary,
-                  ),
-                  const SizedBox(height: 20),
-                  // const NameListTile(),
-                  const EmailListTile(),
-                  const ProfessionListTile(),
-                  const SizedBox(height: 5),
-                  const LogoutButton(),
-                  const SizedBox(height: 25),
-                ]),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 10),
-          child: Text(
-            "Twoje projekty: ",
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontWeight: FontWeight.bold,
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  stops: const [0.2, 1.0],
+                  colors: [
+                    Theme.of(context).colorScheme.secondary,
+                    Theme.of(context).colorScheme.inverseSurface,
+                  ],
                 ),
-          ),
+              ),
+              child: SafeArea(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      const SizedBox(height: 30),
+                      SizedBox(
+                        height: 80,
+                        child: Image.asset(
+                          "assets/logo_solvro.png",
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      NameHeader(
+                        color: Theme.of(context).colorScheme.onSecondary,
+                      ),
+                      const SizedBox(height: 20),
+                      // const NameListTile(),
+                      const EmailListTile(),
+                      const ProfessionListTile(),
+                      const SizedBox(height: 5),
+                      const LogoutButton(),
+                      const SizedBox(height: 25),
+                    ]),
+              ),
+            ),
+            Container(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 14.0, vertical: 10),
+              child: Text(
+                "Your projects: ",
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+            ),
+            projectsColumn,
+          ],
         ),
-        projectsColumn,
+        const Positioned(bottom: 8, left: 8, child: AppInfoTile())
       ],
     );
     if (isLandscape) {

@@ -41,11 +41,6 @@ class LoginView extends ConsumerWidget {
                     child: const NameHeader(),
                   ),
                   const SizedBox(height: 40),
-                  if (state.isLoading)
-                    const Center(
-                        child: Padding(
-                            padding: EdgeInsets.only(bottom: 70),
-                            child: CircularProgressIndicator())),
                   if (!state.isLoading) ...[
                     StandardTextFormField(
                       hintText: 'user@email.com',

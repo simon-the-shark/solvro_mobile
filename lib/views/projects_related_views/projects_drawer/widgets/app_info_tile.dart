@@ -10,14 +10,21 @@ class AppInfoTile extends StatelessWidget {
       future: PackageInfo.fromPlatform(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return AboutListTile(
-            dense: true,
-            applicationVersion: snapshot.data!.version,
-            applicationIcon: SizedBox(
-              height: 40,
-              child: Image.asset(
-                "assets/logo_solvro.png",
-              ),
+          return GestureDetector(
+            onTap: () {
+              showAboutDialog(
+                  context: context,
+                  applicationVersion: snapshot.data!.version,
+                  applicationIcon: SizedBox(
+                    height: 40,
+                    child: Image.asset(
+                      "assets/logo_solvro.png",
+                    ),
+                  ));
+            },
+            child: Text(
+              "v${snapshot.data!.version}",
+              style: const TextStyle(fontSize: 10),
             ),
           );
         }

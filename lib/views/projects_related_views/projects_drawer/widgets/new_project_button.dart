@@ -21,7 +21,7 @@ class NewProjectButton extends ConsumerWidget {
             },
           );
         },
-        text: "Dodaj nowy projekt",
+        text: "Add new project",
       ),
     );
   }

@@ -74,6 +74,21 @@ class NewTaskViewController extends _$NewTaskViewController {
   void estimationOnChanged(EstimationChoices? val) =>
       _formController.estimation = val;
   void onAssignedToChanged(User? val) => _formController.assignedTo = val;
+
+  Future<User?> autoAssign() async {
+    final tasks = await ref
+        .read(tasksRepositoryProvider)
+        .getTasks(ref.read(currentProjectSubServiceProvider).value!);
+    final entries = state.value!.map((e) => MapEntry(
+        e, tasks!.where((element) => element.assignedTo == e.id).length));
+    var minKey = entries.isNotEmpty
+        ? entries
+            .reduce((minEntry, entry) =>
+                entry.value < minEntry.value ? entry : minEntry)
+            .key
+        : null;
+    return minKey;
+  }
 }
 
 class NewTaskViewFormController {

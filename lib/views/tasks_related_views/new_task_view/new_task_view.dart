@@ -86,6 +86,7 @@ class _NewTaskViewState extends ConsumerState<NewTaskView> {
                     },
                     errorText: errorMap["assignedTo"],
                   ),
+                  // TextButtons const Text("Auto assignment proposition")),
                   const SizedBox(height: 20),
                   const NewTaskCreatorAppendix(),
                   Column(
