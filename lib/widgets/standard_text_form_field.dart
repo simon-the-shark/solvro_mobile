@@ -37,8 +37,6 @@ class StandardTextFormField extends StatelessWidget {
     return Transform.translate(
       offset: errorText == "" ? const Offset(0, errorExtraHeight) : Offset.zero,
       child: Container(
-        height:
-            errorText == null ? inputHeight : inputHeight + errorExtraHeight,
         padding: inputPadding,
         child: TextFormField(
           keyboardType: keyboardType,
@@ -57,6 +55,7 @@ class StandardTextFormField extends StatelessWidget {
             errorText: errorText,
             hintText: hintText,
             labelText: labelText,
+            contentPadding: const EdgeInsets.all(14),
           ),
         ),
       ),
