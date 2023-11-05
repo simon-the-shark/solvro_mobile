@@ -18,7 +18,7 @@ class AuthRemoteRepository {
   Future<User> login(String email, String password) async {
     try {
       final response = await _dio.post(_apiDetails.loginUrl, data: {
-        "email": email,
+        "email": email.toLowerCase(),
         "password": password,
       });
       return User.fromJson(response.data);
@@ -35,7 +35,7 @@ class AuthRemoteRepository {
   ]) async {
     try {
       final response = await _dio.post(_apiDetails.registerUrl, data: {
-        "email": email,
+        "email": email.toLowerCase(),
         "password": password,
         "profession": EnumJsonConverter.valueString(profession),
         if (name != null) "name": name,

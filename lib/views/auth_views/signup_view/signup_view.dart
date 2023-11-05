@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../models/enums/enums.dart';
 import '../../../widgets/enum_dropdown_form_field.dart';
+import '../../../widgets/loader_widget_wrapper.dart';
 import '../../../widgets/name_header.dart';
 import '../../../widgets/primary_button.dart';
 import '../../../widgets/standard_text_form_field.dart';
@@ -18,7 +19,7 @@ class SignupView extends ConsumerWidget {
     final controller = ref.watch(signupViewControllerProvider.notifier);
     final state = ref.watch(signupViewControllerProvider);
     final errorMap = controller.formatExceptionMap();
-    return Scaffold(
+    final scaffold = Scaffold(
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -99,5 +100,7 @@ class SignupView extends ConsumerWidget {
         ),
       ),
     );
+    if (state.isLoading) return LoaderWidgetWrapper(child: scaffold);
+    return scaffold;
   }
 }

@@ -16,7 +16,7 @@ class AuthService extends _$AuthService {
   }
 
   Future<void> login(String email, String password) async {
-    state = const AsyncLoading();
+    // state = const AsyncLoading();
     final user =
         await ref.read(authRemoteRepositoryProvider).login(email, password);
     await ref.read(authLocalRepositoryProvider).saveUser(user);
@@ -29,7 +29,7 @@ class AuthService extends _$AuthService {
     ProfessionChoices profession, [
     String? name,
   ]) async {
-    state = const AsyncLoading();
+    // state = const AsyncLoading();
     final user = await ref
         .read(authRemoteRepositoryProvider)
         .register(email, password, profession, name);

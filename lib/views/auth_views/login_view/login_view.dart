@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../widgets/double_color_text_button.dart';
+import '../../../widgets/loader_widget_wrapper.dart';
 import '../../../widgets/name_header.dart';
 import '../../../widgets/primary_button.dart';
 import '../../../widgets/standard_text_form_field.dart';
+import '../widgets/double_color_text_button.dart';
 import 'login_view_controller.dart';
 
 class LoginView extends ConsumerWidget {
@@ -16,7 +17,7 @@ class LoginView extends ConsumerWidget {
     final controller = ref.watch(loginViewControllerProvider.notifier);
     final state = ref.watch(loginViewControllerProvider);
     final errorMap = controller.formatExceptionMap();
-    return Scaffold(
+    final scaffold = Scaffold(
       backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -88,5 +89,7 @@ class LoginView extends ConsumerWidget {
         ),
       ),
     );
+    if (state.isLoading) return LoaderWidgetWrapper(child: scaffold);
+    return scaffold;
   }
 }
