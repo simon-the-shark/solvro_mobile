@@ -80,7 +80,7 @@ class ProjectsDrawer extends ConsumerWidget {
                     color: Theme.of(context).colorScheme.onSecondary,
                   ),
                   const SizedBox(height: 20),
-                  const NameListTile(),
+                  // const NameListTile(),
                   const EmailListTile(),
                   const ProfessionListTile(),
                   const SizedBox(height: 5),
