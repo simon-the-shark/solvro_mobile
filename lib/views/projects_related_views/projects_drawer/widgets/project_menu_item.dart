@@ -44,19 +44,26 @@ class ProjectMenuItem extends ConsumerWidget {
                             fontSize: 20.0,
                           );
                         },
-                  child: IconButton(
-                    onPressed: isOwner
-                        ? () {
-                            context.push("/projects/edit/${project.id}");
-                          }
-                        : null,
-                    icon: Icon(
-                      Icons.settings,
-                      color: isOwner
-                          ? Theme.of(context).colorScheme.inverseSurface
-                          : Colors.grey,
-                      size: 20,
-                    ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        visualDensity: VisualDensity.compact,
+                        onPressed: isOwner
+                            ? () {
+                                context.push("/projects/edit/${project.id}");
+                              }
+                            : null,
+                        icon: Icon(
+                          Icons.settings,
+                          color: isOwner
+                              ? Theme.of(context).colorScheme.inverseSurface
+                              : Colors.grey,
+                          size: 20,
+                        ),
+                      ),
+                      const SizedBox(height: 30, child: VerticalDivider()),
+                    ],
                   ),
                 ),
               ),
