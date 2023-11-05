@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../models/enums/enums.dart';
 import '../../../widgets/primary_button.dart';
+import '../../../widgets/secondary_button.dart';
 import 'task_detail_view_controller.dart';
 import 'widgets/blocked_delete_button.dart';
 import 'widgets/delete_button.dart';
@@ -35,7 +36,7 @@ class TaskDetailView extends ConsumerWidget {
             user: user,
             creator: creator,
             actions: [
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               PrimaryButton(
                 size: const Size(200, 45),
                 text: "Edit task",
@@ -44,7 +45,17 @@ class TaskDetailView extends ConsumerWidget {
                   if (response == true) Navigator.of(context).pop();
                 },
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 8),
+              if (task?.status != TaskStatusChoices.closed)
+                SecondaryButton(
+                    onPressed: () {
+                      ref
+                          .read(
+                              taskDetailViewControllerProvider(taskId).notifier)
+                          .closeTask();
+                    },
+                    text: "Close task"),
+              const SizedBox(height: 8),
               if (task?.status != TaskStatusChoices.closed)
                 DeleteButton(
                   onLoaded: () {
@@ -70,16 +81,8 @@ class TaskDetailView extends ConsumerWidget {
               if (task?.status == TaskStatusChoices.closed)
                 const BlockedDeleteButton(),
               const SizedBox(height: 15),
-              const SizedBox(height: 15),
             ],
           ),
-          IconButton(
-              onPressed: Navigator.of(context).pop,
-              icon: const Icon(
-                Icons.close,
-                size: 30,
-                color: Colors.white,
-              )),
           const Spacer(flex: 6),
         ],
       ),

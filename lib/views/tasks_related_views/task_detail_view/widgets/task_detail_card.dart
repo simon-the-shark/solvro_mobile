@@ -31,6 +31,7 @@ class TaskDetailCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   WidgetStatusHeaderAndTitle(
+                    showCloseButton: true,
                     statusChoice: task!.status,
                     showEstimation: task!.estimation,
                   ),

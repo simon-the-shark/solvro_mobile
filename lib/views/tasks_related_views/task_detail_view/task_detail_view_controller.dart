@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../models/enums/enums.dart';
 import '../../../models/tasks/task.dart';
 import '../../../models/users/user.dart';
 import '../../../repositories/tasks_repository.dart';
@@ -27,5 +28,11 @@ class TaskDetailViewController extends _$TaskDetailViewController {
       return (task, user, creator);
     }
     return (null, null, null);
+  }
+
+  Future<void> closeTask() async {
+    await ref
+        .read(tasksRepositoryProvider)
+        .updateTask(state.value!.$1!.copyWithStatus(TaskStatusChoices.closed));
   }
 }
