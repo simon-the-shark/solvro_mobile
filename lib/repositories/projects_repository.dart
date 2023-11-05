@@ -40,13 +40,14 @@ class ProjectsRepository {
     }
   }
 
-  Future<void> updateProject(Project project, String newName) async {
+  Future<void> updateProject(Project project) async {
     try {
       final response = await _dio.put(
           "${_apiDetails.projectsUrl}${project.id}/",
           options: _apiDetails.authHeaders,
           data: {
-            "name": newName,
+            "name": project.name,
+            "other_users_ids": project.otherUsers.map((e) => e.id).toList(),
           });
       print(response.data);
       _ref.invalidateSelf();

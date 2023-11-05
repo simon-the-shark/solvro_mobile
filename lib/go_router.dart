@@ -7,6 +7,7 @@ import 'views/auth_views/login_view/login_view.dart';
 import 'views/auth_views/signup_view/signup_view.dart';
 import 'views/home_view.dart';
 import 'views/projects_related_views/add_users_view/add_users_view.dart';
+import 'views/projects_related_views/edit_project_view/edit_project_view.dart';
 import 'views/tasks_related_views/new_task_view/new_task_view.dart';
 import 'views/tasks_related_views/task_edit_view.dart/task_edit_view.dart';
 
@@ -49,6 +50,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/addUsers',
         builder: (context, state) => const AddUsersView(),
+      ),
+      GoRoute(
+        path: '/projects/edit/:projId',
+        builder: (context, state) =>
+            EditProjectView(int.parse(state.pathParameters['projId']!)),
       ),
     ],
   );

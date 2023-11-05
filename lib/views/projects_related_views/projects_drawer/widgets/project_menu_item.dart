@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:solvro_mobile/services/auth_service.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../models/projects/project.dart';
+import '../../../../services/auth_service.dart';
 
 class ProjectMenuItem extends ConsumerWidget {
   final void Function() onTap;
@@ -44,7 +45,11 @@ class ProjectMenuItem extends ConsumerWidget {
                           );
                         },
                   child: IconButton(
-                    onPressed: isOwner ? () {} : null,
+                    onPressed: isOwner
+                        ? () {
+                            context.push("/projects/edit/${project.id}");
+                          }
+                        : null,
                     icon: Icon(
                       Icons.settings,
                       color: isOwner

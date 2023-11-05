@@ -35,7 +35,7 @@ class EmailList extends ConsumerWidget {
               : [
                   const ListTile(
                     title: Text(
-                      "Here will be displayed your current list of emails",
+                      "Here will be displayed your current list of email invitations (doesn't mean there's no other users in your project at the moment)",
                     ),
                   )
                 ],
