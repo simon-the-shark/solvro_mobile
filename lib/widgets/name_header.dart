@@ -10,7 +10,7 @@ class NameHeader extends StatelessWidget {
     return Text(
       "Solvro Taskmanager",
       textAlign: TextAlign.center,
-      style: GoogleFonts.rowdies(
+      style: GoogleFonts.instrumentSans(
         fontSize: fontSize,
         fontWeight: FontWeight.bold,
         color: color,
