@@ -11,6 +11,7 @@ class FilterExpansionSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
+        initiallyExpanded: true,
         collapsedBackgroundColor:
             Theme.of(context).colorScheme.primaryContainer,
         backgroundColor: Colors.white,

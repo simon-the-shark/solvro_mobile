@@ -51,9 +51,8 @@ class _EstimationMedalState extends State<EstimationMedal> {
         // color: Theme.of(context).colorScheme.secondary,
         border: Border.all(
           color: Colors.black,
-
           // color: Theme.of(context).colorScheme.primary,
-          width: 2.0,
+          width: 1.0,
           style: BorderStyle.solid,
         ),
         // gradient: LinearGradient(
