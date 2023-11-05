@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../services/auth_service.dart';
+import '../../../../services/auth_service.dart';
 
 class EmailListTile extends ConsumerWidget {
   const EmailListTile({

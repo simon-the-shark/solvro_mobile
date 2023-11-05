@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../repositories/projects_repository.dart';
-import '../../services/projects_service.dart';
-import '../../widgets/name_header.dart';
+import '../../../repositories/projects_repository.dart';
+import '../../../services/projects_service.dart';
+import '../../../widgets/name_header.dart';
 import 'widgets/app_info_tile.dart';
 import 'widgets/email_list_tile.dart';
 import 'widgets/logout_button.dart';

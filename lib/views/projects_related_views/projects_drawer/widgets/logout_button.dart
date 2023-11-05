@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../services/auth_service.dart';
-import '../../../widgets/gradient_button.dart';
+import '../../../../services/auth_service.dart';
+import '../../../../widgets/gradient_button.dart';
 
 class LogoutButton extends ConsumerWidget {
   const LogoutButton({

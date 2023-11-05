@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:solvro_mobile/services/auth_service.dart';
 
-import '../../../models/projects/project.dart';
+import '../../../../models/projects/project.dart';
 
 class ProjectMenuItem extends ConsumerWidget {
   final void Function() onTap;

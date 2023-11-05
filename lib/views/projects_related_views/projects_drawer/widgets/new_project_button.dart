@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../widgets/secondary_button.dart';
-import '../../simple_dialogs/new_project_dialog.dart';
+import '../../../../widgets/secondary_button.dart';
+import '../../new_project_dialog.dart';
 
 class NewProjectButton extends ConsumerWidget {
   const NewProjectButton({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../services/projects_service.dart';
-import '../../widgets/primary_button.dart';
-import '../../widgets/standard_app_bar.dart';
+import '../../../services/projects_service.dart';
+import '../../../widgets/primary_button.dart';
+import '../../../widgets/standard_app_bar.dart';
 import 'add_users_view_controller.dart';
 import 'widgets/email_list.dart';
 import 'widgets/multi_email_field.dart';

@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import 'services/auth_service.dart';
-import 'views/add_users_view/add_users_view.dart';
 import 'views/auth_views/login_view/login_view.dart';
 import 'views/auth_views/signup_view/signup_view.dart';
 import 'views/home_view.dart';
+import 'views/projects_related_views/add_users_view/add_users_view.dart';
 import 'views/tasks_related_views/new_task_view/new_task_view.dart';
 import 'views/tasks_related_views/task_edit_view.dart/task_edit_view.dart';
 

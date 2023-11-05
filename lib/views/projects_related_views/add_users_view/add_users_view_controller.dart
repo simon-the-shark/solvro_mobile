@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../go_router.dart';
-import '../../models/projects/project.dart';
-import '../../repositories/projects_repository.dart';
+import '../../../go_router.dart';
+import '../../../models/projects/project.dart';
+import '../../../repositories/projects_repository.dart';
 
 part 'add_users_view_controller.g.dart';
 
