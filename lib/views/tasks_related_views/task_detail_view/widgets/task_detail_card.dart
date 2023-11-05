@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../../../../models/enums/enums.dart';
 import '../../../../models/tasks/task.dart';
 import '../../../../models/users/user.dart';
+import '../../widgets/estimation_medal.dart';
 import '../../widgets/status_header_and_title.dart';
 
 class TaskDetailCard extends StatelessWidget {
@@ -47,6 +48,7 @@ class TaskDetailCard extends StatelessWidget {
                     title: Text(
                         EnumJsonConverter.valueString(task!.estimation) ?? ""),
                     subtitle: const Text("Estimation number"),
+                    trailing: EstimationMedal(estimation: task!.estimation),
                   ),
                   ListTile(
                     title: Text(creator?.representationName ?? "NOT ASSIGNED"),
