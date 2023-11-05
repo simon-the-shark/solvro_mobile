@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:solvro_mobile/services/auth_service.dart';
 
 import '../../../models/projects/project.dart';
 
-class ProjectMenuItem extends StatelessWidget {
+class ProjectMenuItem extends ConsumerWidget {
   final void Function() onTap;
 
   const ProjectMenuItem(
@@ -10,7 +13,9 @@ class ProjectMenuItem extends StatelessWidget {
 
   final Project project;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authServiceProvider).value;
+    final isOwner = project.owner.id == user?.id;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       child: Column(
@@ -23,12 +28,30 @@ class ProjectMenuItem extends StatelessWidget {
               dense: true,
               leading: Transform.translate(
                 offset: const Offset(-10, 0),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.settings,
-                    color: Theme.of(context).colorScheme.inverseSurface,
-                    size: 20,
+                child: GestureDetector(
+                  onTap: isOwner
+                      ? null
+                      : () {
+                          Fluttertoast.showToast(
+                            msg: "Only project's owner can edit",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.secondary,
+                            textColor: Colors.white,
+                            fontSize: 20.0,
+                          );
+                        },
+                  child: IconButton(
+                    onPressed: isOwner ? () {} : null,
+                    icon: Icon(
+                      Icons.settings,
+                      color: isOwner
+                          ? Theme.of(context).colorScheme.inverseSurface
+                          : Colors.grey,
+                      size: 20,
+                    ),
                   ),
                 ),
               ),
