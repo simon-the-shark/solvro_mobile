@@ -36,9 +36,9 @@ class ProjectsDrawer extends ConsumerWidget {
                   ),
                 ) ??
                 const [],
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             const NewProjectButton(),
-            // const SizedBox(height: 30),
+            const SizedBox(height: 40),
           ],
         ),
       ),

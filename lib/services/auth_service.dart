@@ -43,5 +43,6 @@ class AuthService extends _$AuthService {
     await ref.read(authRemoteRepositoryProvider).logout();
     await ref.read(authLocalRepositoryProvider).deleteUser();
     state = const AsyncData(null);
+    ref.invalidate(projectsRepositoryProvider);
   }
 }
