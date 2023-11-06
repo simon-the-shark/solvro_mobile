@@ -31,15 +31,15 @@ Aplikację można samemu skompilować na swoje urządzenie lub zainstalować/prz
 
 # Inne Urządzenia
 
-<img src="./readme_imgs/ipad/ipad1.jpeg" alt="ipad1" width="250">
-<img src="./readme_imgs/ipad/ipad2.jpeg" alt="ipad2" width="250">
-<img src="./readme_imgs/ipad/ipad3.jpeg" alt="ipad3" width="250">
-<img src="./readme_imgs/ipad/ipad4.jpeg" alt="ipad4" width="250">
+<img src="./readme_imgs/ipad/ipad1.png" alt="ipad1" width="250">
+<img src="./readme_imgs/ipad/ipad2.png" alt="ipad2" width="250">
+<img src="./readme_imgs/ipad/ipad3.png" alt="ipad3" width="250">
+<img src="./readme_imgs/ipad/ipad4.png" alt="ipad4" width="250">
 
-<img src="./readme_imgs/mini/mini1.jpeg" alt="mini1" width="250">
-<img src="./readme_imgs/mini/mini2.jpeg" alt="mini2" width="250">
-<img src="./readme_imgs/mini/mini3.jpeg" alt="mini3" width="250">
+<img src="./readme_imgs/mini/mini1.png" alt="mini1" width="250">
+<img src="./readme_imgs/mini/mini2.png" alt="mini2" width="250">
+<img src="./readme_imgs/mini/mini3.png" alt="mini3" width="250">
 
-<img src="./readme_imgs/web/web1.jpeg" alt="web1" width="250">
-<img src="./readme_imgs/web/web2.jpeg" alt="web2" width="250">
-<img src="./readme_imgs/web/web3.jpeg" alt="web3" width="250">
+<img src="./readme_imgs/web/web1.png" alt="web1" width="250">
+<img src="./readme_imgs/web/web2.png" alt="web2" width="250">
+<img src="./readme_imgs/web/web3.png" alt="web3" width="250">
