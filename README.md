@@ -1,16 +1,18 @@
-# solvro_mobile
+# Taskamanager Demo - zadanie rekrutacyjne Mobile do KN Solvro
 
-A new Flutter project.
+---
 
-## Getting Started
+Link do rekrutacji: https://github.com/Solvro/rekrutacja.zima.2023
 
-This project is a starting point for a Flutter application.
+Zadanie to prosta aplikacja mobilna we Flutterze do zarządzania zadaniami w zespole developerów. Zintegrowana jest z własnym (za pozwoleniem) api w django,
+repo: https://github.com/simon-the-shark/solvro_api_for_mobile
+api url: https://solvro-api-for-mobile.caprover.kowalinski.dev/api
+Jest to prosty system rejestracji i logowania poprzez maila i hasło, ale autoryzacja odbywa się poprzez tymczasowe tokeny użytkowników. Można tworzyć projekty i zapraszać do nich innych użytkowników. Oczywiście powinny być też wszystkie wymagane funkcjonalności związane z zarządzaniem zadaniami.
 
-A few resources to get you started if this is your first Flutter project:
+Aplikację można samemu skompilować na swoje urządzenie lub zainstalować/przetestować z:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. apk na androida w releases:
+2. na ios-a mogę zbudować builda specjalnie pod kogoś mac address
+3. demo skompilowane do flutter web: https://taskmanager-solvro-demo.web.app/
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Przykładowe screeny
