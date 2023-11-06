@@ -7,7 +7,8 @@ import '../services/auth_service.dart';
 class ApiDetails {
   const ApiDetails(
     this._ref, {
-    this.apiMasterUrl = "http://srv22.mikr.us:40041/api/",
+    this.apiMasterUrl =
+        "https://solvro-api-for-mobile.caprover.kowalinski.dev/api/",
     String loginApndx = "auth/login/",
     String registerApndx = "auth/register/",
     String logoutApndx = "auth/logout/",
