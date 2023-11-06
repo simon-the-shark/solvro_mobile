@@ -28,7 +28,7 @@ class AppInfoTile extends StatelessWidget {
             ),
           );
         }
-        return const ListTile();
+        return Container();
       },
     );
   }

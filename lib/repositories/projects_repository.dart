@@ -21,7 +21,10 @@ class ProjectsRepository {
         _apiDetails.projectsUrl,
         options: _apiDetails.authHeaders,
       );
-      return response.data.map<Project>((e) => Project.fromJson(e)).toList();
+      return response.data
+          .map<Project>((e) => Project.fromJson(e))
+          .toSet()
+          .toList();
     } on DioException catch (e) {
       if ((e.response?.data as Map<String, dynamic>?)?["detail"] ==
           "Niepoprawny token.") {
