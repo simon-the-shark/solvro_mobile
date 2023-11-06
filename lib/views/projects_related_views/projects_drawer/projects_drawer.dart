@@ -23,6 +23,7 @@ class ProjectsDrawer extends ConsumerWidget {
     Widget projectsColumn = RefreshIndicator(
       onRefresh: () async => ref.refresh(projectsRepositoryProvider),
       child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
         child: Column(
           children: [
             ...projects?.map(
