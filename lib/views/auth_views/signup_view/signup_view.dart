@@ -67,7 +67,7 @@ class SignupView extends ConsumerWidget {
               ),
             ],
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.all(20),
               child: DoubleColorTextButton(
                 textBlack: "Already have an account? ",
                 textBlue: "Login instead.",

@@ -57,7 +57,7 @@ class LoginView extends ConsumerWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.all(20),
                 child: DoubleColorTextButton(
                   textBlack: "New user? ",
                   textBlue: "Register instead.",
