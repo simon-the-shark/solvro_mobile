@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_framework/responsive_breakpoints.dart';
 
 import '../../../repositories/projects_repository.dart';
 import '../../../services/projects_service.dart';
@@ -107,8 +108,16 @@ class ProjectsDrawer extends ConsumerWidget {
       ],
     );
     if (isLandscape) {
-      return Drawer(child: SingleChildScrollView(child: drawer));
+      return Drawer(
+          shape: ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')
+              ? const RoundedRectangleBorder(borderRadius: BorderRadius.zero)
+              : null,
+          child: SingleChildScrollView(child: drawer));
     }
-    return Drawer(child: drawer);
+    return Drawer(
+        shape: ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')
+            ? const RoundedRectangleBorder(borderRadius: BorderRadius.zero)
+            : null,
+        child: drawer);
   }
 }

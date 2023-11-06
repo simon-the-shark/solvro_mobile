@@ -4,7 +4,6 @@ import 'package:responsive_framework/responsive_breakpoints.dart';
 
 import '../../../models/enums/enums.dart';
 import '../../../repositories/tasks_repository.dart';
-import '../../projects_related_views/projects_drawer/projects_drawer.dart';
 import 'task_type_subtable.dart';
 import 'widgets/empty_table.dart';
 
@@ -22,7 +21,6 @@ class TasksTableView extends StatelessWidget {
             width: 300,
             height: MediaQuery.of(context).size.height -
                 MediaQuery.of(context).padding.vertical,
-            child: const ProjectsDrawer(),
           ),
           const TaskTable(),
         ],

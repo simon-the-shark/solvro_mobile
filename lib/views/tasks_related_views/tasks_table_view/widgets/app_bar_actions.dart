@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_framework/responsive_breakpoints.dart';
 
 import '../../../../repositories/tasks_repository.dart';
 import '../../../../services/auth_service.dart';
@@ -53,15 +54,17 @@ class RefreshIcon extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    if (ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')) {
+      return IconButton(
+        onPressed: () {
+          ref.invalidate(tasksRepositoryProvider);
+        },
+        icon: const Icon(
+          Icons.refresh,
+          color: Colors.white,
+        ),
+      );
+    }
     return Container();
-    return IconButton(
-      onPressed: () {
-        ref.invalidate(tasksRepositoryProvider);
-      },
-      icon: const Icon(
-        Icons.refresh,
-        color: Colors.white,
-      ),
-    );
   }
 }

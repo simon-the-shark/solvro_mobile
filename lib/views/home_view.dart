@@ -14,17 +14,32 @@ class HomeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      drawer: ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')
-          ? null
-          : const ProjectsDrawer(),
-      appBar: StandardAppBar(
-        context,
-        titleText: "${ref.watch(currentProjectSubServiceProvider).value?.name}",
-        actions: AppBarActions(context),
-      ),
-      body: const TasksTableView(),
-      floatingActionButton: const FloatingActionButtons(),
+    return Stack(
+      children: [
+        Scaffold(
+          drawer: ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')
+              ? null
+              : const ProjectsDrawer(),
+          appBar: StandardAppBar(
+            context,
+            titleText:
+                "${ref.watch(currentProjectSubServiceProvider).value?.name}",
+            actions: AppBarActions(context),
+            titleShift:
+                ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')
+                    ? 170
+                    : null,
+          ),
+          body: const TasksTableView(),
+          floatingActionButton: const FloatingActionButtons(),
+        ),
+        if (ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER'))
+          SizedBox(
+            width: 300,
+            height: MediaQuery.of(context).size.height,
+            child: const ProjectsDrawer(),
+          )
+      ],
     );
   }
 }
