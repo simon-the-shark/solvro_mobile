@@ -32,8 +32,8 @@ class MyApp extends ConsumerWidget {
         return ResponsiveBreakpoints.builder(
           child: child!,
           breakpoints: [
-            const Breakpoint(start: 0, end: 450, name: MOBILE),
-            const Breakpoint(start: 451, end: 800, name: TABLET),
+            const Breakpoint(start: 0, end: 549, name: MOBILE),
+            const Breakpoint(start: 550, end: 800, name: TABLET),
             const Breakpoint(start: 801, end: 1920, name: DESKTOP),
             const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
           ],
