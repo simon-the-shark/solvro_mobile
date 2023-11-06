@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_framework/max_width_box.dart';
 
 import '../../../models/enums/enums.dart';
 import '../../../widgets/enum_dropdown_form_field.dart';
@@ -32,77 +33,82 @@ class TaskEditView extends ConsumerWidget {
         titleText: "EDIT TASK",
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Card(
-              color: Colors.white,
-              elevation: 20,
-              margin: const EdgeInsets.all(30.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  WidgetStatusHeaderAndTitle(
-                    statusChoice: task.status,
-                    showEstimation: task.estimation,
-                  ),
-                  const SizedBox(height: 20),
-                  StandardTextFormField(
-                    hintText: 'Your new name for this task',
-                    labelText: 'Task name',
-                    onChanged: controller.nameOnChanged,
-                    initValue: task.name,
-                    errorText: errorMap["name"],
-                  ),
-                  const SizedBox(height: 10),
-                  EnumDropdownFormField<EstimationChoices>(
-                    hintText: "Estimation number",
-                    initialValue: task.estimation,
-                    labelText: "Estimation number",
-                    items: EstimationChoices.values,
-                    onChanged: controller.estimationOnChanged,
-                    errorText: errorMap["estimation"],
-                  ),
-                  const SizedBox(height: 10),
-                  EnumDropdownFormField<TaskStatusChoices>(
-                    hintText: "Status",
-                    initialValue: task.status,
-                    labelText: "Status",
-                    items: TaskStatusChoices.values,
-                    onChanged: controller.onStatusChanged,
-                    errorText: errorMap["status"],
-                  ),
-                  const SizedBox(height: 10),
-                  UsersDropdownFormField(
-                    hintText: "Assign to",
-                    labelText: "Assign to",
-                    initialUser: users.firstWhereOrNull(
-                        (element) => element.id == task.assignedTo),
-                    itemsUsers: users,
-                    onChanged: controller.onAssignedToChanged,
-                    errorText: errorMap["assignedTo"],
-                  ),
-                  const SizedBox(height: 20),
-                  CreatorAppendix(
-                    createdBy: users.firstWhereOrNull(
-                        (element) => element.id == task.createdBy),
-                    datetime: task.createdAt,
-                  ),
-                  Column(
+        child: Center(
+          child: MaxWidthBox(
+            maxWidth: 550,
+            child: Column(
+              children: [
+                Card(
+                  color: Colors.white,
+                  elevation: 20,
+                  margin: const EdgeInsets.all(30.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const SizedBox(height: 10),
-                      PrimaryButton(
-                        size: const Size(200, 45),
-                        onPressed: controller.editTask,
-                        text: "Edit task",
+                      WidgetStatusHeaderAndTitle(
+                        statusChoice: task.status,
+                        showEstimation: task.estimation,
                       ),
-                      const SizedBox(height: 25),
+                      const SizedBox(height: 20),
+                      StandardTextFormField(
+                        hintText: 'Your new name for this task',
+                        labelText: 'Task name',
+                        onChanged: controller.nameOnChanged,
+                        initValue: task.name,
+                        errorText: errorMap["name"],
+                      ),
+                      const SizedBox(height: 10),
+                      EnumDropdownFormField<EstimationChoices>(
+                        hintText: "Estimation number",
+                        initialValue: task.estimation,
+                        labelText: "Estimation number",
+                        items: EstimationChoices.values,
+                        onChanged: controller.estimationOnChanged,
+                        errorText: errorMap["estimation"],
+                      ),
+                      const SizedBox(height: 10),
+                      EnumDropdownFormField<TaskStatusChoices>(
+                        hintText: "Status",
+                        initialValue: task.status,
+                        labelText: "Status",
+                        items: TaskStatusChoices.values,
+                        onChanged: controller.onStatusChanged,
+                        errorText: errorMap["status"],
+                      ),
+                      const SizedBox(height: 10),
+                      UsersDropdownFormField(
+                        hintText: "Assign to",
+                        labelText: "Assign to",
+                        initialUser: users.firstWhereOrNull(
+                            (element) => element.id == task.assignedTo),
+                        itemsUsers: users,
+                        onChanged: controller.onAssignedToChanged,
+                        errorText: errorMap["assignedTo"],
+                      ),
+                      const SizedBox(height: 20),
+                      CreatorAppendix(
+                        createdBy: users.firstWhereOrNull(
+                            (element) => element.id == task.createdBy),
+                        datetime: task.createdAt,
+                      ),
+                      Column(
+                        children: [
+                          const SizedBox(height: 10),
+                          PrimaryButton(
+                            size: const Size(200, 45),
+                            onPressed: controller.editTask,
+                            text: "Edit task",
+                          ),
+                          const SizedBox(height: 25),
+                        ],
+                      ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

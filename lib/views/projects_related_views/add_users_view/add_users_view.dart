@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../../../services/projects_service.dart';
 import '../../../widgets/primary_button.dart';
@@ -28,31 +29,37 @@ class _AddUsersViewState extends ConsumerState<AddUsersView> {
       body: stateProvider.isLoading || currentProjectProv.isLoading
           ? const Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
-              child: Column(children: [
-                Padding(
-                  padding: const EdgeInsets.all(10),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: MaxWidthBox(
+                  maxWidth: 700,
                   child: Column(children: [
-                    ListTile(
-                      title: Text("Let's "
-                          'add some users to your current project: "${currentProjectProv.value!.name}"'),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(children: [
+                        ListTile(
+                          title: Text("Let's "
+                              'add some users to your current project: "${currentProjectProv.value!.name}"'),
+                        ),
+                        const ListTile(
+                          title: Text(
+                              "You can type as many emails as you like, and those connected to an account in our app, will be added to your projects as collaborants."),
+                        ),
+                      ]),
                     ),
-                    const ListTile(
-                      title: Text(
-                          "You can type as many emails as you like, and those connected to an account in our app, will be added to your projects as collaborants."),
-                    ),
+                    const MultiEmailField(),
+                    const EmailList(),
+                    PrimaryButton(
+                        onPressed: () {
+                          ref
+                              .read(addUsersViewControllerProvider.notifier)
+                              .sendEmails(currentProjectProv.value!);
+                        },
+                        text: "Add all"),
+                    const SizedBox(height: 60),
                   ]),
                 ),
-                const MultiEmailField(),
-                const EmailList(),
-                PrimaryButton(
-                    onPressed: () {
-                      ref
-                          .read(addUsersViewControllerProvider.notifier)
-                          .sendEmails(currentProjectProv.value!);
-                    },
-                    text: "Add all"),
-                const SizedBox(height: 60),
-              ]),
+              ),
             ),
     );
   }

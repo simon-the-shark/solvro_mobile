@@ -29,11 +29,11 @@ class TaskDetailView extends ConsumerWidget {
     }
     return Center(
       child: MaxWidthBox(
-        maxWidth: 600,
+        maxWidth: 550,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Spacer(),
+            const Spacer(flex: 2),
             TaskDetailCard(
               task: task,
               user: user,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_framework/max_width_box.dart';
 
 import '../../../models/enums/enums.dart';
 import '../../../models/users/user.dart';
@@ -37,73 +38,78 @@ class _NewTaskViewState extends ConsumerState<NewTaskView> {
         titleText: "ADD NEW TASK",
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Card(
-              color: Colors.white,
-              elevation: 20,
-              margin: const EdgeInsets.all(30.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  WidgetStatusHeaderAndTitle(
-                    statusChoice: isAssigned
-                        ? TaskStatusChoices.inProgress
-                        : TaskStatusChoices.notAssigned,
-                    showEstimation: estimation,
-                  ),
-                  const SizedBox(height: 20),
-                  StandardTextFormField(
-                    hintText: 'Your super new task',
-                    labelText: 'Task name',
-                    onChanged: controller.nameOnChanged,
-                    errorText: errorMap["name"],
-                  ),
-                  const SizedBox(height: 10),
-                  EnumDropdownFormField<EstimationChoices>(
-                    hintText: "Estimation number",
-                    labelText: "Estimation number",
-                    items: EstimationChoices.values,
-                    onChanged: (p0) {
-                      setState(() {
-                        estimation = p0;
-                      });
-                      controller.estimationOnChanged(p0);
-                    },
-                    errorText: errorMap["estimation"],
-                  ),
-                  const SizedBox(height: 10),
-                  UsersDropdownFormField(
-                    hintText: "Assign to",
-                    labelText: "Assign to",
-                    itemsUsers: users ?? <User>[],
-                    onChanged: (p0) {
-                      setState(() {
-                        isAssigned = p0 != null;
-                      });
-                      controller.onAssignedToChanged(p0);
-                    },
-                    errorText: errorMap["assignedTo"],
-                  ),
-                  // TextButtons const Text("Auto assignment proposition")),
-                  const SizedBox(height: 20),
-                  const NewTaskCreatorAppendix(),
-                  Column(
+        child: Center(
+          child: MaxWidthBox(
+            maxWidth: 550,
+            child: Column(
+              children: [
+                Card(
+                  color: Colors.white,
+                  elevation: 20,
+                  margin: const EdgeInsets.all(30.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      const SizedBox(height: 15),
-                      PrimaryButton(
-                        size: const Size(200, 45),
-                        onPressed: controller.saveTask,
-                        text: "Add task",
+                      WidgetStatusHeaderAndTitle(
+                        statusChoice: isAssigned
+                            ? TaskStatusChoices.inProgress
+                            : TaskStatusChoices.notAssigned,
+                        showEstimation: estimation,
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 20),
+                      StandardTextFormField(
+                        hintText: 'Your super new task',
+                        labelText: 'Task name',
+                        onChanged: controller.nameOnChanged,
+                        errorText: errorMap["name"],
+                      ),
+                      const SizedBox(height: 10),
+                      EnumDropdownFormField<EstimationChoices>(
+                        hintText: "Estimation number",
+                        labelText: "Estimation number",
+                        items: EstimationChoices.values,
+                        onChanged: (p0) {
+                          setState(() {
+                            estimation = p0;
+                          });
+                          controller.estimationOnChanged(p0);
+                        },
+                        errorText: errorMap["estimation"],
+                      ),
+                      const SizedBox(height: 10),
+                      UsersDropdownFormField(
+                        hintText: "Assign to",
+                        labelText: "Assign to",
+                        itemsUsers: users ?? <User>[],
+                        onChanged: (p0) {
+                          setState(() {
+                            isAssigned = p0 != null;
+                          });
+                          controller.onAssignedToChanged(p0);
+                        },
+                        errorText: errorMap["assignedTo"],
+                      ),
+                      // TextButtons const Text("Auto assignment proposition")),
+                      const SizedBox(height: 20),
+                      const NewTaskCreatorAppendix(),
+                      Column(
+                        children: [
+                          const SizedBox(height: 15),
+                          PrimaryButton(
+                            size: const Size(200, 45),
+                            onPressed: controller.saveTask,
+                            text: "Add task",
+                          ),
+                          const SizedBox(height: 30),
+                        ],
+                      ),
                     ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

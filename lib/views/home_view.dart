@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 import '../services/projects_service.dart';
 import '../widgets/standard_app_bar.dart';
@@ -14,14 +15,15 @@ class HomeView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      drawer: const ProjectsDrawer(),
+      drawer: ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')
+          ? null
+          : const ProjectsDrawer(),
       appBar: StandardAppBar(
         context,
         titleText: "${ref.watch(currentProjectSubServiceProvider).value?.name}",
         actions: AppBarActions(context),
       ),
       body: const TasksTableView(),
-      // bottomNavigationBar: const FilterExpansionSection(),
       floatingActionButton: const FloatingActionButtons(),
     );
   }
