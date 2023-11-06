@@ -21,6 +21,7 @@ class AuthService extends _$AuthService {
         await ref.read(authRemoteRepositoryProvider).login(email, password);
     await ref.read(authLocalRepositoryProvider).saveUser(user);
     state = AsyncData(user);
+    ref.invalidate(projectsRepositoryProvider);
   }
 
   Future<void> register(
@@ -36,6 +37,7 @@ class AuthService extends _$AuthService {
     await ref.read(authLocalRepositoryProvider).saveUser(user);
     state = AsyncData(user);
     await ref.read(projectsRepositoryProvider).addProject("Your first project");
+    ref.invalidate(projectsRepositoryProvider);
   }
 
   Future<void> logout() async {
