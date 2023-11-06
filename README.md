@@ -11,8 +11,35 @@ Jest to prosty system rejestracji i logowania poprzez maila i hasło, ale autory
 
 Aplikację można samemu skompilować na swoje urządzenie lub zainstalować/przetestować z:
 
-1. apk na androida w releases:
+1. apk na androida w releases: https://github.com/simon-the-shark/solvro_mobile/releases/tag/v1.0.6
 2. na ios-a mogę zbudować builda specjalnie pod kogoś mac address
 3. demo skompilowane do flutter web: https://taskmanager-solvro-demo.web.app/
 
 # Przykładowe screeny
+
+![](./readme_imgs/phone/phone1.jpeg)
+![](./readme_imgs/phone/phone2.jpeg)
+![](./readme_imgs/phone/phone3.jpeg)
+![](./readme_imgs/phone/phone4.jpeg)
+![](./readme_imgs/phone/phone5.jpeg)
+![](./readme_imgs/phone/phone6.jpeg)
+![](./readme_imgs/phone/phone7.jpeg)
+![](./readme_imgs/phone/phone8.jpeg)
+![](./readme_imgs/phone/phone9.jpeg)
+![](./readme_imgs/phone/phone10.jpeg)
+![](./readme_imgs/phone/phone11.jpeg)
+
+# Inne Urządzenia
+
+![](./readme_imgs/ipad/ipad1.jpeg)
+![](./readme_imgs/ipad/ipad2.jpeg)
+![](./readme_imgs/ipad/ipad3.jpeg)
+![](./readme_imgs/ipad/ipad4.jpeg)
+
+![](./readme_imgs/mini/mini1.jpeg)
+![](./readme_imgs/mini/mini2.jpeg)
+![](./readme_imgs/mini/mini3.jpeg)
+
+![](./readme_imgs/web/web1.jpeg)
+![](./readme_imgs/web/web2.jpeg)
+![](./readme_imgs/web/web3.jpeg)
