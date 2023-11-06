@@ -17,29 +17,29 @@ Aplikację można samemu skompilować na swoje urządzenie lub zainstalować/prz
 
 # Przykładowe screeny
 
-![](./readme_imgs/phone/phone1.jpeg | width=250)
-![](./readme_imgs/phone/phone2.jpeg | width=250)
-![](./readme_imgs/phone/phone3.jpeg | width=250)
-![](./readme_imgs/phone/phone4.jpeg | width=250)
-![](./readme_imgs/phone/phone5.jpeg | width=250)
-![](./readme_imgs/phone/phone6.jpeg | width=250)
-![](./readme_imgs/phone/phone7.jpeg | width=250)
-![](./readme_imgs/phone/phone8.jpeg | width=250)
-![](./readme_imgs/phone/phone9.jpeg | width=250)
-![](./readme_imgs/phone/phone10.jpeg | width=250)
-![](./readme_imgs/phone/phone11.jpeg | width=250)
+<img src="./readme_imgs/phone/phone1.jpeg" alt="phone1" width="250">
+<img src="./readme_imgs/phone/phone2.jpeg" alt="phone2" width="250">
+<img src="./readme_imgs/phone/phone3.jpeg" alt="phone3" width="250">
+<img src="./readme_imgs/phone/phone4.jpeg" alt="phone4" width="250">
+<img src="./readme_imgs/phone/phone5.jpeg" alt="phone5" width="250">
+<img src="./readme_imgs/phone/phone6.jpeg" alt="phone6" width="250">
+<img src="./readme_imgs/phone/phone7.jpeg" alt="phone7" width="250">
+<img src="./readme_imgs/phone/phone8.jpeg" alt="phone8" width="250">
+<img src="./readme_imgs/phone/phone9.jpeg" alt="phone9" width="250">
+<img src="./readme_imgs/phone/phone10.jpeg" alt="phone10" width="250">
+<img src="./readme_imgs/phone/phone11.jpeg" alt="phone11" width="250">
 
 # Inne Urządzenia
 
-![](./readme_imgs/ipad/ipad1.jpeg | width=250)
-![](./readme_imgs/ipad/ipad2.jpeg | width=250)
-![](./readme_imgs/ipad/ipad3.jpeg | width=250)
-![](./readme_imgs/ipad/ipad4.jpeg | width=250)
+<img src="./readme_imgs/ipad/ipad1.jpeg" alt="ipad1" width="250">
+<img src="./readme_imgs/ipad/ipad2.jpeg" alt="ipad2" width="250">
+<img src="./readme_imgs/ipad/ipad3.jpeg" alt="ipad3" width="250">
+<img src="./readme_imgs/ipad/ipad4.jpeg" alt="ipad4" width="250">
 
-![](./readme_imgs/mini/mini1.jpeg | width=250)
-![](./readme_imgs/mini/mini2.jpeg | width=250)
-![](./readme_imgs/mini/mini3.jpeg | width=250)
+<img src="./readme_imgs/mini/mini1.jpeg" alt="mini1" width="250">
+<img src="./readme_imgs/mini/mini2.jpeg" alt="mini2" width="250">
+<img src="./readme_imgs/mini/mini3.jpeg" alt="mini3" width="250">
 
-![](./readme_imgs/web/web1.jpeg | width=250)
-![](./readme_imgs/web/web2.jpeg | width=250)
-![](./readme_imgs/web/web3.jpeg | width=250)
+<img src="./readme_imgs/web/web1.jpeg" alt="web1" width="250">
+<img src="./readme_imgs/web/web2.jpeg" alt="web2" width="250">
+<img src="./readme_imgs/web/web3.jpeg" alt="web3" width="250">
