@@ -6,6 +6,7 @@ import '../../../models/enums/enums.dart';
 import '../../../repositories/tasks_repository.dart';
 import 'task_type_subtable.dart';
 import 'widgets/empty_table.dart';
+import 'widgets/filter_desktop_section.dart';
 
 class TasksTableView extends StatelessWidget {
   const TasksTableView({super.key});
@@ -37,47 +38,61 @@ class TaskTable extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const subtables = [
-      TaskTypeSubtable(TaskStatusChoices.notAssigned),
-      TaskTypeSubtable(TaskStatusChoices.inProgress),
-      TaskTypeSubtable(TaskStatusChoices.closed),
-    ];
-    const empty = EmptyTable();
-    return Stack(
+    return Column(
       children: [
-        RefreshIndicator(
-          onRefresh: () async => ref.refresh(tasksRepositoryProvider),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding:
-                  ResponsiveBreakpoints.of(context).largerThan('HIDE_DRAWER')
+        if (ResponsiveBreakpoints.of(context).largerOrEqualTo(DESKTOP))
+          const FilterDesktopSection(),
+        if (ResponsiveBreakpoints.of(context).largerOrEqualTo(DESKTOP))
+          const Divider(),
+        Stack(
+          children: [
+            RefreshIndicator(
+              onRefresh: () async => ref.refresh(tasksRepositoryProvider),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: ResponsiveBreakpoints.of(context)
+                          .largerThan('HIDE_DRAWER')
                       ? const EdgeInsets.only(
                           top: 15, bottom: 100, left: 20, right: 20)
                       : const EdgeInsets.only(top: 15, bottom: 100),
-              child: ResponsiveBreakpoints.of(context).largerOrEqualTo(DESKTOP)
-                  ? SizedBox(
-                      width: MediaQuery.of(context).size.width -
-                          ((ResponsiveBreakpoints.of(context)
-                                  .largerThan('HIDE_DRAWER'))
-                              ? 340
-                              : 0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ...subtables
-                              .map(
-                                (e) => Expanded(child: e),
-                              )
-                              .toList(),
-                          empty
-                        ],
-                      ),
-                    )
-                  : const Column(
-                      children: [...subtables, empty],
-                    ),
+                  child: ResponsiveBreakpoints.of(context)
+                          .largerOrEqualTo(DESKTOP)
+                      ? SizedBox(
+                          width: MediaQuery.of(context).size.width -
+                              ((ResponsiveBreakpoints.of(context)
+                                      .largerThan('HIDE_DRAWER'))
+                                  ? 340
+                                  : 0),
+                          child: const Column(
+                            children: [
+                              EmptyTable(),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TaskTypeSubtable(
+                                      TaskStatusChoices.notAssigned,
+                                      wrapWithExpanded: true),
+                                  TaskTypeSubtable(TaskStatusChoices.inProgress,
+                                      wrapWithExpanded: true),
+                                  TaskTypeSubtable(TaskStatusChoices.closed,
+                                      wrapWithExpanded: true),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+                      : const Column(
+                          children: [
+                            TaskTypeSubtable(TaskStatusChoices.notAssigned),
+                            TaskTypeSubtable(TaskStatusChoices.inProgress),
+                            TaskTypeSubtable(TaskStatusChoices.closed),
+                            EmptyTable(),
+                          ],
+                        ),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ],
     );

@@ -9,9 +9,10 @@ import 'widgets/expansion_title.dart';
 import 'widgets/task_tile.dart';
 
 class TaskTypeSubtable extends ConsumerStatefulWidget {
-  const TaskTypeSubtable(this.statusChoice, {super.key});
+  const TaskTypeSubtable(this.statusChoice,
+      {super.key, this.wrapWithExpanded = false});
   final TaskStatusChoices statusChoice;
-
+  final bool wrapWithExpanded;
   @override
   ConsumerState<TaskTypeSubtable> createState() => _TaskTypeSubtableState();
 }
@@ -34,7 +35,7 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
     if (!isLoading && tasks == null) {
       return Container();
     }
-    return Card(
+    final taskTableCard = Card(
       margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Stack(
         children: [
@@ -84,5 +85,7 @@ class _TaskTypeSubtableState extends ConsumerState<TaskTypeSubtable> {
         ],
       ),
     );
+    if (widget.wrapWithExpanded) return Expanded(child: taskTableCard);
+    return taskTableCard;
   }
 }

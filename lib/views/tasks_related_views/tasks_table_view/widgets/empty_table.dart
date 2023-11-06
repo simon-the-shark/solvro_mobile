@@ -25,12 +25,11 @@ class EmptyTable extends ConsumerWidget {
     if (!show) {
       return Container();
     }
-    return const Center(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 80, vertical: 150),
-        child: Text(
-          "You gotta choose some columns in filter table options to see some sections",
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(60.0),
+      child: Text(
+        "You gotta choose some columns in filter table options to see some sections",
+        style: TextStyle(fontSize: 15 * MediaQuery.of(context).textScaleFactor),
       ),
     );
   }

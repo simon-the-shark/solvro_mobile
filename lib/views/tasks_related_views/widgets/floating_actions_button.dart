@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_breakpoints.dart';
 
 import '../tasks_table_view/widgets/filter_expansion_section.dart';
 import 'new_task_fab.dart';
@@ -13,23 +14,24 @@ class FloatingActionButtons extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 30.0,
-          ),
-          child: FloatingActionButton(
-            backgroundColor: Theme.of(context).colorScheme.secondary,
-            onPressed: () {
-              showModalBottomSheet(
-                  context: context,
-                  builder: (context) => const FilterExpansionSection());
-            },
-            child: Icon(
-              Icons.filter_alt,
-              color: Theme.of(context).colorScheme.onSecondary,
+        if (!ResponsiveBreakpoints.of(context).largerOrEqualTo(DESKTOP))
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 30.0,
+            ),
+            child: FloatingActionButton(
+              backgroundColor: Theme.of(context).colorScheme.secondary,
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) => const FilterExpansionSection());
+              },
+              child: Icon(
+                Icons.filter_alt,
+                color: Theme.of(context).colorScheme.onSecondary,
+              ),
             ),
           ),
-        ),
         const Spacer(),
         const NewTaskFloatingActionButton(),
       ],
