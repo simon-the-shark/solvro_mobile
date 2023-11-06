@@ -1,4 +1,4 @@
-package com.example.solvro_mobile
+package dev.kowalinski.taskmanager
 
 import io.flutter.embedding.android.FlutterActivity
 
