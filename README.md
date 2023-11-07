@@ -4,9 +4,9 @@
 
 Link do rekrutacji: https://github.com/Solvro/rekrutacja.zima.2023
 
-Zadanie to prosta aplikacja mobilna we Flutterze do zarządzania zadaniami w zespole developerów. Zintegrowana jest z własnym (za pozwoleniem) api w django,
-repo: https://github.com/simon-the-shark/solvro_api_for_mobile  
-api url: https://solvro-api-for-mobile.caprover.kowalinski.dev/api
+Zadanie to prosta aplikacja mobilna we Flutterze do zarządzania zadaniami w zespole developerów. Zintegrowana jest z własnym (za pozwoleniem) api w django,  
+repo: https://github.com/simon-the-shark/solvro_api_for_mobile   
+api url: https://solvro-api-for-mobile.caprover.kowalinski.dev/api  
 api docs: https://solvro-api-for-mobile.caprover.kowalinski.dev/swagger
 
 Jest to prosty system rejestracji i logowania poprzez maila i hasło, ale autoryzacja odbywa się poprzez tymczasowe tokeny użytkowników.
